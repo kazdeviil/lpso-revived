@@ -20,3 +20,5 @@ MonoBehaviour:
   price: 320
   category: furniture
   rotations: {fileID: 0}
+  ItemCategory: 0
+  ItemCategoryText: 1

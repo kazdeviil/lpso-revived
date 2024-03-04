@@ -9,8 +9,42 @@ public class ItemData : ScriptableObject
 
     public int ID;
     public string itemName;
+    public string itemDesc;
     public Sprite icon;
     public int price;
     public string category;
     public GameObject rotations;
+    public itemCategory ItemCategory;
+    public itemCategoryText ItemCategoryText;
+
+    public enum itemCategory
+    {
+        Furniture,
+        Clothing,
+        Food,
+        Toy,
+        Grooming,
+        Miscellaneous
+    }
+    public enum itemCategoryText
+    {
+        Furniture,
+        Accessories,
+        Wallpaper,
+        Flooring,
+        Hat,
+        Glasses,
+        Collar,
+        WristItems,
+        Gloves,
+        Tops,
+        Bottoms,
+        Shoes,
+        Food,
+        Drink,
+        Toy,
+        Grooming,
+        Miscellaneous,
+        Bell
+    }
 }
