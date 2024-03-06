@@ -14,6 +14,7 @@ public class ItemData : ScriptableObject
     public int price;
     public string category;
     public GameObject rotations;
+    public bool membersOnly;
     public itemCategory ItemCategory;
     public itemCategoryText ItemCategoryText;
 
