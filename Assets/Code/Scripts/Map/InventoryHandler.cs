@@ -8,9 +8,8 @@ public class InventoryHandler : MonoBehaviour
 {
     public GameObject[] Buttons;
     public GameObject[] ItemSlotBg;
-    public Sprite inventorySlotOccupied;
-    public TMP_Text inventoryItemStackAmount;
-    // Start is called before the first frame update
+    public TMPro.TextMeshProUGUI[] inventoryItemStackAmount;
+
     void Start()
     {
         for (int i = 0; i <Buttons.Length; i++){
@@ -20,9 +19,14 @@ public class InventoryHandler : MonoBehaviour
 
     void addButton(int itemID){
         GameDataManager Data = GameDataManager.Instance;
-        if(itemID < GameDataManager.Instance.inventory.Count){
+        if (itemID < GameDataManager.Instance.inventory.Count)
+        {
             ItemData ItemData = Data.itemList[Data.inventory[Data.inventory.Count - itemID -1]];
             Buttons[itemID].GetComponent<Image>().sprite = ItemData.icon;
+            if (inventoryItemStackAmount[itemID].text == "1")
+            {
+                inventoryItemStackAmount[itemID].text = "";
+            }
             Debug.Log("Button " + itemID + " complete.");
         }
         else
