@@ -8,10 +8,13 @@ public class PageDisplay : MonoBehaviour
 {
 
     public Page[] page;
-    public GameObject[] PageClickables;
+    public GameObject[] PetClickables;
+    public int selectedClickable;
+    CoAPQuests coapQuests;
+    [SerializeField] GameObject QuestHandler;
 
-    public TMP_Text titleText;
-    public Image backgroundImage;
+    [SerializeField] TMP_Text titleText;
+    [SerializeField] Image backgroundImage;
 
     public int pagenumber = 0;
 
@@ -20,14 +23,32 @@ public class PageDisplay : MonoBehaviour
     public int buttonwidth;
     public Sprite bluebutton;
     public GameObject[] buttons;
-    public GameObject leftbutton;
-    public GameObject rightbutton;
-    public GameObject leftarrow;
-    public GameObject rightarrow;
+    [SerializeField] GameObject leftbutton;
+    [SerializeField] GameObject rightbutton;
+    [SerializeField] GameObject leftarrow;
+    [SerializeField] GameObject rightarrow;
     public GameObject tempbutton;
     public GameObject[] petScreen;
 
-    // Start is called before the first frame update
+    [SerializeField] GameObject petQuestOverview;
+    [SerializeField] TMPro.TextMeshProUGUI petTitle;
+    [SerializeField] TMPro.TextMeshProUGUI petDesc;
+    [SerializeField] TMPro.TextMeshProUGUI petQuest1;
+    [SerializeField] TMPro.TextMeshProUGUI petQuest2;
+    [SerializeField] TMPro.TextMeshProUGUI petQuest3;
+    [SerializeField] TMPro.TextMeshProUGUI petQuest4;
+    [SerializeField] GameObject quest3Display;
+    [SerializeField] GameObject quest4Display;
+    [SerializeField] GameObject quest1Check;
+    [SerializeField] GameObject quest2Check;
+    [SerializeField] GameObject quest3Check;
+    [SerializeField] GameObject quest4Check;
+    [SerializeField] Image petImage;
+
+    private void Awake()
+    {
+        coapQuests = QuestHandler.GetComponent<CoAPQuests>();
+    }
     void Start()
     {
         
@@ -110,6 +131,74 @@ public class PageDisplay : MonoBehaviour
     {
         pagenumber -= 1;
         updatepage();
+    }
+
+    public void SelectClickable(int buttonID)
+    {
+        selectedClickable = buttonID;
+        Debug.Log("Attempting menu open for " + coapQuests.ActiveQuestPet[selectedClickable]);
+        petTitle.text = coapQuests.ActiveQuestPet[selectedClickable];
+        petDesc.text = coapQuests.ActiveQuestPetDesc[selectedClickable];
+        petQuest1.text = coapQuests.Quest1[selectedClickable];
+        petQuest2.text = coapQuests.Quest2[selectedClickable];
+        petQuest3.text = coapQuests.Quest3[selectedClickable];
+        petQuest4.text = coapQuests.Quest4[selectedClickable];
+        if (coapQuests.QuestCount[selectedClickable] < 4)
+        {
+            quest4Display.SetActive(false);
+            if (coapQuests.QuestCount[selectedClickable] < 3)
+            {
+                quest3Display.SetActive(false);
+            }
+            else
+            {
+                quest3Display.SetActive(true);
+            }
+        }
+        else
+        {
+            quest4Display.SetActive(true);
+            quest3Display.SetActive(true);
+        }
+        petQuestOverview.SetActive(true);
+        // petImage.sprite = PetClickables[selectedClickable].GetComponent<Sprite>(); i forgor how to change ui sprites
+
+        if (coapQuests.Quest1Done[selectedClickable])
+        {
+            quest1Check.SetActive(true);
+        }
+        else
+        {
+            quest1Check.SetActive(false);
+        }
+        if (coapQuests.Quest2Done[selectedClickable])
+        {
+            quest2Check.SetActive(true);
+        }
+        else
+        {
+            quest2Check.SetActive(false);
+        }
+        if (coapQuests.Quest3Done[selectedClickable])
+        {
+            quest3Check.SetActive(true);
+        }
+        else
+        {
+            quest3Check.SetActive(false);
+        }
+        if (coapQuests.Quest4Done[selectedClickable])
+        {
+            quest4Check.SetActive(true);
+        }
+        else
+        {
+            quest4Check.SetActive(false);
+        }
+    }
+    public void ToggleQuestMenu()
+    {
+        petQuestOverview.SetActive(false);
     }
 
 }

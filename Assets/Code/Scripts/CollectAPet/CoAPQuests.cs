@@ -12,10 +12,16 @@ public class CoAPQuests : MonoBehaviour
         2, 3
     };
     [HideInInspector]
-    public string[] ActiveQuestPet = new string[] // the current active quest selected by player
+    public string[] ActiveQuestPet = new string[] // the current active quest selected by player / pet title
     {
-        "Pup to the Rescue!",
+        "Lovely Bug",
         "Fruit Kangaroo"
+    };
+    [HideInInspector]
+    public string[] ActiveQuestPetDesc = new string[] // pet description
+    {
+        "A little Lovebug that is second to none, when it comes to wishing for EVERYTHING FUN! Show this cute bug how to have a good time in Waggington to make it the first Collect-a-Pet in your pet collection!",
+        "Sample"
     };
     [HideInInspector]
     public bool[] ActiveQuestPetBool = new bool[] // checks if the player already has a quest active
@@ -24,12 +30,11 @@ public class CoAPQuests : MonoBehaviour
         false
     };
     [HideInInspector]
-    public bool[] GotPet = new bool[]
+    public bool[] GotPet = new bool[] // checks if player has pet
     {
         false,
         false
     };
-
     [HideInInspector]
     public string[] Quest1 = new string[] // quest 1 string
     {
