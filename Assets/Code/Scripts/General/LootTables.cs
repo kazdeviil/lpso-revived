@@ -4,36 +4,45 @@ using UnityEngine;
 
 public class LootTables : MonoBehaviour
 {
-    public string[] flowerTableNormal = new string[]
+    [HideInInspector]
+    public string[] flowerTable = new string[]
+    {
+        "Pink Daisy",
+        "Red Daisy",
+        "Yellow Daisy",
+        "Purple Daisy",
+        "White Daisy",
+        "Blue Daisy"
+    };
+    [HideInInspector]
+    public string[] bushTable = new string[]
     {
         "Red Tulip",
-        "Yellow Tulip",
         "White Tulip",
-        "Red Daisy",
-        "Pink Daisy"
-    };
-    public string[] flowerTableRare = new string[]
-    {
+        "Yellow Tulip",
         "Purple Tulip",
-        "Blue Daisy",
-        "Purple Daisy",
-        "Yellow Daisy"
+        "Blue Tulip",
+        "Pink Tulip"
     };
-
-    public string[] treeTableNormal = new string[]
+    [HideInInspector]
+    public string[] treeTable = new string[]
     {
+        "Sunny Banana",
         "Green Apple",
         "Red Apple",
-        "Red Cherry",
-        "Yellow Cherry",
-        "Yellow Pear"
-    };
-    public string[] treeTableRare = new string[]
-    {
         "Yellow Apple",
         "White Apple",
-        "Green Pear",
-        "Orange",
-        "Sunny Banana"
+        "Golden Apple"
     };
+    [HideInInspector]
+    public string[] digTable = new string[]
+    {
+        "Orange Carrot",
+        "Purple Carrot",
+        "Red Carrot",
+        "White Carrot",
+        "Yellow Carrot",
+        "Golden Carrot"
+    };
+
 }
