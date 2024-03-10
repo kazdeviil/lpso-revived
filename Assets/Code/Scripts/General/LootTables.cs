@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class LootTables : MonoBehaviour
 {
-    [HideInInspector]
-    public string[] flowerTable = new string[]
+    [HideInInspector] public string[] flowerTable = new string[]
     {
         "Pink Daisy",
         "Red Daisy",
@@ -14,8 +13,7 @@ public class LootTables : MonoBehaviour
         "White Daisy",
         "Blue Daisy"
     };
-    [HideInInspector]
-    public string[] bushTable = new string[]
+    [HideInInspector] public string[] bushTable = new string[]
     {
         "Red Tulip",
         "White Tulip",
@@ -24,8 +22,7 @@ public class LootTables : MonoBehaviour
         "Blue Tulip",
         "Pink Tulip"
     };
-    [HideInInspector]
-    public string[] treeTable = new string[]
+    [HideInInspector] public string[] treeTable = new string[]
     {
         "Sunny Banana",
         "Green Apple",
@@ -34,8 +31,7 @@ public class LootTables : MonoBehaviour
         "White Apple",
         "Golden Apple"
     };
-    [HideInInspector]
-    public string[] digTable = new string[]
+    [HideInInspector] public string[] digTable = new string[]
     {
         "Orange Carrot",
         "Purple Carrot",

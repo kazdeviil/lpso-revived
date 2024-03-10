@@ -8,57 +8,16 @@ using TMPro;
 
 public class ItemInteract : MonoBehaviour
 {
-    // object interaction
-    public Button flowerButton;
-    public Button bushButton;
-    public Button treeButton;
-    public Button digButton;
-
-    public TMPro.TextMeshProUGUI luckLevel;
-    public TMPro.TextMeshProUGUI luckExp;
-    public TMPro.TextMeshProUGUI itemReceived;
-
-    [HideInInspector] public string receivedItem;
-
-    [HideInInspector] public int luckyLevel = 1;
-    [HideInInspector] public int luckyExp = 0;
-    [HideInInspector] public int levelupThreshold = 4;
-    [HideInInspector] public bool luckyMaxxed = false;
-    [HideInInspector] public int random;
-    [HideInInspector] public int randomRollMax;
-
-    // CoAP tracking
-    [HideInInspector] public bool CoAPActive = false;
-    [HideInInspector] public bool CoAPDalmatianActive = false;
-    public bool CoAPDalmatianGot = false;
-    [HideInInspector] public bool CoAPDalmatianBanana = false;
-    [HideInInspector] public bool CoAPDalmatianCarrot = false;
-    [HideInInspector] public int CoAPDalmatianCarrotCount = 0;
-
-    public Button CoAPToggle;
-    public TMPro.TextMeshProUGUI PetName;
-    public TMPro.TextMeshProUGUI Quest1;
-    public TMPro.TextMeshProUGUI Quest2;
-    public TMPro.TextMeshProUGUI infoText;
-    public string Quest1Text;
-    public bool Quest1Done;
-    public string Quest2Text;
-    public bool Quest2Done;
-
-    // i cant figure out arrays of arrays please help streamline the code
-    // i was thinking to assign these interactables an integer corresponding to the array index of their loot tables
-    // anyway, holds full loot table information
-
     [HideInInspector]
     public string[] flowerTable = new string[]
-{
+    {
         "Pink Daisy",
         "Red Daisy",
         "Yellow Daisy",
         "Purple Daisy",
         "White Daisy",
         "Blue Daisy"
-};
+    };
     [HideInInspector]
     public string[] bushTable = new string[]
     {
@@ -90,14 +49,65 @@ public class ItemInteract : MonoBehaviour
         "Golden Carrot"
     };
 
-    public void Start() // assigns methods to buttons, necessary to share luck exp info
+    // object interaction
+    // probably make this a private array instead
+    public Button flowerButton;
+    public Button bushButton;
+    public Button treeButton;
+    public Button digButton;
+
+    public TMPro.TextMeshProUGUI luckLevel;
+    public TMPro.TextMeshProUGUI luckExp;
+    public TMPro.TextMeshProUGUI itemReceived;
+
+    [HideInInspector] public string receivedItem;
+
+    [HideInInspector] public int luckyLevel = 1;
+    [HideInInspector] public int luckyExp = 0;
+    [HideInInspector] public int levelupThreshold = 4;
+    [HideInInspector] public bool luckyMaxxed;
+    [HideInInspector] public int random;
+    [HideInInspector] public int randomRollMax;
+
+
+
+    CoAPQuests coapQuests;
+    [SerializeField] GameObject QuestManager;
+    public Button[] CoAPButtons;
+    public int SelectedPet;
+    public Button CoAPDalmatian;
+    public Button CoAPKangaroo;
+    public TMPro.TextMeshProUGUI PetName;
+    public TMPro.TextMeshProUGUI Quest1;
+    public TMPro.TextMeshProUGUI Quest2;
+    public TMPro.TextMeshProUGUI Quest3;
+    public TMPro.TextMeshProUGUI Quest4;
+    public TMPro.TextMeshProUGUI infoText;
+    [HideInInspector] public string Quest1Text;
+    [HideInInspector] public bool Quest1Done;
+    [HideInInspector] public string Quest2Text;
+    [HideInInspector] public bool Quest2Done;
+    [HideInInspector] public string Quest3Text;
+    [HideInInspector] public bool Quest3Done;
+    [HideInInspector] public string Quest4Text;
+    [HideInInspector] public bool Quest4Done;
+
+
+
+
+    // i cant figure out arrays of arrays please help streamline the code
+    // i was thinking to assign these interactables an integer corresponding to the array index of their loot tables
+    // anyway, holds full loot table information
+    // TODO: decouple later
+
+    public void Awake() // assigns methods to buttons, necessary to share luck exp info
     {
         flowerButton.onClick.AddListener(RollFlower);
         bushButton.onClick.AddListener(RollBush);
         treeButton.onClick.AddListener(RollTree);
         digButton.onClick.AddListener(RollDig);
 
-        CoAPToggle.onClick.AddListener(ActivateQuest);
+        coapQuests = QuestManager.GetComponent<CoAPQuests>();
     }
 
     // calls from each loot table and gives random item from loot table or random kibble within specified ranges
@@ -190,16 +200,15 @@ public class ItemInteract : MonoBehaviour
                 }
                 random = UnityEngine.Random.Range(0, randomRollMax);
                 receivedItem = treeTable[random];
-                if (CoAPActive)
+                if (coapQuests.CoAPActive)
                 {
-                    if(CoAPDalmatianActive)
+                    if(SelectedPet == 0)
                     {
-                        if (!CoAPDalmatianBanana)
+                        if (!coapQuests.Quest1Done[0])
                         {
                             if (random == 0)
                             {
-                                CoAPDalmatianBanana = true;
-                                Quest1Done = true;
+                                coapQuests.Quest1Done[0] = true;
                                 UpdateQuest();
                             }
                         }
@@ -238,18 +247,17 @@ public class ItemInteract : MonoBehaviour
                 }
                 random = UnityEngine.Random.Range(0, randomRollMax);
                 receivedItem = digTable[random];
-                if (CoAPActive)
+                if (coapQuests.CoAPActive)
                 {
-                    if (CoAPDalmatianActive)
+                    if (SelectedPet == 0)
                     {
-                        if (!CoAPDalmatianCarrot)
+                        if (!coapQuests.Quest2Done[0])
                         {
                             if (random == 3)
                             {
-                                CoAPDalmatianCarrotCount += 1;
-                                if (CoAPDalmatianCarrotCount >= 3)
+                                coapQuests.CoAPDalmatianCarrotCount += 1;
+                                if (coapQuests.CoAPDalmatianCarrotCount >= 3)
                                 {
-                                    CoAPDalmatianCarrot = true;
                                     Quest2Done = true;
                                 }
                                 UpdateQuest();
@@ -296,10 +304,22 @@ public class ItemInteract : MonoBehaviour
         luckLevel.text = luckyLevel.ToString();
     }
 
+    public void SelectPet(int buttonID)
+    {
+        for (int i = 0; i < coapQuests.ActiveQuestPetBool.Length; i++)
+        {
+            coapQuests.ActiveQuestPetBool[i] = false;
+        }
+        Debug.Log("Attempting to activate " + coapQuests.ActiveQuestPet[buttonID]);
+        SelectedPet = buttonID;
+        coapQuests.ActiveQuestPetBool[buttonID] = true;
+        Debug.Log(coapQuests.ActiveQuestPetBool[0].ToString() + " " + coapQuests.ActiveQuestPetBool[1]);
+        UpdateQuest();
+    }
 
     public void ActivateQuest()
     {
-        if (!CoAPActive)
+        if (!coapQuests.CoAPActive)
         {
             UpdateQuest();
         }
@@ -311,30 +331,42 @@ public class ItemInteract : MonoBehaviour
 
     public void UpdateQuest()
     {
-        CoAPDalmatianActive = true;
-        CoAPActive = true;
-        PetName.text = "Current:\n" + GetComponent<CoAPQuests>().DalmatianName;
+        coapQuests.CoAPActive = true;
+        coapQuests.ActiveQuestPetBool[SelectedPet] = true;
+        
+        PetName.text = "Current:\n" + coapQuests.ActiveQuestPet[SelectedPet];
+        infoText.text = "";
 
         // sets quest 1 text
-        // needs additional context
-        Quest1Text = GetComponent<CoAPQuests>().DalmatianQuest1;
-        if (Quest1Done)
+        Quest1Text = coapQuests.Quest1[SelectedPet];
+        if (coapQuests.Quest1Done[SelectedPet])
         {
             Quest1Text += "\n(Completed)";
         }
         Quest1.text = Quest1Text;
 
         // sets quest 2 text
-        // needs additional context
-        Quest2Text = GetComponent<CoAPQuests>().DalmatianQuest2;
+        Quest2Text = coapQuests.Quest2[SelectedPet];
         if (Quest2Done)
         {
             Quest2Text += "\n(Completed)";
         }
         else
         {
-            Quest2Text += "\n(" + (3 - CoAPDalmatianCarrotCount).ToString() + " left)";
+            Quest2Text += "\n(" + (3 - coapQuests.CoAPDalmatianCarrotCount).ToString() + " left)";
         }
         Quest2.text = Quest2Text;
+
+        // sets quest 3 text
+        Quest3Text = coapQuests.Quest3[SelectedPet];
+        if (Quest3Done)
+        {
+            Quest3Text += "\n(Completed)";
+        }
+        else
+        {
+            Quest3Text += "\n(" + (3 - coapQuests.CoAPDalmatianCarrotCount).ToString() + " left)";
+        }
+        Quest3.text = Quest3Text;
     }
 }

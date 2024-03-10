@@ -154,7 +154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0006361, y: -18}
+  m_AnchoredPosition: {x: 0.0006361, y: 61}
   m_SizeDelta: {x: 482.96, y: 123.052}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &46697218
@@ -288,7 +288,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 33, y: 357}
+  m_AnchoredPosition: {x: 33, y: 471}
   m_SizeDelta: {x: 396.48, y: 91.3279}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &157008612
@@ -1393,6 +1393,138 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945971855}
   m_CullTransparentMesh: 1
+--- !u!1 &1042318873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1042318874}
+  - component: {fileID: 1042318876}
+  - component: {fileID: 1042318875}
+  - component: {fileID: 1042318877}
+  m_Layer: 5
+  m_Name: toggle kangaroo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1042318874
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042318873}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1511623087}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -282, y: 417}
+  m_SizeDelta: {x: 63.0451, y: 47.0706}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1042318875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042318873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 4c1b23f6ecda41f4898683a7c16bb4b6, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1042318876
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042318873}
+  m_CullTransparentMesh: 1
+--- !u!114 &1042318877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042318873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 2
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 21300000, guid: 61991c582347c2f4aa9901724e4e55dc, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 4f3af69905dee6e48af868591f189cc8, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 4c1b23f6ecda41f4898683a7c16bb4b6, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 2faf9a9855be790439999983b4e60add, type: 3}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1042318875}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1056636408}
+        m_TargetAssemblyTypeName: ItemInteract, Assembly-CSharp
+        m_MethodName: SelectPet
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1056636405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1438,35 +1570,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08c9f461179cd4b458d8bf945e6f1b17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flowerButton: {fileID: 1984401582}
-  bushButton: {fileID: 1477211178}
-  treeButton: {fileID: 2121018568}
-  digButton: {fileID: 1335051619}
-  luckLevel: {fileID: 197890845}
-  luckExp: {fileID: 436400756}
-  itemReceived: {fileID: 1504669096}
-  receivedItem: 
-  luckyLevel: 1
-  luckyExp: 0
-  levelupThreshold: 4
-  luckyMaxxed: 0
-  random: 0
-  randomRollMax: 0
-  CoAPActive: 0
-  CoAPDalmatianActive: 0
-  CoAPDalmatianGot: 0
-  CoAPDalmatianBanana: 0
-  CoAPDalmatianCarrot: 0
-  CoAPDalmatianCarrotCount: 0
-  CoAPToggle: {fileID: 1334696006}
-  PetName: {fileID: 1448963308}
-  Quest1: {fileID: 1783626183}
-  Quest2: {fileID: 46697219}
-  infoText: {fileID: 1503438419}
-  Quest1Text: 
-  Quest1Done: 0
-  Quest2Text: 
-  Quest2Done: 0
   flowerTable:
   - Pink Daisy
   - Red Daisy
@@ -1495,6 +1598,41 @@ MonoBehaviour:
   - White Carrot
   - Yellow Carrot
   - Golden Carrot
+  flowerButton: {fileID: 1984401582}
+  bushButton: {fileID: 1477211178}
+  treeButton: {fileID: 2121018568}
+  digButton: {fileID: 1335051619}
+  luckLevel: {fileID: 197890845}
+  luckExp: {fileID: 436400756}
+  itemReceived: {fileID: 1504669096}
+  receivedItem: 
+  luckyLevel: 1
+  luckyExp: 0
+  levelupThreshold: 4
+  luckyMaxxed: 0
+  random: 0
+  randomRollMax: 0
+  QuestManager: {fileID: 2142805084}
+  CoAPButtons:
+  - {fileID: 1334696006}
+  - {fileID: 1042318877}
+  SelectedPet: 0
+  CoAPDalmatian: {fileID: 1334696006}
+  CoAPKangaroo: {fileID: 1042318877}
+  PetName: {fileID: 1448963308}
+  Quest1: {fileID: 1783626183}
+  Quest2: {fileID: 46697219}
+  Quest3: {fileID: 1525783966}
+  Quest4: {fileID: 1925080777}
+  infoText: {fileID: 1503438419}
+  Quest1Text: 
+  Quest1Done: 0
+  Quest2Text: 
+  Quest2Done: 0
+  Quest3Text: 
+  Quest3Done: 0
+  Quest4Text: 
+  Quest4Done: 0
 --- !u!114 &1056636409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1504,33 +1642,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 1056636405}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 899771519a88f7542ad94dccbadd35d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e1ce97e44b22934388c9ba4dde3d3e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CoAPLovebugGot: 0
-  CoAPLovebugActive: 0
-  CoAPLovebugMuffin: 0
-  CoAPLovebugSplash: 0
-  CoAPLovebugFlower: 0
-  CoAPDalmatianGot: 0
-  CoAPDalmatianActive: 0
-  CoAPDalmatianBowl: 0
-  CoAPDalmatianBones: 0
-  CoAPDalmatianMnM: 0
-  CoAPDalmatianPies: 0
-  CoAPOwlGot: 0
-  CoAPOwlActive: 0
-  CoAPOwlClock: 0
-  CoAPOwlSlides: 0
-  CoAPKangarooGot: 0
-  CoAPKangarooActive: 0
-  CoAPKangarooWallpaper: 0
-  CoAPKangarooFruitista: 0
-  CoAPKangarooBanana: 0
-  CoAPKangarooOrange: 0
-  DalmatianName: Pup to the Rescue
-  DalmatianQuest1: Get a Sunny Banana from a tree
-  DalmatianQuest2: Dig up 3 White Carrots
+  flowerTable:
+  - Pink Daisy
+  - Red Daisy
+  - Yellow Daisy
+  - Purple Daisy
+  - White Daisy
+  - Blue Daisy
+  bushTable:
+  - Red Tulip
+  - White Tulip
+  - Yellow Tulip
+  - Purple Tulip
+  - Blue Tulip
+  - Pink Tulip
+  treeTable:
+  - Sunny Banana
+  - Green Apple
+  - Red Apple
+  - Yellow Apple
+  - White Apple
+  - Golden Apple
+  digTable:
+  - Orange Carrot
+  - Purple Carrot
+  - Red Carrot
+  - White Carrot
+  - Yellow Carrot
+  - Golden Carrot
 --- !u!1 &1334696002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1544,7 +1686,7 @@ GameObject:
   - component: {fileID: 1334696004}
   - component: {fileID: 1334696006}
   m_Layer: 5
-  m_Name: toggle active
+  m_Name: toggle dalmatian
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1566,7 +1708,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -190, y: 359}
+  m_AnchoredPosition: {x: -282, y: 473}
   m_SizeDelta: {x: 63.0451, y: 47.0706}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1334696004
@@ -1650,7 +1792,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1334696004}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1056636408}
+        m_TargetAssemblyTypeName: ItemInteract, Assembly-CSharp
+        m_MethodName: SelectPet
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1335051616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1810,7 +1964,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0006361, y: 257.13794}
+  m_AnchoredPosition: {x: 0.0006361, y: 371.13794}
   m_SizeDelta: {x: 482.96, y: 123.052}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1448963307
@@ -2163,7 +2317,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0006361, y: -229}
+  m_AnchoredPosition: {x: 0.0006361, y: -434}
   m_SizeDelta: {x: 482.96, y: 123.052}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1504669095
@@ -2331,17 +2485,20 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1334696003}
+  - {fileID: 1042318874}
   - {fileID: 157008611}
   - {fileID: 1448963306}
   - {fileID: 1783626181}
   - {fileID: 46697217}
+  - {fileID: 1525783964}
+  - {fileID: 1925080775}
   - {fileID: 1503438421}
   m_Father: {fileID: 945971856}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 688.39746, y: 50.224426}
-  m_SizeDelta: {x: 482.955, y: 804.5548}
+  m_AnchoredPosition: {x: 688.39746, y: -6.2375}
+  m_SizeDelta: {x: 482.955, y: 1027.3942}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1511623088
 MonoBehaviour:
@@ -2381,6 +2538,140 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511623086}
   m_CullTransparentMesh: 1
+--- !u!1 &1525783963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1525783964}
+  - component: {fileID: 1525783965}
+  - component: {fileID: 1525783966}
+  m_Layer: 5
+  m_Name: quest3display
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1525783964
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525783963}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1511623087}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.0006361, y: -108}
+  m_SizeDelta: {x: 482.96, y: 123.052}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1525783965
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525783963}
+  m_CullTransparentMesh: 1
+--- !u!114 &1525783966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525783963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 9b43575a5e1607545a04d07657633d93, type: 2}
+  m_sharedMaterial: {fileID: 7528033828560453658, guid: 9b43575a5e1607545a04d07657633d93, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 30.05
+  m_fontSizeBase: 30.05
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1561463230
 GameObject:
   m_ObjectHideFlags: 0
@@ -2473,6 +2764,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1716017283 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+  m_PrefabInstance: {fileID: 8533245786256154619}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 133fa8d5b3d0f9647b49c4a69dfff425, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1783626180
 GameObject:
   m_ObjectHideFlags: 0
@@ -2507,7 +2809,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0006361, y: 117}
+  m_AnchoredPosition: {x: 0.0006361, y: 238}
   m_SizeDelta: {x: 482.96, y: 123.052}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1783626182
@@ -2525,6 +2827,140 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1783626180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 9b43575a5e1607545a04d07657633d93, type: 2}
+  m_sharedMaterial: {fileID: 7528033828560453658, guid: 9b43575a5e1607545a04d07657633d93, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 30.05
+  m_fontSizeBase: 30.05
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1925080774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1925080775}
+  - component: {fileID: 1925080776}
+  - component: {fileID: 1925080777}
+  m_Layer: 5
+  m_Name: quest4display
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1925080775
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925080774}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1511623087}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.0006361, y: -262}
+  m_SizeDelta: {x: 482.96, y: 123.052}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1925080776
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925080774}
+  m_CullTransparentMesh: 1
+--- !u!114 &1925080777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925080774}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -2883,6 +3319,94 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2121018565}
   m_CullTransparentMesh: 1
+--- !u!1 &2142805084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2142805086}
+  - component: {fileID: 2142805085}
+  m_Layer: 0
+  m_Name: QuestManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2142805085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142805084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 899771519a88f7542ad94dccbadd35d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoAPActive: 0
+  CoAPDalmatianGot: 0
+  CoAPDalmatianActive: 0
+  CoAPDalmatianCarrotCount: 0
+  CoAPLovebugGot: 0
+  CoAPLovebugActive: 0
+  CoAPLovebugMuffin: 0
+  CoAPLovebugSplash: 0
+  CoAPLovebugFlower: 0
+  CoAPDalmatianBowl: 0
+  CoAPDalmatianBones: 0
+  CoAPDalmatianMnM: 0
+  CoAPDalmatianPies: 0
+  CoAPOwlGot: 0
+  CoAPOwlActive: 0
+  CoAPOwlClock: 0
+  CoAPOwlSlides: 0
+  CoAPKangarooGot: 0
+  CoAPKangarooActive: 0
+  CoAPKangarooWallpaper: 0
+  CoAPKangarooFruitista: 0
+  CoAPKangarooBanana: 0
+  CoAPKangarooOrange: 0
+  QuestCount: 0200000003000000
+  ActiveQuestPet:
+  - Pup to the Rescue!
+  - Fruit Kangaroo
+  ActiveQuestPetBool: 0000
+  Quest1:
+  - Get a Sunny Banana from a tree
+  - Pick a red tulip from a bush
+  Quest1Done: 0000
+  Quest2:
+  - Dig up 3 White Carrots
+  - Shake a tree 5 times
+  Quest2Done: 0000
+  Quest3:
+  - None
+  - Dig up a Purple Carrot
+  Quest3Done: 0000
+  Quest4:
+  - None
+  - None
+  Quest4Done: 0000
+--- !u!4 &2142805086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142805084}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1066.5977, y: 546.1777, z: -3.046875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2146698669
 GameObject:
   m_ObjectHideFlags: 0
@@ -3068,6 +3592,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 1.9118652
       objectReference: {fileID: 0}
+    - target: {fileID: 6448147891012373716, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1716017283}
+    - target: {fileID: 6448147891012373716, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TravelTo
+      objectReference: {fileID: 0}
     - target: {fileID: 7455640106868178798, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -3122,3 +3654,4 @@ SceneRoots:
   - {fileID: 680390741}
   - {fileID: 918928668}
   - {fileID: 1056636407}
+  - {fileID: 2142805086}
