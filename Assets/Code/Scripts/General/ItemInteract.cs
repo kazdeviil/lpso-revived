@@ -84,21 +84,9 @@ public class ItemInteract : MonoBehaviour
     public TMPro.TextMeshProUGUI Quest4;
     public TMPro.TextMeshProUGUI infoText;
     [HideInInspector] public string Quest1Text;
-    [HideInInspector] public bool Quest1Done;
     [HideInInspector] public string Quest2Text;
-    [HideInInspector] public bool Quest2Done;
     [HideInInspector] public string Quest3Text;
-    [HideInInspector] public bool Quest3Done;
     [HideInInspector] public string Quest4Text;
-    [HideInInspector] public bool Quest4Done;
-
-
-
-
-    // i cant figure out arrays of arrays please help streamline the code
-    // i was thinking to assign these interactables an integer corresponding to the array index of their loot tables
-    // anyway, holds full loot table information
-    // TODO: decouple later
 
     public void Awake() // assigns methods to buttons, necessary to share luck exp info
     {
@@ -167,6 +155,20 @@ public class ItemInteract : MonoBehaviour
                 }
                 random = UnityEngine.Random.Range(0, randomRollMax);
                 receivedItem = bushTable[random];
+                if (coapQuests.CoAPActive)
+                {
+                    if (SelectedPet == 1)
+                    {
+                        if (!coapQuests.Quest1Done[1])
+                        {
+                            if (random == 0)
+                            {
+                                coapQuests.Quest1Done[1] = true;
+                                UpdateQuest();
+                            }
+                        }
+                    }
+                }
             }
             else
             {
@@ -221,6 +223,21 @@ public class ItemInteract : MonoBehaviour
                 receivedItem = kibbleAmount.ToString() + " Kibble";
             }
         }
+        if (coapQuests.CoAPActive)
+        {
+            if (SelectedPet == 1)
+            {
+                if (!coapQuests.Quest2Done[1])
+                {
+                    coapQuests.Quest2CountPlayer[1] += 1;
+                    if (coapQuests.Quest2CountPlayer[1] >= coapQuests.Quest2Count[1])
+                    {
+                        coapQuests.Quest2Done[1] = true;
+                    }
+                    UpdateQuest();
+                }
+            }
+        }
         itemReceived.text = "+" + receivedItem;
         AddLuckExp();
     }
@@ -255,11 +272,22 @@ public class ItemInteract : MonoBehaviour
                         {
                             if (random == 3)
                             {
-                                coapQuests.CoAPDalmatianCarrotCount += 1;
-                                if (coapQuests.CoAPDalmatianCarrotCount >= 3)
+                                coapQuests.Quest2CountPlayer[0] += 1;
+                                if (coapQuests.Quest2CountPlayer[0] >= coapQuests.Quest2Count[0])
                                 {
-                                    Quest2Done = true;
+                                    coapQuests.Quest2Done[0] = true;
                                 }
+                                UpdateQuest();
+                            }
+                        }
+                    }
+                    else if (SelectedPet == 1)
+                    {
+                        if (!coapQuests.Quest3Done[1])
+                        {
+                            if (random == 1)
+                            {
+                                coapQuests.Quest3Done[1] = true;
                                 UpdateQuest();
                             }
                         }
@@ -310,63 +338,99 @@ public class ItemInteract : MonoBehaviour
         {
             coapQuests.ActiveQuestPetBool[i] = false;
         }
-        Debug.Log("Attempting to activate " + coapQuests.ActiveQuestPet[buttonID]);
         SelectedPet = buttonID;
         coapQuests.ActiveQuestPetBool[buttonID] = true;
         Debug.Log(coapQuests.ActiveQuestPetBool[0].ToString() + " " + coapQuests.ActiveQuestPetBool[1]);
-        UpdateQuest();
+        ActivateQuest();
     }
 
     public void ActivateQuest()
     {
-        if (!coapQuests.CoAPActive)
+        if (coapQuests.CoAPActive)
         {
-            UpdateQuest();
+            infoText.text = "Switched current quest to " + coapQuests.ActiveQuestPet[SelectedPet];
         }
         else
         {
-            infoText.text = "You already have a quest in progress!";
+            coapQuests.CoAPActive = true;
         }
+        UpdateQuest();
     }
 
     public void UpdateQuest()
     {
-        coapQuests.CoAPActive = true;
-        coapQuests.ActiveQuestPetBool[SelectedPet] = true;
-        
-        PetName.text = "Current:\n" + coapQuests.ActiveQuestPet[SelectedPet];
-        infoText.text = "";
-
-        // sets quest 1 text
-        Quest1Text = coapQuests.Quest1[SelectedPet];
-        if (coapQuests.Quest1Done[SelectedPet])
+        if (coapQuests.CoAPActive == true)
         {
-            Quest1Text += "\n(Completed)";
-        }
-        Quest1.text = Quest1Text;
+            PetName.text = "Current:\n" + coapQuests.ActiveQuestPet[SelectedPet];
+            infoText.text = "";
 
-        // sets quest 2 text
-        Quest2Text = coapQuests.Quest2[SelectedPet];
-        if (Quest2Done)
-        {
-            Quest2Text += "\n(Completed)";
+            // sets quest 1 text
+            Quest1Text = coapQuests.Quest1[SelectedPet];
+            if (coapQuests.Quest1Done[SelectedPet])
+            {
+                Quest1Text += "\n(Completed)";
+            }
+            else if (coapQuests.Quest1Counter[SelectedPet])
+            {
+                Quest1Text += "\n(" + (coapQuests.Quest1Count[SelectedPet] - coapQuests.Quest1CountPlayer[SelectedPet]).ToString() + " left)";
+            }
+            Quest1.text = Quest1Text;
+
+            // sets quest 2 text
+            Quest2Text = coapQuests.Quest2[SelectedPet];
+            if (coapQuests.Quest2Done[SelectedPet])
+            {
+                Quest2Text += "\n(Completed)";
+            }
+            else if (coapQuests.Quest2Counter[SelectedPet])
+            {
+                Quest2Text += "\n(" + (coapQuests.Quest2Count[SelectedPet] - coapQuests.Quest2CountPlayer[SelectedPet]).ToString() + " left)";
+            }
+            Quest2.text = Quest2Text;
+
+            // sets quest 3 text
+            Quest3Text = coapQuests.Quest3[SelectedPet];
+            if (coapQuests.Quest3Done[SelectedPet])
+            {
+                Quest3Text += "\n(Completed)";
+            }
+            else if (coapQuests.Quest3Counter[SelectedPet])
+            {
+                Quest3Text += "\n(" + (coapQuests.Quest3Count[SelectedPet] - coapQuests.Quest3CountPlayer[SelectedPet]).ToString() + " left)";
+            }
+            else if (coapQuests.QuestCount[SelectedPet] < 3)
+            {
+                Quest3Text = "";
+            }
+            Quest3.text = Quest3Text;
+
+            // sets quest 4 text
+            Quest4Text = coapQuests.Quest4[SelectedPet];
+            if (coapQuests.Quest4Done[SelectedPet])
+            {
+                Quest4Text += "\n(Completed)";
+            }
+            else if (coapQuests.Quest4Counter[SelectedPet])
+            {
+                Quest4Text += "\n(" + (coapQuests.Quest4Count[SelectedPet] - coapQuests.Quest4CountPlayer[SelectedPet]).ToString() + " left)";
+            }
+            else if (coapQuests.QuestCount[SelectedPet] < 4)
+            {
+                Quest4Text = "";
+            }
+            Quest4.text = Quest4Text;
         }
         else
         {
-            Quest2Text += "\n(" + (3 - coapQuests.CoAPDalmatianCarrotCount).ToString() + " left)";
+            PetName.text = "Current:\nNone";
         }
-        Quest2.text = Quest2Text;
-
-        // sets quest 3 text
-        Quest3Text = coapQuests.Quest3[SelectedPet];
-        if (Quest3Done)
+    }
+    public void CheckQuestDone()
+    {
+        if (coapQuests.Quest1Done[SelectedPet] && coapQuests.Quest2Done[SelectedPet] && coapQuests.Quest3Done[SelectedPet] && coapQuests.Quest4Done[SelectedPet])
         {
-            Quest3Text += "\n(Completed)";
+            coapQuests.GotPet[SelectedPet] = true;
+            infoText.text = "Congratulations! You completed the Collect-a-Pet Quest for the " + coapQuests.ActiveQuestPet[SelectedPet] + "!";
         }
-        else
-        {
-            Quest3Text += "\n(" + (3 - coapQuests.CoAPDalmatianCarrotCount).ToString() + " left)";
-        }
-        Quest3.text = Quest3Text;
     }
 }
