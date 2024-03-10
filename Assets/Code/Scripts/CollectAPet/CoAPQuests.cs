@@ -85,4 +85,10 @@ public class CoAPQuests : MonoBehaviour
         }
     }
 
+
+    // strings
+
+    public string DalmatianName = "Pup to the Rescue";
+    public string DalmatianQuest1 = "Get a Sunny Banana from a tree";
+    public string DalmatianQuest2 = "Dig up 3 White Carrots";
 }

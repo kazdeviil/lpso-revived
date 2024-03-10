@@ -8,6 +8,7 @@ using TMPro;
 
 public class ItemInteract : MonoBehaviour
 {
+    // object interaction
     public Button flowerButton;
     public Button bushButton;
     public Button treeButton;
@@ -22,10 +23,31 @@ public class ItemInteract : MonoBehaviour
     [HideInInspector] public int luckyLevel = 1;
     [HideInInspector] public int luckyExp = 0;
     [HideInInspector] public int levelupThreshold = 4;
-    [HideInInspector] public bool luckyMaxxed;
+    [HideInInspector] public bool luckyMaxxed = false;
+    [HideInInspector] public int random;
+    [HideInInspector] public int randomRollMax;
+
+    // CoAP tracking
+    [HideInInspector] public bool CoAPActive = false;
+    [HideInInspector] public bool CoAPDalmatianActive = false;
+    public bool CoAPDalmatianGot = false;
+    [HideInInspector] public bool CoAPDalmatianBanana = false;
+    [HideInInspector] public bool CoAPDalmatianCarrot = false;
+    [HideInInspector] public int CoAPDalmatianCarrotCount = 0;
+
+    public Button CoAPToggle;
+    public TMPro.TextMeshProUGUI PetName;
+    public TMPro.TextMeshProUGUI Quest1;
+    public TMPro.TextMeshProUGUI Quest2;
+    public TMPro.TextMeshProUGUI infoText;
+    public string Quest1Text;
+    public bool Quest1Done;
+    public string Quest2Text;
+    public bool Quest2Done;
 
     // i cant figure out arrays of arrays please help streamline the code
     // i was thinking to assign these interactables an integer corresponding to the array index of their loot tables
+    // anyway, holds full loot table information
 
     [HideInInspector]
     public string[] flowerTable = new string[]
@@ -68,14 +90,17 @@ public class ItemInteract : MonoBehaviour
         "Golden Carrot"
     };
 
-    public void Start()
+    public void Start() // assigns methods to buttons, necessary to share luck exp info
     {
         flowerButton.onClick.AddListener(RollFlower);
         bushButton.onClick.AddListener(RollBush);
         treeButton.onClick.AddListener(RollTree);
         digButton.onClick.AddListener(RollDig);
+
+        CoAPToggle.onClick.AddListener(ActivateQuest);
     }
 
+    // calls from each loot table and gives random item from loot table or random kibble within specified ranges
     public void RollFlower()
     {
         receivedItem = "";
@@ -91,14 +116,14 @@ public class ItemInteract : MonoBehaviour
             {
                 if (luckyMaxxed)
                 {
-                    int random = UnityEngine.Random.Range(0, 6);
-                    receivedItem = flowerTable[random];
+                    randomRollMax = 6;
                 }
                 else
                 {
-                    int random = UnityEngine.Random.Range(0, luckyLevel-1);
-                    receivedItem = flowerTable[random];
+                    randomRollMax = luckyLevel - 1;
                 }
+                random = UnityEngine.Random.Range(0, randomRollMax);
+                receivedItem = flowerTable[random];
             }
             else
             {
@@ -109,7 +134,6 @@ public class ItemInteract : MonoBehaviour
         itemReceived.text = "+" + receivedItem;
         AddLuckExp();
     }
-
     public void RollBush()
     {
         receivedItem = "";
@@ -125,14 +149,14 @@ public class ItemInteract : MonoBehaviour
             {
                 if (luckyMaxxed)
                 {
-                    int random = UnityEngine.Random.Range(0, 6);
-                    receivedItem = bushTable[random];
+                    randomRollMax = 6;
                 }
                 else
                 {
-                    int random = UnityEngine.Random.Range(0, luckyLevel-1);
-                    receivedItem = bushTable[random];
+                    randomRollMax = luckyLevel - 1;
                 }
+                random = UnityEngine.Random.Range(0, randomRollMax);
+                receivedItem = bushTable[random];
             }
             else
             {
@@ -143,7 +167,6 @@ public class ItemInteract : MonoBehaviour
         itemReceived.text = "+" + receivedItem;
         AddLuckExp();
     }
-
     public void RollTree()
     {
         receivedItem = "";
@@ -159,13 +182,28 @@ public class ItemInteract : MonoBehaviour
             {
                 if (luckyMaxxed)
                 {
-                    int random = UnityEngine.Random.Range(0, 6);
-                    receivedItem = treeTable[random];
+                    randomRollMax = 6;
                 }
                 else
                 {
-                    int random = UnityEngine.Random.Range(0, luckyLevel-1);
-                    receivedItem = treeTable[random];
+                    randomRollMax = luckyLevel-1;
+                }
+                random = UnityEngine.Random.Range(0, randomRollMax);
+                receivedItem = treeTable[random];
+                if (CoAPActive)
+                {
+                    if(CoAPDalmatianActive)
+                    {
+                        if (!CoAPDalmatianBanana)
+                        {
+                            if (random == 0)
+                            {
+                                CoAPDalmatianBanana = true;
+                                Quest1Done = true;
+                                UpdateQuest();
+                            }
+                        }
+                    }
                 }
             }
             else
@@ -177,7 +215,6 @@ public class ItemInteract : MonoBehaviour
         itemReceived.text = "+" + receivedItem;
         AddLuckExp();
     }
-
     public void RollDig()
     {
         receivedItem = "";
@@ -193,13 +230,32 @@ public class ItemInteract : MonoBehaviour
             {
                 if (luckyMaxxed)
                 {
-                    int random = UnityEngine.Random.Range(0, 6);
-                    receivedItem = digTable[random];
+                    randomRollMax = 6;
                 }
                 else
                 {
-                    int random = UnityEngine.Random.Range(0, luckyLevel-1);
-                    receivedItem = digTable[random];
+                    randomRollMax = luckyLevel - 1;
+                }
+                random = UnityEngine.Random.Range(0, randomRollMax);
+                receivedItem = digTable[random];
+                if (CoAPActive)
+                {
+                    if (CoAPDalmatianActive)
+                    {
+                        if (!CoAPDalmatianCarrot)
+                        {
+                            if (random == 3)
+                            {
+                                CoAPDalmatianCarrotCount += 1;
+                                if (CoAPDalmatianCarrotCount >= 3)
+                                {
+                                    CoAPDalmatianCarrot = true;
+                                    Quest2Done = true;
+                                }
+                                UpdateQuest();
+                            }
+                        }
+                    }
                 }
             }
             else
@@ -211,8 +267,7 @@ public class ItemInteract : MonoBehaviour
         itemReceived.text = "+" + receivedItem;
         AddLuckExp();
     }
-
-
+    // called after every interaction, calculates self, changes (placeholder) ui accordingly
     public void AddLuckExp()
     {
         if (!luckyMaxxed)
@@ -239,5 +294,47 @@ public class ItemInteract : MonoBehaviour
             luckExp.text = "Maxxed";
         }
         luckLevel.text = luckyLevel.ToString();
+    }
+
+
+    public void ActivateQuest()
+    {
+        if (!CoAPActive)
+        {
+            UpdateQuest();
+        }
+        else
+        {
+            infoText.text = "You already have a quest in progress!";
+        }
+    }
+
+    public void UpdateQuest()
+    {
+        CoAPDalmatianActive = true;
+        CoAPActive = true;
+        PetName.text = "Current:\n" + GetComponent<CoAPQuests>().DalmatianName;
+
+        // sets quest 1 text
+        // needs additional context
+        Quest1Text = GetComponent<CoAPQuests>().DalmatianQuest1;
+        if (Quest1Done)
+        {
+            Quest1Text += "\n(Completed)";
+        }
+        Quest1.text = Quest1Text;
+
+        // sets quest 2 text
+        // needs additional context
+        Quest2Text = GetComponent<CoAPQuests>().DalmatianQuest2;
+        if (Quest2Done)
+        {
+            Quest2Text += "\n(Completed)";
+        }
+        else
+        {
+            Quest2Text += "\n(" + (3 - CoAPDalmatianCarrotCount).ToString() + " left)";
+        }
+        Quest2.text = Quest2Text;
     }
 }
