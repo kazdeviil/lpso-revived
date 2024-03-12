@@ -25,6 +25,18 @@ public class OverworldUI : MonoBehaviour
     [SerializeField] GameObject HouseConfirm;
     [SerializeField] GameObject messagebar;
 
+    [Header("User Pet Menu")]
+    [SerializeField] GameObject[] petSlotsOccupied;
+    [SerializeField] Button[] petSlotButtons;
+    [SerializeField] GameObject[] petSlotsEmpty;
+    [SerializeField] GameObject[] petSlotsMember;
+    int petCount;
+    int petSelected;
+    [SerializeField] int maxPageCount;
+    int petPageCount = 1;
+    [SerializeField] TMPro.TextMeshProUGUI petCountText;
+    [SerializeField] TMPro.TextMeshProUGUI petName;
+
     [Header("Pink Pet Case")]
     [SerializeField] GameObject SideInv;
     [SerializeField] Button SideInvButton;
@@ -90,6 +102,7 @@ public class OverworldUI : MonoBehaviour
         if (buttonID == 0)
         {
             HouseConfirm.SetActive(false);
+            petMenuUpdate();
         }
         else if (buttonID == 3)
         {
@@ -101,6 +114,67 @@ public class OverworldUI : MonoBehaviour
         }
     }
     // TODO: add side inventory logic
+
+    public void petSlotInfoUpdate(int buttonID)
+    {
+        petSelected = buttonID;
+        petName.text = GameDataManager.Instance.pets[buttonID].name;
+    }
+
+    public void petMenuIncrement()
+    {
+        petPageCount += 1;
+        if (GameDataManager.Instance.pets.Count < (petPageCount * 12) - 1)
+        {
+            petPageCount = 1;
+        }
+    }
+
+    public void petMenuDecrement()
+    {
+        petPageCount -= 1;
+        if (petPageCount == 0)
+        {
+            petPageCount = maxPageCount;
+        }
+    }
+
+    public void petMenuUpdate()
+    {
+        petCount = GameDataManager.Instance.pets.Count;
+        petName.text = GameDataManager.Instance.CurrentPet.name;
+        maxPageCount = (GameDataManager.Instance.pets.Count / 12) + 1;
+        // GameDataManager.Instance.pets[(petPageCount * 12) - 1];
+        // GameDataManager.Instance.pets[(petPageCount * 12) - 12];
+
+
+
+
+
+
+
+
+
+
+
+
+
+        for (int i = 0; i < petSlotsOccupied.Length; i++)
+        {
+            petSlotsEmpty[i].SetActive(true);
+            petSlotsOccupied[i].SetActive(true);
+        }
+        for (int i = 0; i < petCount; i++)
+        {
+            petSlotsEmpty[i].SetActive(false);
+        }
+        for (int i = petSlotsOccupied.Length; i > petCount; i--)
+        {
+            petSlotsOccupied[i - 1].SetActive(false);
+        }
+        petCountText.text = petCount.ToString();
+        Debug.Log(petCount);
+    }
 
     public void openScrapbook()
     {
