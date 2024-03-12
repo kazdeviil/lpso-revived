@@ -12,6 +12,9 @@ public class OverworldUI : MonoBehaviour
     public TMP_Text kibblecountinv;
 
     public string[] scenes;
+    [SerializeField] Button[] mainUIButtons;
+    [SerializeField] GameObject[] mainUI;
+    int currentUI;
     [Header("UI GameObjects")]
     [SerializeField] GameObject inventory;
     [SerializeField] GameObject PDA;
@@ -19,40 +22,16 @@ public class OverworldUI : MonoBehaviour
     [SerializeField] GameObject map;
     [SerializeField] GameObject scrapbook;
     [SerializeField] GameObject nothing;
-
-    [Header("Pet Menu Buttons")]
-    [SerializeField] Button CoAPButtonUserMenu;
-    [SerializeField] Button ScrapbookButtonUserMenu;
-    [SerializeField] Button ClothesButton;
-    [SerializeField] Button HouseButtonUserMenu;
     [SerializeField] GameObject HouseConfirm;
-    [SerializeField] Button CrAPButton;
-
-    [Header("Main UI")]
-    [SerializeField] Button xButton;
-    [SerializeField] Button petButton;
-    [SerializeField] Button messagebutton;
     [SerializeField] GameObject messagebar;
-    [SerializeField] Button collectapetbutton;
-
-    [Header("PDA")]
-    [SerializeField] Button PDAButton;
-    [SerializeField] Button PowerButton;
 
     [Header("Pink Pet Case")]
-    [SerializeField] Button invButton;
-    [SerializeField] Button closeInvButton;
-    [SerializeField] Button InvLeftButton;
-    [SerializeField] Button InvRightButton;
     [SerializeField] GameObject SideInv;
     [SerializeField] Button SideInvButton;
-    [SerializeField] GameObject SideInvArrow;
 
     [Header("Map")]
-    [SerializeField] Button mapXButton;
-    [SerializeField] Button mapOpenButton;
     [SerializeField] GameObject travelConfirmPopup;
-    [SerializeField] int SelectedLocation;
+    int SelectedLocation;
     [SerializeField] string[] mapLocations;
     [SerializeField] Button[] mapIcons;
     [SerializeField] TMPro.TextMeshProUGUI LocationName;
@@ -60,8 +39,7 @@ public class OverworldUI : MonoBehaviour
     [Header("Scrapbook")]
     [SerializeField] TMPro.TextMeshProUGUI scrapTitle;
     [SerializeField] TMPro.TextMeshProUGUI scrapSubtitle;
-    [SerializeField] Color scrapMainColor = new Color32(231,62,101,255);
-    [SerializeField] Color scrapCollectionColor = new Color32(0,0,0,255);
+    Color scrapMainColor = new Color32(231,62,101,255);
     [SerializeField] GameObject scrapPageIcon;
     [SerializeField] Image scrapPageIconImage;
     [SerializeField] Sprite[] scrapPageIcons;
@@ -74,7 +52,7 @@ public class OverworldUI : MonoBehaviour
     [SerializeField] string[] scrapTitleText = new string[] {"   My Pet Collection", "   My World", "   My Creations", "   My Skills"};
     [SerializeField] string[] scrapSubtitleText = new string[] {"","Waggington","",""};
     [SerializeField] Color[] scrapTextColor = new Color[] { new Color32(28,136,0,255), new Color32(14,55,190,255), new Color32(190,48,77,255), new Color32(109,65,145,255)};
-    [SerializeField] int scrapTabNum;
+    int scrapTabNum;
     [SerializeField] GameObject scrapBackButton;
     [SerializeField] Button scrapBack;
     [SerializeField] GameObject scrapMainPage;
@@ -83,13 +61,12 @@ public class OverworldUI : MonoBehaviour
     [SerializeField] Button scrapXButton;
 
     public GameObject player;
-    [SerializeField] Button nothingOk;
 
     public class MapIcon
     { public string AreaName; }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         userInfoMenu.SetActive(false);
         inventory.SetActive(false);
@@ -106,32 +83,35 @@ public class OverworldUI : MonoBehaviour
         kibblecountinv.SetText(GameDataManager.Instance.kibble.ToString());
     }
 
-    public void toggleInventory() => inventory.SetActive(!inventory.activeSelf);
-
-    // this function isnt what i want but i need to remember to change it later
-    public void toggleSideInv() => SideInv.SetActive(!SideInv.activeSelf);
-
-    public void toggleUserMenu()
-    { userInfoMenu.SetActive(!userInfoMenu.activeSelf);
-        inventory.SetActive(false);
-        HouseConfirm.SetActive(false); }
-
-    public void toggleHouseConfirm() => HouseConfirm.SetActive(!HouseConfirm.activeSelf);
-
-    public void toggleMessage() => messagebar.SetActive(!messagebar.activeSelf);
-
-    public void togglePhone()
-    { PDA.SetActive(!PDA.activeSelf);
-        inventory.SetActive(false); }
-
-    public void toggleMap()
-    { map.SetActive(!map.activeSelf);
-        travelConfirmPopup.SetActive(false);
-        inventory.SetActive(false); }
+    public void UIToggles(int buttonID)
+    {
+        currentUI = buttonID;
+        mainUI[buttonID].SetActive(!mainUI[buttonID].activeSelf);
+        if (buttonID == 0)
+        {
+            HouseConfirm.SetActive(false);
+        }
+        else if (buttonID == 3)
+        {
+            travelConfirmPopup.SetActive(false);
+        }
+        if (buttonID != 5)
+        {
+            inventory.SetActive(false);
+        }
+    }
+    // TODO: add side inventory logic
 
     public void openScrapbook()
     {
-        inventory.SetActive(false);
+        if (userInfoMenu.activeSelf)
+        {
+            userInfoMenu.SetActive(false);
+        }
+        else if (inventory.activeSelf)
+        {
+            inventory.SetActive(false);
+        }
         scrapTitle.text = "My Scrapbook";
         scrapTitle.color = scrapMainColor;
         scrapSubtitle.text = "Table of Contents";
@@ -175,7 +155,7 @@ public class OverworldUI : MonoBehaviour
         scrapBack.onClick.RemoveAllListeners();
         scrapBack.onClick.AddListener(openScrapbook);
     }
-    public void ScrapbookBackSet()
+    void ScrapbookBackSet()
     {
         scrapBack.onClick.RemoveAllListeners();
         scrapBack.onClick.AddListener(() => scrapPageSwitch(scrapTabNum));
@@ -186,11 +166,6 @@ public class OverworldUI : MonoBehaviour
         scrapSubPages[scrapTabNum].SetActive(true);
         ScrapbookBackSet();
     }
-    public void closeScrapbook() => scrapbook.SetActive(false);
-
-    public void toggleNothing()
-    { nothing.SetActive(!nothing.activeSelf);
-    inventory.SetActive(false); }
 
     public void TravelTo(int buttonID)
     {
@@ -198,12 +173,6 @@ public class OverworldUI : MonoBehaviour
         LocationName.text = mapLocations[buttonID] + "?";
         SelectedLocation = buttonID;
     }
-
-    public void TravelCancel()
-    {
-        travelConfirmPopup.SetActive(false);
-    }
-
     public void TravelConfirm()
     {
         GameDataManager.Instance.OldLocation = player.transform.position;
