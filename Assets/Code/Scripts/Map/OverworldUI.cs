@@ -76,7 +76,9 @@ public class OverworldUI : MonoBehaviour
     [SerializeField] Color[] scrapTextColor = new Color[] { new Color32(28,136,0,255), new Color32(14,55,190,255), new Color32(190,48,77,255), new Color32(109,65,145,255)};
     [SerializeField] int scrapTabNum;
     [SerializeField] GameObject scrapBackButton;
+    [SerializeField] Button scrapBack;
     [SerializeField] GameObject scrapMainPage;
+    [SerializeField] GameObject[] scrapSubPages;
     [SerializeField] GameObject[] scrapPages;
     [SerializeField] Button scrapXButton;
 
@@ -139,10 +141,13 @@ public class OverworldUI : MonoBehaviour
         scrapbook.SetActive(true);
         scrapMainPage.SetActive(true);
         scrapBackButton.SetActive(false);
+        scrapBack.onClick.RemoveAllListeners();
+        scrapBack.onClick.AddListener(openScrapbook);
         scrapPageIcon.SetActive(false);
         for (int i = 0; i < scrapPages.Length; i++)
         {
             scrapPages[i].SetActive(false);
+            scrapSubPages[i].SetActive(false);
             scrapTabs[i].transform.SetParent(scrapTabMask.transform);
         }
     }
@@ -159,6 +164,7 @@ public class OverworldUI : MonoBehaviour
         {
             scrapTabs[i].transform.SetParent(scrapTabMask.transform);
             scrapPages[i].SetActive(false);
+            scrapSubPages[i].SetActive(false);
         }
         scrapTabs[buttonID].transform.SetParent(scrapTabParent.transform);
         scrapMainPage.SetActive(false);
@@ -166,6 +172,19 @@ public class OverworldUI : MonoBehaviour
         scrapPageIcon.SetActive(true);
         scrapPages[buttonID].SetActive(true);
         scrapPageIconImage.sprite = scrapPageIcons[buttonID];
+        scrapBack.onClick.RemoveAllListeners();
+        scrapBack.onClick.AddListener(openScrapbook);
+    }
+    public void ScrapbookBackSet()
+    {
+        scrapBack.onClick.RemoveAllListeners();
+        scrapBack.onClick.AddListener(() => scrapPageSwitch(scrapTabNum));
+    }
+    public void scrapbookSubPage()
+    {
+        scrapPages[scrapTabNum].SetActive(false);
+        scrapSubPages[scrapTabNum].SetActive(true);
+        ScrapbookBackSet();
     }
     public void closeScrapbook() => scrapbook.SetActive(false);
 
@@ -175,7 +194,6 @@ public class OverworldUI : MonoBehaviour
 
     public void TravelTo(int buttonID)
     {
-        Debug.Log("Attemtping to travel to " + mapLocations[buttonID]);
         travelConfirmPopup.SetActive(true);
         LocationName.text = mapLocations[buttonID] + "?";
         SelectedLocation = buttonID;
