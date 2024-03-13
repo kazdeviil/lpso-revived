@@ -36,7 +36,7 @@ public class OverworldUI : MonoBehaviour
     int petCount;
     int finalPetScreenCount;
     int petSelected = 0;
-    [SerializeField] int maxPageCount = 1;
+    int maxPageCount = 1;
     int petPageCount = 1;
     [SerializeField] TMPro.TextMeshProUGUI petCountText;
     [SerializeField] TMPro.TextMeshProUGUI petName;
@@ -67,7 +67,9 @@ public class OverworldUI : MonoBehaviour
     [SerializeField] GameObject scrapTabParent;
     [SerializeField] GameObject[] scrapTabs;
     [SerializeField] Button[] scrapTabButtons;
+    [SerializeField] int scrapPageNumL = 1;
     [SerializeField] TMPro.TextMeshProUGUI scrapPageNumLText;
+    [SerializeField] int scrapPageNumR = 2;
     [SerializeField] TMPro.TextMeshProUGUI scrapPageNumRText;
     [SerializeField] string[] scrapTitleText = new string[] {"   My Pet Collection", "   My World", "   My Creations", "   My Skills"};
     [SerializeField] string[] scrapSubtitleText = new string[] {"","Waggington","",""};
@@ -79,6 +81,13 @@ public class OverworldUI : MonoBehaviour
     [SerializeField] GameObject[] scrapSubPages;
     [SerializeField] GameObject[] scrapPages;
     [SerializeField] Button scrapXButton;
+    [Header("Scrapbook: Pet Collection")]
+    [SerializeField] GameObject[] scrapPetButtons;
+    [SerializeField] TMPro.TextMeshProUGUI[] scrapPetNames;
+    [SerializeField] int scrapCurrentPet;
+    [SerializeField] int scrapPetPageCount = 1;
+    [SerializeField] GameObject scrapPageLeft;
+    [SerializeField] GameObject scrapPageRight;
 
     public GameObject player;
 
@@ -181,15 +190,7 @@ public class OverworldUI : MonoBehaviour
     {
         petCount = petlist.Length;
         petName.text = petlist[petSelected];
-        if (maxPageCount > 1)
-        {
-            for (int i = 0; i < petPageButtons.Length; i++)
-            {
-                petPageButtons[i].GetComponent<Image>().sprite = petPageButtonLeft.GetComponent<Image>().sprite;
-            }
-        }
-        petPageButtons[petPageCount - 1].GetComponent<Image>().sprite = petButtonSelected;
-
+        // sets max page count dynamically
         if (petCount % 12 == 0)
         {
             maxPageCount = petCount / 12;
@@ -198,10 +199,20 @@ public class OverworldUI : MonoBehaviour
         {
             maxPageCount = (petCount / 12) + 1;
         }
-        // buttons for jumping to pages
+
+        // vvv buttons for jumping to pages vvv
+        // changes currently selected page button sprite
+        if (maxPageCount > 1)
+        {
+            for (int i = 0; i < petPageButtons.Length; i++)
+            {
+                petPageButtons[i].GetComponent<Image>().sprite = petPageButtonLeft.GetComponent<Image>().sprite;
+            }
+        }
+        petPageButtons[petPageCount - 1].GetComponent<Image>().sprite = petButtonSelected;
+        // sets page button amount
         if (maxPageCount != 1)
         {
-            petPageButtons[petPageCount - 1].GetComponent<Button>().enabled = true;
             petPageButtonLeft.SetActive(true);
             petPageButtonRight.SetActive(true);
             for (int i = 0; i < petPageButtons.Length; i++)
@@ -230,7 +241,7 @@ public class OverworldUI : MonoBehaviour
             petSlotsOccupied[i].SetActive(true);
             petSlotsMember[i].SetActive(true);
         }
-
+        // gets amount of pets on final page
         finalPetScreenCount = petCount - ((petCount / 12) * 12);
         if (petPageCount == maxPageCount)
         {
@@ -299,6 +310,7 @@ public class OverworldUI : MonoBehaviour
 
     public void openScrapbook()
     {
+        // removes clashing ui
         if (userInfoMenu.activeSelf)
         {
             userInfoMenu.SetActive(false);
@@ -307,11 +319,18 @@ public class OverworldUI : MonoBehaviour
         {
             inventory.SetActive(false);
         }
+        // resets ui values
+        scrapPageLeft.SetActive(false);
+        scrapPageRight.SetActive(false);
+        scrapPageNumL = 1;
+        scrapPageNumR = 2;
         scrapTitle.text = "My Scrapbook";
         scrapTitle.color = scrapMainColor;
         scrapSubtitle.text = "Table of Contents";
         scrapSubtitle.color = new Color32(68,168,236,255);
+        scrapPageNumLText.text = scrapPageNumL.ToString();
         scrapPageNumLText.color = scrapMainColor;
+        scrapPageNumRText.text = scrapPageNumR.ToString();
         scrapPageNumRText.color = scrapMainColor;
         scrapbook.SetActive(true);
         scrapMainPage.SetActive(true);
@@ -329,37 +348,148 @@ public class OverworldUI : MonoBehaviour
     public void scrapPageSwitch(int buttonID)
     {
         scrapTabNum = buttonID;
+        scrapPetPageCount = 1;
+        // sets all the fancy visuals like colors and text
         scrapTitle.text = scrapTitleText[buttonID];
         scrapSubtitle.text = scrapSubtitleText[buttonID];
         scrapTitle.color = scrapTextColor[buttonID];
         scrapSubtitle.color = scrapTextColor[buttonID];
         scrapPageNumLText.color = scrapTextColor[buttonID];
         scrapPageNumRText.color = scrapTextColor[buttonID];
+
+        // resets all tabs, pages, subpages
         for (int i = 0; i < scrapTabs.Length;i++)
         {
             scrapTabs[i].transform.SetParent(scrapTabMask.transform);
             scrapPages[i].SetActive(false);
             scrapSubPages[i].SetActive(false);
         }
+        // shows ui of current page, hides prior page
         scrapTabs[buttonID].transform.SetParent(scrapTabParent.transform);
         scrapMainPage.SetActive(false);
         scrapBackButton.SetActive(true);
         scrapPageIcon.SetActive(true);
         scrapPages[buttonID].SetActive(true);
         scrapPageIconImage.sprite = scrapPageIcons[buttonID];
+        // resets back button function
         scrapBack.onClick.RemoveAllListeners();
         scrapBack.onClick.AddListener(openScrapbook);
+        // calls corresponding function per page
+        if (buttonID == 0)
+        {
+            scrapbookUpdatePetCollection();
+        }
     }
     void ScrapbookBackSet()
     {
+        // sets back button function to corresponding page
         scrapBack.onClick.RemoveAllListeners();
         scrapBack.onClick.AddListener(() => scrapPageSwitch(scrapTabNum));
     }
     public void scrapbookSubPage()
     {
+        // sets correct subpage
         scrapPages[scrapTabNum].SetActive(false);
         scrapSubPages[scrapTabNum].SetActive(true);
         ScrapbookBackSet();
+    }
+    void scrapArrowCount()
+    {
+        scrapPageNumR = scrapPetPageCount * 2;
+        scrapPageNumL = scrapPageNumR - 1;
+        // updates arrow visibility
+        if (scrapPetPageCount <= 1)
+        {
+            scrapPageLeft.SetActive(false);
+            scrapPageRight.SetActive(true);
+        }
+        else if (scrapPetPageCount == maxPageCount)
+        {
+            scrapPageRight.SetActive(false);
+            scrapPageLeft.SetActive(true);
+        }
+        else
+        {
+            scrapPageLeft.SetActive(true);
+            scrapPageRight.SetActive(true);
+        }
+    }
+    void scrapbookUpdatePetCollection()
+    {
+        scrapArrowCount();
+        scrapPageNumLText.text = scrapPageNumL.ToString();
+        scrapPageNumRText.text = scrapPageNumR.ToString();
+        // updates pet count and maximum page count
+        petCount = petlist.Length;
+        if (petCount % 12 == 0)
+        {
+            maxPageCount = petCount / 12;
+        }
+        else
+        {
+            maxPageCount = (petCount / 12) + 1;
+        }
+
+        // sets name per button
+        if (scrapPetPageCount != maxPageCount)
+        {
+            for (int i = 0; i < scrapPetButtons.Length; i++)
+            {
+                scrapPetNames[i].text = petlist[((scrapPetPageCount * 12) - 12) + i];
+            }
+        }
+        else
+        {
+            if (finalPetScreenCount != 0)
+            {
+                for (int i = 0; i < finalPetScreenCount; i++)
+                {
+                    scrapPetNames[i].text = petlist[((scrapPetPageCount * 12) - 12) + i];
+                }
+            }
+            else
+            {
+                for (int i = 0; i < scrapPetButtons.Length; i++)
+                {
+                    scrapPetNames[i].text = petlist[i];
+                }
+            }
+        }
+        // sets all buttons to uniform state
+        for (int i = 0; i < scrapPetButtons.Length; i++)
+        {
+            scrapPetButtons[i].SetActive(true);
+        }
+        // sets final page button amount
+        finalPetScreenCount = petCount - ((petCount / 12) * 12);
+        if (scrapPetPageCount == maxPageCount)
+        {
+            if (finalPetScreenCount != 0)
+            {
+                // deactivates pet button when no pet exists
+                for (int i = scrapPetButtons.Length; i > finalPetScreenCount; i--)
+                {
+                    scrapPetButtons[i - 1].SetActive(false);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < scrapPetButtons.Length; i++)
+                {
+                    scrapPetButtons[i].SetActive(true);
+                }
+            }
+        }
+    }
+    public void scrapbookPetPageLeft()
+    {
+        scrapPetPageCount -= 1;
+        scrapbookUpdatePetCollection();
+    }
+    public void scrapbookPetPageRight()
+    {
+        scrapPetPageCount += 1;
+        scrapbookUpdatePetCollection();
     }
 
     public void TravelTo(int buttonID)
