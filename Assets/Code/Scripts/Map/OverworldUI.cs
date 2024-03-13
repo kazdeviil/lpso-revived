@@ -29,12 +29,15 @@ public class OverworldUI : MonoBehaviour
     [SerializeField] GameObject[] petSlotsOccupied;
     [SerializeField] Button[] petSlotButtons;
     [SerializeField] GameObject[] petSlotsEmpty;
+    [SerializeField] Image[] petHeadPreview;
     [SerializeField] GameObject[] petSlotsMember;
-    public int petCount;
-    public int finalPetScreenCount;
-    public int petSelected = 0;
+    [SerializeField] Image petPreview;
+    [SerializeField] GameObject petMemberRibbon;
+    int petCount;
+    int finalPetScreenCount;
+    int petSelected = 0;
     [SerializeField] int maxPageCount = 1;
-    public int petPageCount = 1;
+    int petPageCount = 1;
     [SerializeField] TMPro.TextMeshProUGUI petCountText;
     [SerializeField] TMPro.TextMeshProUGUI petName;
 
@@ -94,6 +97,8 @@ public class OverworldUI : MonoBehaviour
         "Rin",
         "GUMI"
     }; 
+    public Sprite[] petSprites;
+    public bool[] petMemberStatus;
 
     public class MapIcon
     { public string AreaName; }
@@ -124,6 +129,7 @@ public class OverworldUI : MonoBehaviour
         {
             HouseConfirm.SetActive(false);
             petPageCount = 1;
+            // TODO: make default pet whatever pet youre playing as
             petMenuUpdate();
         }
         else if (buttonID == 3)
@@ -141,6 +147,8 @@ public class OverworldUI : MonoBehaviour
     {
         petSelected = (petPageCount * 12) - buttonID;
         petName.text = petlist[petSelected];
+        petPreview.sprite = petSprites[petSelected];
+        petMemberRibbon.SetActive(petMemberStatus[(petPageCount * 12) - buttonID]);
     }
     public void petMenuIncrement()
     {
@@ -178,6 +186,7 @@ public class OverworldUI : MonoBehaviour
         {
             petSlotsEmpty[i].SetActive(true);
             petSlotsOccupied[i].SetActive(true);
+            petSlotsMember[i].SetActive(true);
         }
 
         finalPetScreenCount = petCount - ((petCount / 12) * 12);
@@ -208,6 +217,31 @@ public class OverworldUI : MonoBehaviour
                 petSlotsEmpty[i].SetActive(false);
             }
         }
+
+        // sets head and membership icons
+        if (petPageCount != maxPageCount)
+        {
+            for (int i = 0; i < petSlotsOccupied.Length; i++)
+            {
+                if (!petMemberStatus[((petPageCount * 12) - 12) + i])
+                {
+                    petSlotsMember[i].SetActive(false);
+                }
+                petHeadPreview[i].sprite = petSprites[((petPageCount * 12) - 12) + i];
+            }
+        }
+        else
+        {
+            for (int i = 0; i < finalPetScreenCount; i++)
+            {
+                if (!petMemberStatus[((petPageCount * 12) - 12) + i])
+                {
+                    petSlotsMember[i].SetActive(false);
+                }
+                petHeadPreview[i].sprite = petSprites[((petPageCount * 12) - 12) + i];
+            }
+        }
+
         petCountText.text = petCount.ToString();
     }
 

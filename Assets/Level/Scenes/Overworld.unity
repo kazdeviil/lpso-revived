@@ -6300,6 +6300,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5985894621343862486, guid: 8a06c38d32644df40b6adaa0043091b9, type: 3}
   m_PrefabInstance: {fileID: 897956389}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &908208851 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 439622491029602295, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+  m_PrefabInstance: {fileID: 8533245786256154619}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &918928668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9803,6 +9814,11 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1456668956 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1952069437636314368, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+  m_PrefabInstance: {fileID: 8533245786256154619}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1467514831
 GameObject:
   m_ObjectHideFlags: 0
@@ -16390,6 +16406,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 966904346}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: petPreview
+      value: 
+      objectReference: {fileID: 908208851}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: scrapTitle
       value: 
       objectReference: {fileID: 1121023926}
@@ -16422,6 +16442,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 329779824}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: petMemberRibbon
+      value: 
+      objectReference: {fileID: 1456668956}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: scrapBackButton
       value: 
       objectReference: {fileID: 507881666}
@@ -16447,7 +16471,7 @@ PrefabInstance:
       objectReference: {fileID: 1969753178}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: petlist.Array.size
-      value: 16
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: scrapPageIconImage
@@ -16502,28 +16526,32 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: petSprites.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: 'petlist.Array.data[4]'
-      value: a
+      value: Holly
       objectReference: {fileID: 0}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: 'petlist.Array.data[5]'
-      value: s
+      value: Superstar
       objectReference: {fileID: 0}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: 'petlist.Array.data[6]'
-      value: d
+      value: cheeseburger
       objectReference: {fileID: 0}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: 'petlist.Array.data[7]'
-      value: f
+      value: Jackie
       objectReference: {fileID: 0}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: 'petlist.Array.data[8]'
-      value: g
+      value: Willow
       objectReference: {fileID: 0}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: 'petlist.Array.data[9]'
-      value: h
+      value: Mienfoo
       objectReference: {fileID: 0}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: scrapPages.Array.size
@@ -16531,23 +16559,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: 'petlist.Array.data[10]'
-      value: j
+      value: Arlecchino
       objectReference: {fileID: 0}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: 'petlist.Array.data[11]'
-      value: k
+      value: Miku
       objectReference: {fileID: 0}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: 'petlist.Array.data[12]'
-      value: l
+      value: Len
       objectReference: {fileID: 0}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: 'petlist.Array.data[13]'
-      value: "\xF6"
+      value: GUMI
       objectReference: {fileID: 0}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: 'petlist.Array.data[14]'
-      value: wert
+      value: fsg
       objectReference: {fileID: 0}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: 'petlist.Array.data[15]'
@@ -16578,6 +16606,46 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 21300000, guid: da9bdd33bf7c21841aa8f07ce7257c5a, type: 3}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 267e1048dc6818b4b866091aca3fcbaf, type: 3}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 3286163911610860551, guid: 6e9a86d15c3538c429b8766f85cb4881, type: 3}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSprites.Array.data[3]'
+      value: 
+      objectReference: {fileID: 3286163911610860551, guid: 448e9904f7ab6304cb322f3b573894d7, type: 3}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSprites.Array.data[4]'
+      value: 
+      objectReference: {fileID: 3286163911610860551, guid: 6e9a86d15c3538c429b8766f85cb4881, type: 3}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSprites.Array.data[5]'
+      value: 
+      objectReference: {fileID: 3286163911610860551, guid: 448e9904f7ab6304cb322f3b573894d7, type: 3}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSprites.Array.data[6]'
+      value: 
+      objectReference: {fileID: 3286163911610860551, guid: a524076dcd48ced428f51287eb180447, type: 3}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSprites.Array.data[7]'
+      value: 
+      objectReference: {fileID: 3286163911610860551, guid: 6e9a86d15c3538c429b8766f85cb4881, type: 3}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSprites.Array.data[8]'
+      value: 
+      objectReference: {fileID: 21300000, guid: da9bdd33bf7c21841aa8f07ce7257c5a, type: 3}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSprites.Array.data[9]'
+      value: 
+      objectReference: {fileID: 3286163911610860551, guid: a524076dcd48ced428f51287eb180447, type: 3}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: 'scrapPages.Array.data[0]'
       value: 
       objectReference: {fileID: 269977069}
@@ -16598,12 +16666,40 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: petHeadPreview.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: petSlotButtons.Array.size
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: petSlotsMember.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSprites.Array.data[10]'
+      value: 
+      objectReference: {fileID: 3286163911610860551, guid: 448e9904f7ab6304cb322f3b573894d7, type: 3}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSprites.Array.data[11]'
+      value: 
+      objectReference: {fileID: 21300000, guid: 267e1048dc6818b4b866091aca3fcbaf, type: 3}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSprites.Array.data[12]'
+      value: 
+      objectReference: {fileID: 21300000, guid: da9bdd33bf7c21841aa8f07ce7257c5a, type: 3}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSprites.Array.data[13]'
+      value: 
+      objectReference: {fileID: 3286163911610860551, guid: 6e9a86d15c3538c429b8766f85cb4881, type: 3}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: scrapPageIcons.Array.size
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: petMemberStatus.Array.size
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: scrapTabButtons.Array.size
@@ -16710,6 +16806,46 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1256618365}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petHeadPreview.Array.data[0]'
+      value: 
+      objectReference: {fileID: 635925217}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petHeadPreview.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1850109563}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petHeadPreview.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1625352894}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petHeadPreview.Array.data[3]'
+      value: 
+      objectReference: {fileID: 623765061}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petHeadPreview.Array.data[4]'
+      value: 
+      objectReference: {fileID: 219737175}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petHeadPreview.Array.data[5]'
+      value: 
+      objectReference: {fileID: 1221794076}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petHeadPreview.Array.data[6]'
+      value: 
+      objectReference: {fileID: 1258382400}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petHeadPreview.Array.data[7]'
+      value: 
+      objectReference: {fileID: 848972918}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petHeadPreview.Array.data[8]'
+      value: 
+      objectReference: {fileID: 1923390489}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petHeadPreview.Array.data[9]'
+      value: 
+      objectReference: {fileID: 1404883945}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: 'petSlotButtons.Array.data[0]'
       value: 
       objectReference: {fileID: 2046045519}
@@ -16758,6 +16894,46 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1112763341}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSlotsMember.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1119212863}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSlotsMember.Array.data[1]'
+      value: 
+      objectReference: {fileID: 605264710}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSlotsMember.Array.data[2]'
+      value: 
+      objectReference: {fileID: 718324215}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSlotsMember.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1969633852}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSlotsMember.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1308119360}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSlotsMember.Array.data[5]'
+      value: 
+      objectReference: {fileID: 675944843}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSlotsMember.Array.data[6]'
+      value: 
+      objectReference: {fileID: 496175039}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSlotsMember.Array.data[7]'
+      value: 
+      objectReference: {fileID: 118260889}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSlotsMember.Array.data[8]'
+      value: 
+      objectReference: {fileID: 1086186339}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSlotsMember.Array.data[9]'
+      value: 
+      objectReference: {fileID: 2143376257}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: 'scrapPageIcons.Array.data[0]'
       value: 
       objectReference: {fileID: -8633289493838945812, guid: 5322f2ce95624564a8a8fd337f72ad56, type: 3}
@@ -16774,6 +16950,54 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6707207989096295731, guid: a291147ad1caa6e44a62bdd578a3087e, type: 3}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petHeadPreview.Array.data[10]'
+      value: 
+      objectReference: {fileID: 1133388993}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petHeadPreview.Array.data[11]'
+      value: 
+      objectReference: {fileID: 312987346}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petMemberStatus.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petMemberStatus.Array.data[1]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petMemberStatus.Array.data[2]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petMemberStatus.Array.data[3]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petMemberStatus.Array.data[4]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petMemberStatus.Array.data[5]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petMemberStatus.Array.data[6]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petMemberStatus.Array.data[7]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petMemberStatus.Array.data[8]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petMemberStatus.Array.data[9]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: 'petSlotButtons.Array.data[10]'
       value: 
       objectReference: {fileID: 334198087}
@@ -16781,6 +17005,14 @@ PrefabInstance:
       propertyPath: 'petSlotButtons.Array.data[11]'
       value: 
       objectReference: {fileID: 720832273}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSlotsMember.Array.data[10]'
+      value: 
+      objectReference: {fileID: 882176219}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSlotsMember.Array.data[11]'
+      value: 
+      objectReference: {fileID: 810648659}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: 'scrapTabButtons.Array.data[0]'
       value: 
@@ -16797,6 +17029,22 @@ PrefabInstance:
       propertyPath: 'scrapTabButtons.Array.data[3]'
       value: 
       objectReference: {fileID: 589697204}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petMemberStatus.Array.data[10]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petMemberStatus.Array.data[11]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petMemberStatus.Array.data[12]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petMemberStatus.Array.data[13]'
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: 'petSlotsOccupied.Array.data[0]'
       value: 
