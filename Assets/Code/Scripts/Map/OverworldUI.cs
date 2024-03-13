@@ -40,6 +40,10 @@ public class OverworldUI : MonoBehaviour
     int petPageCount = 1;
     [SerializeField] TMPro.TextMeshProUGUI petCountText;
     [SerializeField] TMPro.TextMeshProUGUI petName;
+    [SerializeField] GameObject[] petPageButtons;
+    [SerializeField] GameObject petPageButtonLeft;
+    [SerializeField] GameObject petPageButtonRight;
+    [SerializeField] Sprite petButtonSelected;
 
     [Header("Pink Pet Case")]
     [SerializeField] GameObject SideInv;
@@ -168,10 +172,24 @@ public class OverworldUI : MonoBehaviour
         }
         petMenuUpdate();
     }
+    public void petMenuJump(int buttonID)
+    {
+        petPageCount = buttonID + 1;
+        petMenuUpdate();
+    }
     void petMenuUpdate()
     {
         petCount = petlist.Length;
         petName.text = petlist[petSelected];
+        if (maxPageCount > 1)
+        {
+            for (int i = 0; i < petPageButtons.Length; i++)
+            {
+                petPageButtons[i].GetComponent<Image>().sprite = petPageButtonLeft.GetComponent<Image>().sprite;
+            }
+        }
+        petPageButtons[petPageCount - 1].GetComponent<Image>().sprite = petButtonSelected;
+
         if (petCount % 12 == 0)
         {
             maxPageCount = petCount / 12;
@@ -179,6 +197,30 @@ public class OverworldUI : MonoBehaviour
         else
         {
             maxPageCount = (petCount / 12) + 1;
+        }
+        // buttons for jumping to pages
+        if (maxPageCount != 1)
+        {
+            petPageButtons[petPageCount - 1].GetComponent<Button>().enabled = true;
+            petPageButtonLeft.SetActive(true);
+            petPageButtonRight.SetActive(true);
+            for (int i = 0; i < petPageButtons.Length; i++)
+            {
+                petPageButtons[i].SetActive(false);
+            }
+            for (int i = 1; i <= maxPageCount; i++)
+            {
+                petPageButtons[i - 1].SetActive(true);
+            }
+        }
+        else
+        {
+            petPageButtonLeft.SetActive(false);
+            petPageButtonRight.SetActive(false);
+            for (int i = 1; i < petPageButtons.Length; i++)
+            {
+                petPageButtons[i].SetActive(false);
+            }
         }
 
         // sets all slots to a neutral state
@@ -205,10 +247,6 @@ public class OverworldUI : MonoBehaviour
                     petSlotsOccupied[i - 1].SetActive(false);
                 }
             }
-            else
-            {
-                Debug.Log("Weird");
-            }
         }
         else
         {
@@ -232,13 +270,27 @@ public class OverworldUI : MonoBehaviour
         }
         else
         {
-            for (int i = 0; i < finalPetScreenCount; i++)
+            if (finalPetScreenCount != 0)
             {
-                if (!petMemberStatus[((petPageCount * 12) - 12) + i])
+                for (int i = 0; i < finalPetScreenCount; i++)
                 {
-                    petSlotsMember[i].SetActive(false);
+                    if (!petMemberStatus[((petPageCount * 12) - 12) + i])
+                    {
+                        petSlotsMember[i].SetActive(false);
+                    }
+                    petHeadPreview[i].sprite = petSprites[((petPageCount * 12) - 12) + i];
                 }
-                petHeadPreview[i].sprite = petSprites[((petPageCount * 12) - 12) + i];
+            }
+            else
+            {
+                for (int i = 0; i < petSlotsEmpty.Length; i++)
+                {
+                    if (!petMemberStatus[i])
+                    {
+                        petSlotsMember[i].SetActive(false);
+                    }
+                    petHeadPreview[i].sprite = petSprites[i];
+                }
             }
         }
 
