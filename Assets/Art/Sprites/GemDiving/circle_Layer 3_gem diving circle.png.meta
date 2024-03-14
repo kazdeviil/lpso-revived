@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      circle_Layer 3_gem diving circle_0: -6901854336833417759
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

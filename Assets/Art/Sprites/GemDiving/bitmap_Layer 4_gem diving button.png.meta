@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bitmap_Layer 4_gem diving button_0: -2370306793093769831
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

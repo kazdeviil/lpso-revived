@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      inventory-page-turn-button-click_0: -265601492459613942
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
