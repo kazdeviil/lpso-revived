@@ -98,7 +98,25 @@ public class InventoryHandler : MonoBehaviour
             else
             {
                 for (int i = 0; i < ItemSlotBg.Length; i++)
-                ItemSlotBg[i].SetActive(false);
+                {
+                    Buttons[i].GetComponent<Image>().sprite = GameDataManager.Instance.itemList[GameDataManager.Instance.inventory[(((pageCount * 12) / 12) + i) - 1]].icon;
+                    ItemSlotBg[i].SetActive(true);
+                    if (inventoryItemStackAmount[i].text == "1")
+                    {
+                        inventoryItemStackAmount[i].text = "";
+                    }
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < ItemSlotBg.Length; i++)
+            {
+                Buttons[i].GetComponent<Image>().sprite = GameDataManager.Instance.itemList[GameDataManager.Instance.inventory[(((pageCount * 12) / 12) + i) - 1]].icon;
+                if (inventoryItemStackAmount[i].text == "1")
+                {
+                    inventoryItemStackAmount[i].text = "";
+                }
             }
         }
     }
