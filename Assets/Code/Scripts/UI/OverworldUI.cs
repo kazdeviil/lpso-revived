@@ -12,6 +12,7 @@ public class OverworldUI : MonoBehaviour
     public TMP_Text kibblecountinv;
 
     public PetMenu petMenu;
+    public InventoryHandler invHandler;
 
     public string[] scenes;
     [SerializeField] Button[] mainUIButtons;
@@ -87,8 +88,8 @@ public class OverworldUI : MonoBehaviour
     }
 
     void Update() {
-        kibblecount.SetText(GameDataManager.Instance.kibble.ToString());
-        kibblecountinv.SetText(GameDataManager.Instance.kibble.ToString());
+        kibblecount.SetText($"{GameDataManager.Instance.kibble:n0}");
+        kibblecountinv.SetText($"{GameDataManager.Instance.kibble:n0}");
     }
 
     public void UIToggles(int buttonID)
@@ -105,6 +106,10 @@ public class OverworldUI : MonoBehaviour
         else if (buttonID == 3)
         {
             travelConfirmPopup.SetActive(false);
+        }
+        else if (buttonID == 5)
+        {
+            invHandler.inventoryUpdate();
         }
         if (buttonID != 5)
         {
