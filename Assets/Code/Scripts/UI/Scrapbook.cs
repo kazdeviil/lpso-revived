@@ -36,8 +36,17 @@ public class Scrapbook : MonoBehaviour
     [Header("Scrapbook: Pet Collection")]
     [SerializeField] GameObject[] PCButtons;
     [SerializeField] TMPro.TextMeshProUGUI[] PCNames;
-    [SerializeField] int currentPet;
+    [SerializeField] int selectedPet;
     [SerializeField] int pageCount = 1;
+    [SerializeField] int petPageCount = 1;
+    [SerializeField] TMPro.TextMeshProUGUI petName;
+    [SerializeField] TMPro.TextMeshProUGUI petSpecies;
+    [SerializeField] TMPro.TextMeshProUGUI petLuckiness;
+    [SerializeField] Image petPreview;
+    [SerializeField] Image favoriteFood1;
+    [SerializeField] Image favoriteFood2;
+    [SerializeField] Image favoriteFood3;
+
     [SerializeField] GameObject pageArrowLeft;
     [SerializeField] GameObject pageArrowRight;
 
@@ -62,6 +71,7 @@ public class Scrapbook : MonoBehaviour
         pageArrowRight.SetActive(false);
         pageNumberLeft = 1;
         pageNumberRight = 2;
+        petPageCount = 1;
         titleText.text = "My Scrapbook";
         titleText.color = scrapMainColor;
         subtitleText.text = "Table of Contents";
@@ -92,7 +102,11 @@ public class Scrapbook : MonoBehaviour
         titleText.color = textColors[buttonID];
         subtitleText.color = textColors[buttonID];
         pageNumberLeftText.color = textColors[buttonID];
+        pageNumberLeftText.text = "1";
         pageNumberRightText.color = textColors[buttonID];
+        pageNumberRightText.text = "2";
+        pageArrowLeft.SetActive(false);
+        pageArrowRight.SetActive(false);
 
         // resets all tabs, pages, subpages
         for (int i = 0; i < tabs.Length; i++)
@@ -114,12 +128,18 @@ public class Scrapbook : MonoBehaviour
         // calls corresponding function per page
         if (buttonID == 0)
         {
+            pageCount = petPageCount;
             scrapbookUpdatePetCollection();
+        }
+        else
+        {
+            petPageCount = 1;
         }
     }
     void scrapbookUpdatePetCollection()
     {
         ScrapPageCountUpdate();
+        
         pageNumberLeftText.text = pageNumberLeft.ToString();
         pageNumberRightText.text = pageNumberRight.ToString();
         // updates pet count and maximum page count
@@ -194,14 +214,37 @@ public class Scrapbook : MonoBehaviour
         backTabButton.onClick.RemoveAllListeners();
         backTabButton.onClick.AddListener(() => ScrapPageSwitch(tabNumber));
     }
+
+    public void PCPetInfo(int buttonID)
+    {
+        // sets correct subpage
+        pages[tabNumber].SetActive(false);
+        subpages[tabNumber].SetActive(true);
+        // sets back button function to corresponding page
+        backTabButton.onClick.RemoveAllListeners();
+        backTabButton.onClick.AddListener(() => ScrapPageSwitch(tabNumber));
+        // sets ui objects to corresponding pet info
+        pageNumberLeftText.text = "1";
+        pageNumberRightText.text = "2";
+        selectedPet = (pageCount * 12) - buttonID;
+        petName.text = ui.petlist[selectedPet];
+        petSpecies.text = "";
+        petPreview.sprite = ui.petSprites[selectedPet];
+        petLuckiness.text = "X";
+        pageArrowLeft.SetActive(false);
+        pageArrowRight.SetActive(false);
+    }
+
     public void scrapbookPetPageLeft()
     {
         pageCount -= 1;
+        petPageCount = pageCount;
         scrapbookUpdatePetCollection();
     }
     public void scrapbookPetPageRight()
     {
         pageCount += 1;
+        petPageCount = pageCount;
         scrapbookUpdatePetCollection();
     }
     void ScrapPageCountUpdate()

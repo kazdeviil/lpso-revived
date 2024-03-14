@@ -18,6 +18,7 @@ public class OverworldUI : MonoBehaviour
     [SerializeField] GameObject[] mainUI;
     int currentUI;
     [Header("UI GameObjects")]
+    public GameObject petUI;
     public GameObject inventory;
     public GameObject PDA;
     public GameObject userInfoMenu;
@@ -74,6 +75,7 @@ public class OverworldUI : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        petUI.SetActive(true);
         userInfoMenu.SetActive(false);
         inventory.SetActive(false);
         PDA.SetActive(false);
