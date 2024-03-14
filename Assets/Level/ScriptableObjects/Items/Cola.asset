@@ -19,3 +19,5 @@ MonoBehaviour:
   price: 30
   category: food
   rotations: {fileID: 0}
+  ItemCategory: 2
+  ItemCategoryText: 13

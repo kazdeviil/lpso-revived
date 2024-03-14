@@ -32,7 +32,7 @@ public class rotation : MonoBehaviour
         {
             everyFifteenSeconds();
         }
-        this.transform.Rotate(0.0f, 0.0f, degreesrotated * Time.deltaTime);
+        transform.Rotate(0.0f, 0.0f, degreesrotated * Time.deltaTime);
 
     }
     void everyFifteenSeconds()

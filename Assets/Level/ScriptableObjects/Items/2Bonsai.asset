@@ -15,8 +15,12 @@ MonoBehaviour:
   objects:
   - {fileID: 9166617574913726872, guid: 9ae987cfa8a254c43b3b360be5d7c50a, type: 3}
   ID: 2
-  itemName: 
+  itemName: Green Tray Bonsai
+  itemDesc: Green accents
   icon: {fileID: 21300000, guid: 8710916eef4f3a648a47bd45bf59921d, type: 3}
-  price: 320
+  price: 300
   category: furniture
   rotations: {fileID: 0}
+  membersOnly: 1
+  ItemCategory: 0
+  ItemCategoryText: 1
