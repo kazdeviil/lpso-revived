@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cat-scrapbook_0: -8633289493838945812
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      creations-scrapbook-pin_0: 4823164096011876357
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      left-side-scrapbook-flowers-on-top_0: 2640712265552388848
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
