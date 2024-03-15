@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects: []
   ID: 1
-  itemName: 
-  itemDesc: 
+  itemName: Acorn
+  itemDesc: A nutty treat to eat
   icon: {fileID: -6706164723994672925, guid: 6e0195bd2af7dc14babd072e12c66d4e, type: 3}
   price: 35
-  category: 
+  category: food
   rotations: {fileID: 0}
   membersOnly: 0
   ItemCategory: 2
