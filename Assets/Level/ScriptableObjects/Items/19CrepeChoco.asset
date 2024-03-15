@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a63dc665c7d06d3418680abce5e8fa6f, type: 3}
+  m_Name: 19CrepeChoco
+  m_EditorClassIdentifier: 
+  objects: []
+  ID: 19
+  itemName: Chocolate Crepe
+  itemDesc: Delicate and sweet
+  icon: {fileID: 1389326318309594094, guid: 4eb208032c8c4d64a9013db047ec6cdd, type: 3}
+  price: 115
+  category: food
+  rotations: {fileID: 0}
+  membersOnly: 0
+  ItemCategory: 2
+  ItemCategoryText: 12
