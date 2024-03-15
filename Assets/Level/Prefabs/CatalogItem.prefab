@@ -31,7 +31,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 54556457681709572}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -168,7 +167,6 @@ RectTransform:
   - {fileID: 54556457270218995}
   - {fileID: 54556458440085244}
   m_Father: {fileID: 54556458703117805}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -244,7 +242,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 54556458506831274}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -279,7 +276,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b4ae0a50c68a85849b32314f228341a1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e868c55db222c90409e63837607ad58e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -306,7 +303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &54556458376414944
 RectTransform:
   m_ObjectHideFlags: 0
@@ -320,7 +317,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 54556458703117805}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -391,17 +387,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 54556458416164229}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.17364816, w: 0.9848078}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 54556458703117805}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 20}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00002259, y: 10}
+  m_AnchoredPosition: {x: -0.000045776367, y: 10}
   m_SizeDelta: {x: 124.696, y: 159.835}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &54556458416164233
@@ -488,7 +483,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 54556457681709572}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -542,7 +536,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 54556458506831274}
-  - component: {fileID: 4093794567353804041}
   m_Layer: 5
   m_Name: CatalogItem
   m_TagString: Untagged
@@ -565,28 +558,12 @@ RectTransform:
   - {fileID: 54556458015999748}
   - {fileID: 54556458703117805}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 158, y: 213}
   m_SizeDelta: {x: 249.09, y: 137.04}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4093794567353804041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 54556458506831269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6e05a36390036449affe9b38af3d012, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CatalogItemsData: {fileID: 11400000, guid: baa383e6d4768184580ab4a5c4f5cddb, type: 2}
-  priceText: {fileID: 54556457270218992}
-  itemSprite: {fileID: 54556458416164229}
 --- !u!1 &54556458703117804
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +598,6 @@ RectTransform:
   - {fileID: 54556458376414944}
   - {fileID: 54556457681709572}
   m_Father: {fileID: 54556458506831274}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -680,7 +656,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4093794567353804041}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CatalogItemBehaviour, Assembly-CSharp
         m_MethodName: BuyFurniture
         m_Mode: 1

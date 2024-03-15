@@ -328,6 +328,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4794584248579227383, guid: 2a090e5b6eae6704990800c2889532b7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4794584248579227383, guid: 2a090e5b6eae6704990800c2889532b7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7483609355116695386, guid: 2a090e5b6eae6704990800c2889532b7, type: 3}
       propertyPath: m_Name
       value: LoadScreen
@@ -525,6 +533,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 617380949368149936, guid: bc72c73d6aad06540aa3170f8b3f2b78, type: 3}
+      propertyPath: StoreInventory.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 617380949368149936, guid: bc72c73d6aad06540aa3170f8b3f2b78, type: 3}
+      propertyPath: 'StoreInventory.Array.data[10]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a4c637995e6ad894884d5043f40185b4, type: 2}
+    - target: {fileID: 617380949368149936, guid: bc72c73d6aad06540aa3170f8b3f2b78, type: 3}
+      propertyPath: 'StoreInventory.Array.data[11]'
+      value: 
+      objectReference: {fileID: 11400000, guid: c4300f05697429f46873fe93ca739548, type: 2}
+    - target: {fileID: 617380949368149936, guid: bc72c73d6aad06540aa3170f8b3f2b78, type: 3}
+      propertyPath: 'StoreInventory.Array.data[12]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c45aa966a28a2c4386228b5c655037b, type: 2}
     - target: {fileID: 1441576309294299933, guid: bc72c73d6aad06540aa3170f8b3f2b78, type: 3}
       propertyPath: m_IsActive
       value: 0

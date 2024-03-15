@@ -9,7 +9,7 @@ public class CatalogLogic : MonoBehaviour
     public TMP_Text MyKibble;
     public GameObject ItemIcon;
     public TMP_Text ItemCost;
-    public GameObject tag;
+    public GameObject BuyTag;
     public ItemData CurrentItem;
     public GameObject[] Buttons;
     public ItemData[] StoreInventory;
@@ -38,7 +38,7 @@ public class CatalogLogic : MonoBehaviour
         MyKibble.SetText(GameDataManager.Instance.kibble.ToString());
         ItemIcon.GetComponent<Image>().sprite = CurrentItem.icon;
         ItemCost.SetText(CurrentItem.price.ToString());
-        tag.SetActive(true);
+        BuyTag.SetActive(true);
     }
 
     public void BuyItem(){
@@ -47,10 +47,10 @@ public class CatalogLogic : MonoBehaviour
             GameDataManager.Instance.inventory.Add((int)CurrentItem.ID);
             GameDataManager.Instance.kibble -= CurrentItem.price;
             MyKibble.SetText(GameDataManager.Instance.kibble.ToString());
-            tag.SetActive(false);
+            BuyTag.SetActive(false);
         }
     }
     public void CloseTag(){
-        tag.SetActive(false);
+        BuyTag.SetActive(false);
     }
 }
