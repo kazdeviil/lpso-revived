@@ -14,21 +14,12 @@ public class loginUI : MonoBehaviour
 
     public Button loginButton;
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void CheckUsername()
     {
         if (usernameField.text.Length > 0)
         {
+            Debug.Log(username.text);
+            GameDataManager.Instance.displayName = username.text;
             LoginSuccess();
         }
         else

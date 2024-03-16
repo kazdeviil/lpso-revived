@@ -7599,7 +7599,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bengal Cat
+  m_text: Singleplayer
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2b3c25a5e7debfe41bd24348cad3cb7b, type: 2}
   m_sharedMaterial: {fileID: 4517194270029276350, guid: 2b3c25a5e7debfe41bd24348cad3cb7b, type: 2}
@@ -10557,6 +10557,7 @@ MonoBehaviour:
   petPreview: {fileID: 439622491029602295}
   previewRibbon: {fileID: 1952069437636314368}
   pageCount: 1
+  playerName: {fileID: 8848524182725836775}
   petCountText: {fileID: 2774652800856412417}
   petName: {fileID: 8953108956562993341}
   pageButtons:

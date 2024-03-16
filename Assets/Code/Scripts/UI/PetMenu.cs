@@ -18,6 +18,7 @@ public class PetMenu : MonoBehaviour
     [SerializeField] GameObject previewRibbon;
     int petSelected = 0;
     [HideInInspector] public int pageCount = 1;
+    [SerializeField] TMPro.TextMeshProUGUI playerName;
     [SerializeField] TMPro.TextMeshProUGUI petCountText;
     [SerializeField] TMPro.TextMeshProUGUI petName;
     [SerializeField] GameObject[] pageButtons;
@@ -25,6 +26,10 @@ public class PetMenu : MonoBehaviour
     [SerializeField] GameObject pageButtonRight;
     [SerializeField] Sprite pageButtonSelected;
 
+    private void Start()
+    {
+        playerName.text = $"Player: {GameDataManager.Instance.displayName}";
+    }
     public void petSlotInfoUpdate(int buttonID)
     {
         petSelected = (pageCount * 12) - buttonID;

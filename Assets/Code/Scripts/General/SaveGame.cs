@@ -11,6 +11,7 @@ public class SaveData
     //public List<FurnitureData> inventory;
     public int[,] rotationData;
     public int[,] levelData;
+    public string displayName;
     public List<int> inventory;
 	public int kibble;
     public List<Pet> pets;

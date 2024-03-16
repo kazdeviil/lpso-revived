@@ -10,6 +10,7 @@ public class GameDataManager : MonoBehaviour
 
     public bool Loaded {get; private set;}
     public List<ItemData> itemList;
+    public string displayName;
     public List<int> inventory = new List<int>();
     public int kibble = 100;
     public int[,] levelData = new int[10,10];
@@ -45,6 +46,7 @@ public class GameDataManager : MonoBehaviour
         BinaryFormatter bf = new BinaryFormatter(); 
 	    FileStream file = File.Create(Application.persistentDataPath  + "/MySaveData.dat"); 
 	    SaveData data = new SaveData();
+        data.displayName = displayName;
 	    data.inventory = inventory;
         data.rotationData = rotationData;
         data.levelData = levelData;
@@ -67,6 +69,7 @@ public class GameDataManager : MonoBehaviour
 		    FileStream file = File.Open(Application.persistentDataPath + "/MySaveData.dat", FileMode.Open);
 		    SaveData data = (SaveData)bf.Deserialize(file);
 		    file.Close();
+            displayName = data.displayName;
             if (data.inventory != null){
 		        inventory = data.inventory;
             }
