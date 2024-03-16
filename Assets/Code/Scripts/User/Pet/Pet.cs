@@ -40,7 +40,16 @@ public class Pet
     public string species;
     public int subSpecies;
     public DateTime adoptionDate = DateTime.Now;
-    
+
+    public int favFood1;
+    public int favFood2;
+    public int favFood3;
+
+    public int luckyLevel = 1;
+    public int luckyExp = 0;
+    public int luckyLvlUp;
+    public bool luckMaxLvlReached;
+
     public Dictionary<PetPaletteType, PaletteColor> colors = new Dictionary<PetPaletteType, PaletteColor> {
         { PetPaletteType.Coat, PaletteColor.white },
         { PetPaletteType.Patch, PaletteColor.white},
