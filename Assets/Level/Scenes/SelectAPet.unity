@@ -1559,6 +1559,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: green round button 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1276137275}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4987267192517276444, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1703,6 +1711,26 @@ PrefabInstance:
     - target: {fileID: 2551402463445415058, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
       propertyPath: m_Name
       value: green round button 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1276137276}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: JumpPage
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectAPetUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4987267192517276444, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
       propertyPath: m_Pivot.x
@@ -3174,6 +3202,10 @@ MonoBehaviour:
   prevPrevPageTxt: {fileID: 1572198838}
   petPreview: {fileID: 939950217}
   pageCount: 1
+  nextPageCount: 2
+  nextNextPageCount: 3
+  prevPageCount: 0
+  prevPrevPageCount: 0
   maxPageCount: 8
   maxPetPages: 0
   finalPetPageCount: 0
@@ -3198,6 +3230,13 @@ MonoBehaviour:
   platform4: {fileID: 113628919}
   platform5: {fileID: 1317338873}
   platform6: {fileID: 604753263}
+  pageButtons:
+  - {fileID: 1293161741}
+  - {fileID: 1683536070}
+  - {fileID: 1902326762}
+  - {fileID: 658621570}
+  - {fileID: 1767829524}
+  - {fileID: 1543596298}
 --- !u!4 &1276137277
 Transform:
   m_ObjectHideFlags: 0
@@ -3224,6 +3263,22 @@ PrefabInstance:
     - target: {fileID: 2551402463445415058, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
       propertyPath: m_Name
       value: green round button 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1276137276}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: JumpPage
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectAPetUI, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4987267192517276444, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
       propertyPath: m_Pivot.x
@@ -3564,6 +3619,26 @@ PrefabInstance:
     - target: {fileID: 2551402463445415058, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
       propertyPath: m_Name
       value: small right
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1276137276}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: JumpPage
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectAPetUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4987267192517276444, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
       propertyPath: m_Pivot.x
@@ -4069,6 +4144,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: green round button 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1276137276}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: JumpPage
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectAPetUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4987267192517276444, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4209,6 +4304,26 @@ PrefabInstance:
     - target: {fileID: 2551402463445415058, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
       propertyPath: m_Name
       value: small left
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1276137276}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: JumpPage
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectAPetUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4987267192517276444, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
       propertyPath: m_Pivot.x
@@ -4849,6 +4964,26 @@ PrefabInstance:
     - target: {fileID: 2551402463445415058, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
       propertyPath: m_Name
       value: green round button 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1276137276}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: JumpPage
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SelectAPetUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3617385097899213472, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4987267192517276444, guid: e67d292dd2e957547b852b1d8c2189a1, type: 3}
       propertyPath: m_Pivot.x

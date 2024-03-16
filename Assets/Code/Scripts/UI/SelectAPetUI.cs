@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SelectAPetUI : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class SelectAPetUI : MonoBehaviour
     public TMPro.TextMeshProUGUI prevPrevPageTxt;
     public Image petPreview;
     public int pageCount = 1;
+    public int nextPageCount = 2;
+    public int nextNextPageCount = 3;
+    public int prevPageCount;
+    public int prevPrevPageCount;
     public int maxPageCount = 8;
     public int maxPetPages;
     public int finalPetPageCount;
@@ -36,6 +41,7 @@ public class SelectAPetUI : MonoBehaviour
     public SelectAPetPlatform platform4;
     public SelectAPetPlatform platform5;
     public SelectAPetPlatform platform6;
+    public GameObject[] pageButtons;
 
     void Awake()
     {
@@ -45,6 +51,9 @@ public class SelectAPetUI : MonoBehaviour
         selectedPet = 0;
         petPreview.sprite = GameData.petSprites[selectedPet];
         pageCount = 1;
+        nextPageCount = pageCount + 1;
+        nextNextPageCount = nextPageCount + 1;
+        
         // neutralizes clicked stand, sets pet sprite per stand
         for (int i = 1; i < petPlatforms.Length; i++)
         {
@@ -65,6 +74,8 @@ public class SelectAPetUI : MonoBehaviour
         {
             maxPageCount = maxPetPages;
         }
+        prevPageCount = maxPageCount;
+        prevPrevPageCount = prevPageCount - 1;
         finalPetPageCount = totalPets - ((totalPets / slotCount) * slotCount);
         UpdatePets();
     }
@@ -185,34 +196,38 @@ public class SelectAPetUI : MonoBehaviour
         currentPageTxt.text = pageCount.ToString();
         if (pageCount == maxPageCount)
         {
-            nextPageTxt.text = "1";
-            nextNextPageTxt.text = "2";
+            nextPageCount = 1;
+            nextNextPageCount = 2;
         }
         else if (pageCount == maxPageCount - 1)
         {
-            nextPageTxt.text = maxPageCount.ToString();
-            nextNextPageTxt.text = "1";
+            nextPageCount = maxPageCount;
+            nextNextPageCount = 1;
         }
         else
         {
-            nextPageTxt.text = (pageCount + 1).ToString();
-            nextNextPageTxt.text = (pageCount + 2).ToString();
+            nextPageCount = pageCount + 1;
+            nextNextPageCount = pageCount + 2;
         }
         if (pageCount == 1)
         {
-            prevPageTxt.text = maxPageCount.ToString();
-            prevPrevPageTxt.text = (maxPageCount - 1).ToString();
+            prevPageCount = maxPageCount;
+            prevPrevPageCount = prevPageCount - 1;
         }
         else if (pageCount == 2)
         {
-            prevPageTxt.text = "1";
-            prevPrevPageTxt.text = maxPageCount.ToString();
+            prevPageCount = 1;
+            prevPrevPageCount = maxPageCount;
         }
         else
         {
-            prevPageTxt.text = (pageCount - 1).ToString();
-            prevPrevPageTxt.text = (pageCount - 2).ToString();
+            prevPageCount = pageCount - 1;
+            prevPrevPageCount = pageCount - 2;
         }
+        nextPageTxt.text = nextPageCount.ToString();
+        nextNextPageTxt.text = nextNextPageCount.ToString();
+        prevPageTxt.text = prevPageCount.ToString();
+        prevPrevPageTxt.text = prevPrevPageCount.ToString();
     }
     void CheckSelected()
     {
@@ -240,5 +255,34 @@ public class SelectAPetUI : MonoBehaviour
         petPlatforms[i].transform.Find("top").gameObject.GetComponent<Image>().sprite = TopMember;
         petPlatforms[i].transform.Find("top/star").gameObject.SetActive(true);
         petPlatforms[i].transform.Find("bottom").gameObject.GetComponent<Image>().sprite = BottomMember;
+    }
+    public void JumpPage(int i)
+    {
+        if (i == 0)
+        {
+            pageCount = prevPrevPageCount;
+        }
+        else if (i == 1)
+        {
+            pageCount = prevPageCount;
+        }
+        else if (i == 2)
+        {
+            pageCount = nextPageCount;
+        }
+        else if (i == 3)
+        {
+            pageCount = nextNextPageCount;
+        }
+        else if (i == 4)
+        {
+            pageCount = 1;
+        }
+        else
+        {
+            pageCount = maxPageCount;
+        }
+        UpdatePets();
+        UpdateNumbers();
     }
 }
