@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a63dc665c7d06d3418680abce5e8fa6f, type: 3}
+  m_Name: 25AppleWhite
+  m_EditorClassIdentifier: 
+  objects: []
+  ID: 25
+  itemName: Bright White Apple
+  itemDesc: Shiny
+  icon: {fileID: -3162614622937671681, guid: 1e7f5cee18511f643a9655bc6ce8b72a, type: 3}
+  price: 35
+  category: food
+  rotations: {fileID: 0}
+  membersOnly: 0
+  ItemCategory: 2
+  ItemCategoryText: 12
+  restricted: 0

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a63dc665c7d06d3418680abce5e8fa6f, type: 3}
+  m_Name: 26AppleGold
+  m_EditorClassIdentifier: 
+  objects: []
+  ID: 26
+  itemName: Golden Apple
+  itemDesc: Glimmering gold
+  icon: {fileID: 4172008770146619369, guid: 7d30a802fa0e7d54caed5dea4dab8361, type: 3}
+  price: 60
+  category: food
+  rotations: {fileID: 0}
+  membersOnly: 0
+  ItemCategory: 2
+  ItemCategoryText: 12
+  restricted: 0

@@ -17,6 +17,7 @@ public class ItemData : ScriptableObject
     public bool membersOnly;
     public itemCategory ItemCategory;
     public itemCategoryText ItemCategoryText;
+    public bool restricted;
 
     public enum itemCategory
     {

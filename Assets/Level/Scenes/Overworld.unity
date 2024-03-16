@@ -1782,6 +1782,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6584116409958228770, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
+      propertyPath: 'petSprites.Array.data[6]'
+      value: 
+      objectReference: {fileID: -3148861368566176137, guid: d3632a410fdfd374f93bc5a1866ec2b2, type: 3}
     - target: {fileID: 6682542137553865020, guid: 1e9c60d0a91a4fb46955a276e5a8e3e8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
