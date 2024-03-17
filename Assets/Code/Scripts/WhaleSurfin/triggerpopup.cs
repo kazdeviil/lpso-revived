@@ -3,51 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-class Program
-{
-    static void Main()
-    {
-        Dictionary<string, int> happyWords =
-            new Dictionary<string, int>();
-
-        happyWords.Add("Doing Great!", 1);
-        happyWords.Add("TKeep It Up!", 2);
-        happyWords.Add("Fantastic!", 3);
-        happyWords.Add("So Agile!", 4);
-        happyWords.Add("Keep Going!", 5);
-        happyWords.Add("Wow!", 6);
-        happyWords.Add("Way to go!", 7);
-        happyWords.Add("Balance Master!", 8);
-    }
-}
-
 public class triggerpopup : MonoBehaviour
 {
-
-    public TextMeshProUGUI encouragement;
+    public GameObject text;
     public float texttimer;
     public float resettimer = 10;
-    
-    // Start is called before the first frame update
-    void Start()
+    public string[] happyWords = new string[]
     {
-        
+        "Doing Great!",
+        "Keep It Up!",
+        "Fantastic!",
+        "So Agile!",
+        "Keep Going!",
+        "Wow!",
+        "Way to go!",
+        "Balance Master!"
+    };
+
+    private void Start()
+    {
+        texttimer = 10;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        texttimer = Time.deltaTime;
-        if (texttimer < 0 )
+        texttimer -= Time.deltaTime;
+        if (texttimer <= 8)
         {
-            changetext();
+            text.GetComponent<TextMeshProUGUI>().text = "";
+        }
+        if (texttimer <= 0 )
+        {
+            ChangeText();
+            texttimer = resettimer;
         }
     }
 
-    void changetext()
+    void ChangeText()
     {
-        Random.Range(1, 9);
-        
-        texttimer = resettimer;
+        text.GetComponent<TextMeshProUGUI>().text = happyWords[Random.Range(0, happyWords.Length)];
     }
 }
