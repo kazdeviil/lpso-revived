@@ -18,6 +18,10 @@ public class InventoryHandler : MonoBehaviour
     public Button pageRight;
     public ItemData itemData;
 
+    public float invOpenPosition;
+    public float invClosePosition;
+    public GameObject invCloseRef;
+
 
     void Awake()
     {
@@ -26,6 +30,20 @@ public class InventoryHandler : MonoBehaviour
             //addButton(i);
         }
         pageCount = 1;
+        invOpenPosition = gameObject.transform.position.x;
+        invClosePosition = invCloseRef.transform.position.x;
+        Destroy(invCloseRef);
+        gameObject.transform.position = new Vector3(invClosePosition, gameObject.transform.position.y, 0);
+    }
+
+    public void swoopIn()
+    {
+        LeanTween.moveX(gameObject, invOpenPosition, 0.2f).setEase(LeanTweenType.easeOutQuad);
+    }
+
+    public void swoopOut()
+    {
+        LeanTween.moveX(gameObject, invClosePosition, 0.2f).setEase(LeanTweenType.easeOutQuad);
     }
 
     void addButton(int itemID)

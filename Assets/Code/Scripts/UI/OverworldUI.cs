@@ -95,7 +95,6 @@ public class OverworldUI : MonoBehaviour
     public void UIToggles(int buttonID)
     {
         currentUI = buttonID;
-        mainUI[buttonID].SetActive(!mainUI[buttonID].activeSelf);
         if (buttonID == 0)
         {
             HouseConfirm.SetActive(false);
@@ -110,15 +109,24 @@ public class OverworldUI : MonoBehaviour
         else if (buttonID == 5)
         {
             invHandler.inventoryUpdate();
+            if (inventory.activeSelf)
+            {
+                invHandler.swoopOut();
+            }
+            else
+            {
+                invHandler.swoopIn();
+            }
         }
         if (buttonID != 5)
         {
             inventory.SetActive(false);
         }
+        mainUI[buttonID].SetActive(!mainUI[buttonID].activeSelf);
     }
     // TODO: add side inventory logic
 
-   
+
 
     public void TravelTo(int buttonID)
     {
