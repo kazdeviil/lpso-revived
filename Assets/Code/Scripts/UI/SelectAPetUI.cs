@@ -16,6 +16,7 @@ public class SelectAPetUI : MonoBehaviour
     public TMPro.TextMeshProUGUI prevPageTxt;
     public TMPro.TextMeshProUGUI prevPrevPageTxt;
     public Image petPreview;
+    public GameObject petPreviewStand;
     public int pageCount = 1;
     public int nextPageCount = 2;
     public int nextNextPageCount = 3;
@@ -27,11 +28,15 @@ public class SelectAPetUI : MonoBehaviour
     public int selectedPet;
     public int totalPets;
     public int slotCount = 6;
+    public int selectedSlot = 0;
 
     public Sprite TopNonmember;
     public Sprite BottomNonmember;
+    public Sprite BallNonmember;
     public Sprite TopMember;
     public Sprite BottomMember;
+    public Sprite BallMember;
+
     public Sprite noPet;
     public GameObject[] petPlatforms;
 
@@ -50,6 +55,20 @@ public class SelectAPetUI : MonoBehaviour
         currentPetName.text = GameData.petlist[0];
         selectedPet = 0;
         petPreview.sprite = GameData.petSprites[selectedPet];
+        if (GameData.petMemberStatus[selectedPet])
+        {
+            petPreviewStand.transform.Find("top").gameObject.GetComponent<Image>().sprite = TopMember;
+            petPreviewStand.transform.Find("top/star").gameObject.SetActive(true);
+            petPreviewStand.transform.Find("bottom").gameObject.GetComponent<Image>().sprite = BottomMember;
+            petPreviewStand.transform.Find("balls").gameObject.GetComponent<Image>().sprite = BallMember;
+        }
+        else
+        {
+            petPreviewStand.transform.Find("top").gameObject.GetComponent<Image>().sprite = TopNonmember;
+            petPreviewStand.transform.Find("top/star").gameObject.SetActive(false);
+            petPreviewStand.transform.Find("bottom").gameObject.GetComponent<Image>().sprite = BottomNonmember;
+            petPreviewStand.transform.Find("balls").gameObject.GetComponent<Image>().sprite = BallNonmember;
+        }
         pageCount = 1;
         nextPageCount = pageCount + 1;
         nextNextPageCount = nextPageCount + 1;
@@ -81,12 +100,27 @@ public class SelectAPetUI : MonoBehaviour
     }
     public void SelectPet(int buttonID)
     {
+        selectedSlot = buttonID;
         // activates gold ring on selected stand IF selected stand is a player pet, deactivates rest
         if ((pageCount * slotCount) - (slotCount - buttonID) < GameData.petlist.Length)
         {
             selectedPet = (pageCount * slotCount) - (slotCount - buttonID);
             currentPetName.text = GameData.petlist[selectedPet];
             petPreview.sprite = GameData.petSprites[selectedPet];
+            if (GameData.petMemberStatus[selectedPet])
+            {
+                petPreviewStand.transform.Find("top").gameObject.GetComponent<Image>().sprite = TopMember;
+                petPreviewStand.transform.Find("top/star").gameObject.SetActive(true);
+                petPreviewStand.transform.Find("bottom").gameObject.GetComponent<Image>().sprite = BottomMember;
+                petPreviewStand.transform.Find("balls").gameObject.GetComponent<Image>().sprite = BallMember;
+            }
+            else
+            {
+                petPreviewStand.transform.Find("top").gameObject.GetComponent<Image>().sprite = TopNonmember;
+                petPreviewStand.transform.Find("top/star").gameObject.SetActive(false);
+                petPreviewStand.transform.Find("bottom").gameObject.GetComponent<Image>().sprite = BottomNonmember;
+                petPreviewStand.transform.Find("balls").gameObject.GetComponent<Image>().sprite = BallNonmember;
+            }
             for (int i = 0; i < petPlatforms.Length; i++)
             {
                 petPlatforms[i].transform.Find("gold").gameObject.SetActive(false);
@@ -281,6 +315,14 @@ public class SelectAPetUI : MonoBehaviour
         else
         {
             pageCount = maxPageCount;
+        }
+        if ((pageCount * slotCount) - (slotCount - selectedSlot) == selectedPet)
+        {
+            petPlatforms[selectedSlot].transform.Find("gold").gameObject.SetActive(true);
+        } 
+        else
+        {
+            petPlatforms[selectedSlot].transform.Find("gold").gameObject.SetActive(false);
         }
         UpdatePets();
         UpdateNumbers();
