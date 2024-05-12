@@ -9,12 +9,12 @@ using TMPro;
 public class MatchnmunchLogic : MonoBehaviour
 {
 
+    public GameObject[] LifeDisplay;
     public GameObject[] FoodObjects;
     public GameObject BoxBackground;
     public GameObject Box;
     public GameObject BoxFound;
     public Camera cam;
-    public Text FoodGoalText;
     public float BoxLiftSpeed = 3f;
     public GameObject HoverObj;
     public Sprite HoverGoodSprite;
@@ -39,11 +39,13 @@ public class MatchnmunchLogic : MonoBehaviour
     public GameObject startMenu;
     public GameObject scoreScreen;
     public GameObject LiveImage;
-    public int Lives = 7;
+    public int Lives = 6;
     private float LiveImgMargin = 0.5f;
-    private GameObject[] LiveObjects;
     private int FoodGoal = 0;
     private int FoodFound = 0;
+    public int TotalFoodFound = 0;
+    public int GoalInt = 12;
+    public int FoodLeft = 0;
     private GameObject[,] Grid;
     private GameObject[,] GridBox;
     private GameObject HoverObjGame;
@@ -54,7 +56,11 @@ public class MatchnmunchLogic : MonoBehaviour
 
     private int flatscore = 0;
     private int nicefindscore = 0;
+    private int gotthemallscore = 0;
     private int totalScore = 0;
+
+    public TMP_Text foodRemainingTxt;
+    public TMP_Text currentScoreTxt;
 
     public TMP_Text ScoreText;
     public TMP_Text NiceFindText;
@@ -64,247 +70,270 @@ public class MatchnmunchLogic : MonoBehaviour
     public TMP_Text TotalScoreText;
     public TMP_Text HighscoreText1;
     public TMP_Text HighscoreText2;
-
-    private bool GotThemAll;
+    
     // Start is called before the first frame update
     void Start()
     {
-      HighscoreText1.SetText(GameDataManager.Instance.mnmhighscore.ToString());
-      HighscoreText2.SetText(GameDataManager.Instance.mnmhighscore.ToString());
+        HighscoreText1.SetText(GameDataManager.Instance.mnmhighscore.ToString());
+        HighscoreText2.SetText(GameDataManager.Instance.mnmhighscore.ToString());
     }
 
-    public void StartGame(){
-      Debug.Log("pressed start");
-      gameRunning = true;
-      startMenu.SetActive(false);
-      GotThemAll = false;
+    public void StartGame()
+    {
+        gameRunning = true;
+        startMenu.SetActive(false);
+        for (int i = 0; i < LifeDisplay.Length; i++)
+        {
+            LifeDisplay[i].SetActive(true);
+        };
+        foodRemainingTxt.SetText(GoalInt.ToString());
+        FoodLeft = GoalInt;
 
-      Grid = new GameObject[GridWidth,GridHeight];
-      GridBox = new GameObject[GridWidth,GridHeight];
-      BoxHeightGoal = new float[GridWidth,GridHeight];
+        Grid = new GameObject[GridWidth,GridHeight];
+        GridBox = new GameObject[GridWidth,GridHeight];
+        BoxHeightGoal = new float[GridWidth,GridHeight];
 
-      aspect = (float)Screen.width / Screen.height;
-      worldHeight = cam.orthographicSize * 2;
-      worldWidth = worldHeight * aspect;
-      LeftStart = worldWidth * FoodLeftStart - worldWidth/2;
+        aspect = (float)Screen.width / Screen.height;
+        worldHeight = cam.orthographicSize * 2;
+        worldWidth = worldHeight * aspect;
+        LeftStart = worldWidth * FoodLeftStart - worldWidth/2;
 
-      LiveObjects = new GameObject[Lives];
-      HoverObjGame = Instantiate(HoverObj, new Vector3(10,10,10), Quaternion.identity);
+        HoverObjGame = Instantiate(HoverObj, new Vector3(10,10,10), Quaternion.identity);
 
-      Cursor.visible = false;
+        Cursor.visible = false;
 
-      IconWidth = ((worldWidth - FoodMargin - worldWidth * FoodLeftStart) / (GridWidth + 1));
-      IconHeight = ((worldHeight - FoodMargin ) / (GridHeight + 1));
+        IconWidth = ((worldWidth - FoodMargin - worldWidth * FoodLeftStart) / (GridWidth + 1));
+        IconHeight = ((worldHeight - FoodMargin ) / (GridHeight + 1));
 
 
         for(int x = 0; x < GridWidth; x++)
-          {
+        {
             for(int y = 0; y < GridHeight; y++)
-              {
-                  Instantiate(BoxBackground, new Vector3(LeftStart + (x+1) * IconWidth,(y+1) * IconHeight - worldHeight / 2 - FoodMargin,0), Quaternion.identity);
-                  int CurrentItem = (int)Random.Range(0,FoodObjects.Length);
-                  GameObject Clone = Instantiate(FoodObjects[CurrentItem], new Vector3(LeftStart + (x+1) * IconWidth,(y+1) * IconHeight - worldHeight / 2 - FoodMargin,0), Quaternion.identity);
-                  Grid[x,y] = Clone;
-              }
-          }
-
-          for(int i = 0; i < Lives; i++)
-          {
-            GameObject Clone = Instantiate(LiveImage,new Vector3(-(Lives*LiveImgMargin)/2+(i+0.5f)*LiveImgMargin,(worldHeight/2)-0.5f,0), Quaternion.identity);
-            LiveObjects[i] = Clone;
-          }
-
-          for(int x = 0; x < GridWidth; x++)
-            {
-              for(int y = 0; y < GridHeight; y++)
                 {
-                    BoxHeightGoal[x,y] = 0;
-                    GameObject Clone = Instantiate(Box, new Vector3(LeftStart + (x+1) * IconWidth,(y+1) * IconHeight - worldHeight / 2 - FoodMargin + BoxHeightGoal[x,y],0), Quaternion.identity);
-                    GridBox[x,y] = Clone;
-              }
+                    Instantiate(BoxBackground, new Vector3(LeftStart + (x+1) * IconWidth,(y+1) * IconHeight - worldHeight / 2 - FoodMargin,0), Quaternion.identity);
+                    int CurrentItem = (int)Random.Range(0,FoodObjects.Length);
+                    GameObject Clone = Instantiate(FoodObjects[CurrentItem], new Vector3(LeftStart + (x+1) * IconWidth,(y+1) * IconHeight - worldHeight / 2 - FoodMargin,0), Quaternion.identity);
+                    Grid[x,y] = Clone;
+                }
+        }
 
+        for(int x = 0; x < GridWidth; x++)
+        {
+            for(int y = 0; y < GridHeight; y++)
+            {
+                BoxHeightGoal[x,y] = 0;
+                GameObject Clone = Instantiate(Box, new Vector3(LeftStart + (x+1) * IconWidth,(y+1) * IconHeight - worldHeight / 2 - FoodMargin + BoxHeightGoal[x,y],0), Quaternion.identity);
+                GridBox[x,y] = Clone;
             }
+        }
     }
 
-    void SetScore(){
-      gameRunning = false;
-      if (GotThemAll) {
-        GotAllText.SetText("1000");
-        totalScore = 1000;
-      } else {
-        GotAllText.SetText("0");
-        totalScore = 0;
-      }
-      NiceFindText.SetText(nicefindscore.ToString());
-      totalScore += nicefindscore;
-      ScoreText.SetText(flatscore.ToString());
-      totalScore += flatscore;
-      TotalScoreText.SetText(totalScore.ToString());
+    void SetScore()
+    {
+        gameRunning = false;
+        GotAllText.SetText($"{gotthemallscore:n0} Pts");
+        NiceFindText.SetText($"{nicefindscore:n0} Pts");
+        ScoreText.SetText($"{flatscore:n0} Pts");
+        totalScore = flatscore + nicefindscore + gotthemallscore;
+        TotalScoreText.SetText($"{totalScore:n0} Pts");
 
-      int kibble = totalScore/50;
-      KibbleWon.SetText(kibble.ToString());
-      GameDataManager.Instance.AddKibble(kibble);
-      KibbleTotal.SetText(GameDataManager.Instance.kibble.ToString());
+        int kibble = totalScore/50;
+        KibbleWon.SetText(kibble.ToString());
+        GameDataManager.Instance.AddKibble(kibble);
+        KibbleTotal.SetText(GameDataManager.Instance.kibble.ToString());
 
-      if(totalScore> GameDataManager.Instance.mnmhighscore){
-        GameDataManager.Instance.mnmhighscore = totalScore;  
-      }
-      HighscoreText1.SetText(GameDataManager.Instance.mnmhighscore.ToString());
-      HighscoreText2.SetText(GameDataManager.Instance.mnmhighscore.ToString());
+        if(totalScore> GameDataManager.Instance.mnmhighscore)
+        {
+            GameDataManager.Instance.mnmhighscore = totalScore;  
+        }
+        HighscoreText1.SetText(GameDataManager.Instance.mnmhighscore.ToString());
+        HighscoreText2.SetText(GameDataManager.Instance.mnmhighscore.ToString());
     }
 
+    void UpdateScore()
+    {
+        totalScore = flatscore + nicefindscore + gotthemallscore;
+        currentScoreTxt.SetText($"{totalScore:n0}");
+        FoodLeft -= FoodFound;
+        if (FoodLeft < 0)
+        {
+            FoodLeft = 0;
+        }
+        foodRemainingTxt.SetText(FoodLeft.ToString());
+
+        FoodFound += FoodGoal;
+        winningFood = 0;
+        FoodFound = 0;
+        FoodGoal = 0;
+    }
 
     // Update is called once per frame
     void Update()
     {
-      if (gameRunning){
-
-      Vector2 MousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
-      if (StartCountDown > 0)
-      {
-        StartCountDown -= Time.deltaTime;
-      }
-      if (winningFoodTimer > 0)
-      {
-        winningFoodTimer -= Time.deltaTime;
-        if (winningFoodTimer <= 0)
+        if (gameRunning)
         {
-          FeedbackText.enabled = false;
-        }
-      }
-      for(int x = 0; x < GridWidth; x++)
-        {
-          for(int y = 0; y < GridHeight; y++)
+            Vector2 MousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
+            if (StartCountDown > 0)
             {
-                if (GridBox[x,y])
-                {
-                  GridBox[x,y].transform.position = Vector3.Lerp(GridBox[x,y].transform.position, new Vector3(LeftStart + (x+1) * IconWidth,(y+1) * IconHeight - worldHeight / 2 - FoodMargin + BoxHeightGoal[x,y],0), Time.deltaTime * BoxLiftSpeed);
-                  if (GridBox[x,y].transform.position.y > (y+1) * IconHeight - worldHeight / 2 - FoodMargin + 5.5f)
-                  {
-                    Destroy(GridBox[x,y]);
-                  }
-                  if (StartCountDown <= 0 && !GameStarted)
-                  {
-                    BoxHeightGoal[x,y] = 6;
-                  }
-              }
+                StartCountDown -= Time.deltaTime;
             }
-          }
-      if (StartCountDown <= 0)
-      {
-      if(!GameStarted && Input.GetMouseButtonDown(0))
-      {
-      GameStarted = true;
-
-      for(int x = 0; x < GridWidth; x++)
-        {
-          for(int y = 0; y < GridHeight; y++)
+            if (winningFoodTimer > 0)
             {
-                BoxHeightGoal[x,y] = 5;
-                GameObject Clone = Instantiate(Box, new Vector3(LeftStart + (x+1) * IconWidth,(y+1) * IconHeight - worldHeight / 2 - FoodMargin + BoxHeightGoal[x,y],0), Quaternion.identity);
-                BoxHeightGoal[x,y] = 0;
-
-                GridBox[x,y] = Clone;
-                if (winningFood == Grid[x,y].GetComponent<MunchItem>().ItemNumber)
+                winningFoodTimer -= Time.deltaTime;
+                if (winningFoodTimer <= 0)
                 {
-                  FoodGoal += 1;
+                    FeedbackText.enabled = false;
                 }
             }
-          }
-
-        }
-        if (GameStarted)
-        {
-          FoodGoalText.text = "Found " + FoodFound + " of " + FoodGoal;
-        }
-
-        int HoverX = (int)((MousePosition.x + worldWidth * FoodLeftStart - FoodMargin) / IconWidth -1.5f);
-        int HoverY = (int)((MousePosition.y + worldHeight/2 - FoodMargin) / IconHeight -0.4f);
-
-        if (HoverX >= 0 && HoverX < GridWidth && HoverY >= 0 && HoverY < GridHeight){
-          SpriteRenderer sprite = HoverObjGame.GetComponent<SpriteRenderer>();
-          HoverObjGame.transform.position = new Vector3(LeftStart + (HoverX+1) * IconWidth, (HoverY+1) * IconHeight - worldHeight / 2 - FoodMargin,0);
-          sprite.sprite = HoverGoodSprite;
-          if (winningFood > 0 && winningFood != Grid[HoverX,HoverY].GetComponent<MunchItem>().ItemNumber){
-            sprite.sprite = HoverBadSprite;
-          }
-        } else {
-          HoverObjGame.transform.position = new Vector3(10,10,0);
-        }
-      if(Input.GetMouseButtonDown(0))
-      {
-        int SelectedX = HoverX;
-        int SelectedY = HoverY;
-        if (Grid[SelectedX,SelectedY])
-        {
-          selectedFood = Grid[SelectedX,SelectedY].GetComponent<MunchItem>().ItemNumber;
-          if (winningFood  == 0)
-          {
-            winningFood = selectedFood;
             for(int x = 0; x < GridWidth; x++)
-              {
+            {
                 for(int y = 0; y < GridHeight; y++)
-                  {
-                      if (winningFood == Grid[x,y].GetComponent<MunchItem>().ItemNumber)
-                      {
-                        FoodGoal += 1;
-                      }
-                  }
+                {
+                    if (GridBox[x,y])
+                    {
+                        GridBox[x,y].transform.position = Vector3.Lerp(GridBox[x,y].transform.position, new Vector3(LeftStart + (x+1) * IconWidth,(y+1) * IconHeight - worldHeight / 2 - FoodMargin + BoxHeightGoal[x,y],0), Time.deltaTime * BoxLiftSpeed);
+                        if (GridBox[x,y].transform.position.y > (y+1) * IconHeight - worldHeight / 2 - FoodMargin + 5.5f)
+                        {
+                            Destroy(GridBox[x,y]);
+                        }
+                        if (StartCountDown <= 0 && !GameStarted)
+                        {
+                            BoxHeightGoal[x,y] = 6;
+                        }
+                    }
+                }
+            }
+            if (StartCountDown <= 0)
+            {
+                if(!GameStarted && Input.GetMouseButtonDown(0))
+                {
+                    GameStarted = true;
+
+                    for(int x = 0; x < GridWidth; x++)
+                    {
+                        for(int y = 0; y < GridHeight; y++)
+                        {
+                            BoxHeightGoal[x,y] = 5;
+                            GameObject Clone = Instantiate(Box, new Vector3(LeftStart + (x+1) * IconWidth,(y+1) * IconHeight - worldHeight / 2 - FoodMargin + BoxHeightGoal[x,y],0), Quaternion.identity);
+                            BoxHeightGoal[x,y] = 0;
+
+                            GridBox[x,y] = Clone;
+                            if (winningFood == Grid[x,y].GetComponent<MunchItem>().ItemNumber)
+                            {
+                                FoodGoal += 1;
+                            }
+                        }
+                    }
+
+                }
+                if (GameStarted)
+                {
+                    // FoodGoalText.text = "Found " + FoodFound + " of " + FoodGoal;
                 }
 
-              }
-          if (winningFood == selectedFood){
-            Instantiate(BoxFound, new Vector3(LeftStart + (SelectedX+1) * IconWidth, (SelectedY+1) * IconHeight - worldHeight / 2 - FoodMargin,0), Quaternion.identity);
-            FoodFound += 1;
-            flatscore = 100;
-            if (GridBox[SelectedX,SelectedY]) {
-              FeedbackText.transform.position = cam.WorldToScreenPoint(new Vector3(LeftStart + (SelectedX+1) * IconWidth, (SelectedY+1) * IconHeight - worldHeight / 2 - FoodMargin,0));
-              FeedbackText.enabled = true;
-              winningFoodTimer = 1f;
-              nicefindscore += 100;
-            }
-            if (FoodFound == FoodGoal){
-              gameRunning = false;
-              scoreScreen.SetActive(true);
-              SetScore();
-              GotThemAll = true;
-            }
-            for (int x = -1; x <= 1; x++)
-              {
-              for (int y = -1; y <= 1; y++)
+                int HoverX = (int)((MousePosition.x + worldWidth * FoodLeftStart - FoodMargin) / IconWidth -1.5f);
+                int HoverY = (int)((MousePosition.y + worldHeight/2 - FoodMargin) / IconHeight -0.4f);
+
+                if (HoverX >= 0 && HoverX < GridWidth && HoverY >= 0 && HoverY < GridHeight)
                 {
-                  if (SelectedX + x >= 0 && SelectedX + x < GridWidth)
-                  {
-                    if (SelectedY + y >= 0 && SelectedY + y < GridHeight)
+                    SpriteRenderer sprite = HoverObjGame.GetComponent<SpriteRenderer>();
+                    HoverObjGame.transform.position = new Vector3(LeftStart + (HoverX+1) * IconWidth, (HoverY+1) * IconHeight - worldHeight / 2 - FoodMargin,0);
+                    sprite.sprite = HoverGoodSprite;
+                    if (winningFood > 0 && winningFood != Grid[HoverX,HoverY].GetComponent<MunchItem>().ItemNumber)
                     {
-                      BoxHeightGoal[SelectedX + x,SelectedY + y] = 6;
-                      if (GridBox[SelectedX + x,SelectedY + y]){
-                      SpriteRenderer sprite = GridBox[SelectedX + x,SelectedY + y].GetComponent<SpriteRenderer>();
-                      if (sprite)
-                      {
-                        sprite.sortingOrder = 10;
-                      }
+                        sprite.sprite = HoverBadSprite;
                     }
-                    }
-                  }
                 }
-              }
-          } else {
-            if (Lives == 1)
-            {
-              gameRunning = false;
-              scoreScreen.SetActive(true);
-              SetScore();
-            } else {
-              Destroy(LiveObjects[Lives-1]);
-              Lives -= 1;
+                else
+                {
+                    HoverObjGame.transform.position = new Vector3(10,10,0);
+                }
+                if(Input.GetMouseButtonDown(0))
+                {
+                    int SelectedX = HoverX;
+                    int SelectedY = HoverY;
+                    if (Grid[SelectedX,SelectedY])
+                    {
+                        selectedFood = Grid[SelectedX,SelectedY].GetComponent<MunchItem>().ItemNumber;
+                        if (winningFood == 0)
+                        {
+                            winningFood = selectedFood;
+                            for(int x = 0; x < GridWidth; x++)
+                            {
+                                for(int y = 0; y < GridHeight; y++)
+                                    {
+                                        if (winningFood == Grid[x,y].GetComponent<MunchItem>().ItemNumber)
+                                        {
+                                            FoodGoal += 1;
+                                        }
+                                    }
+                            }
+                        }
+                        if (winningFood == selectedFood)
+                        {
+                            Instantiate(BoxFound, new Vector3(LeftStart + (SelectedX+1) * IconWidth, (SelectedY+1) * IconHeight - worldHeight / 2 - FoodMargin,0), Quaternion.identity);
+                            FoodFound += 1;
+                            flatscore += 100;
+                            if (GridBox[SelectedX,SelectedY])
+                            {
+                                FeedbackText.transform.position = cam.WorldToScreenPoint(new Vector3(LeftStart + (SelectedX+1) * IconWidth, (SelectedY+1) * IconHeight - worldHeight / 2 - FoodMargin,0));
+                                FeedbackText.enabled = true;
+                                winningFoodTimer = 1f;
+                                nicefindscore += 100;
+                            }
+                            if (FoodFound == FoodGoal)
+                            {
+                                gotthemallscore += 1000;
+                                UpdateScore();
+                            }
+                            if (TotalFoodFound >= GoalInt)
+                            {
+                                gameRunning = false;
+                                scoreScreen.SetActive(true);
+                                SetScore();
+                            }
+                            for (int x = -1; x <= 1; x++)
+                                {
+                                    for (int y = -1; y <= 1; y++)
+                                    {
+                                        if (SelectedX + x >= 0 && SelectedX + x < GridWidth)
+                                        {
+                                            if (SelectedY + y >= 0 && SelectedY + y < GridHeight)
+                                            {
+                                                BoxHeightGoal[SelectedX + x,SelectedY + y] = 6;
+                                                if (GridBox[SelectedX + x,SelectedY + y])
+                                                {
+                                                    SpriteRenderer sprite = GridBox[SelectedX + x,SelectedY + y].GetComponent<SpriteRenderer>();
+                                                    if (sprite)
+                                                    {
+                                                        sprite.sortingOrder = 10;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                        }
+                        else
+                        {
+                            if (Lives == 0)
+                            {
+                                gameRunning = false;
+                                scoreScreen.SetActive(true);
+                                SetScore();
+                            }
+                            else
+                            {
+                                LifeDisplay[Lives].SetActive(false);
+                                Lives -= 1;
+                                UpdateScore();
+                            }
+                        }
+                        Debug.Log("SelectedFood = " + selectedFood);
+                        Debug.Log("WinningFood = " + winningFood);
+                    }
+                }
             }
-          }
-          Debug.Log("SelectedFood = " + selectedFood);
-          Debug.Log("WinningFood = " + winningFood);
         }
-      }
     }
-      }
-}
 }
