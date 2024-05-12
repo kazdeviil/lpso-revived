@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      jellybeans green_0: -783256988729993196
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

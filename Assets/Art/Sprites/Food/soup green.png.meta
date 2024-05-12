@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      soup green_0: 7866640171830279873
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

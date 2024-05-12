@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      grapes blue_0: -4306029294552122089
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

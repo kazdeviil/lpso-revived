@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      milkshake tall_0: -7808763036489244031
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

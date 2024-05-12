@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cherry yellow_0: 786442120548663641
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ice cream white_0: -1923630111637940255
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cake yellow_0: -4442034729672698025
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

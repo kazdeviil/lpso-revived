@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      apple gold_0: 4172008770146619369
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

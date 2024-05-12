@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      juice pink 1_0: 6965951944753796011
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

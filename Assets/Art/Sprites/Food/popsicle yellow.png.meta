@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      popsicle yellow_0: -2358580983678299184
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

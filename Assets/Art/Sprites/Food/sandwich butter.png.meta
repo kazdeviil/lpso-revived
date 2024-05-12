@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sandwich butter_0: 7144249992475850548
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

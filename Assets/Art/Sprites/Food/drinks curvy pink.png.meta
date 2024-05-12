@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      drinks curvy pink_0: -2862581176674536820
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

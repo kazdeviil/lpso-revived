@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      burger brown_0: -3148861368566176137
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

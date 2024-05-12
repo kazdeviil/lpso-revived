@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pickle yellow_0: 2155405816954451306
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

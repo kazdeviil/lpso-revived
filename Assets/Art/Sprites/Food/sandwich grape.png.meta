@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sandwich grape_0: 4290341261844262237
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

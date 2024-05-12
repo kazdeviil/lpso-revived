@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      apple red_0: -3989417037294542392
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cinnamon roll tan_0: -6657717552213518236
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      layer cake choco_0: -8963368293113494247
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

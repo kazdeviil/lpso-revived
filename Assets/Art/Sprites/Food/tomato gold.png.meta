@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tomato gold_0: 2769356263725504718
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

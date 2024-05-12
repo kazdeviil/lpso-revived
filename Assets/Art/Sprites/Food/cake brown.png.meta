@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cake brown_0: 8342662648615733976
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

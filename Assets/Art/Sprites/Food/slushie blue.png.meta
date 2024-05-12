@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      slushie blue_0: -190369815513477465
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

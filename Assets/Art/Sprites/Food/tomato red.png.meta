@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tomato red_0: -8133309973034715986
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

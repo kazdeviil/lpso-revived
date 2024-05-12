@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      juice bottle tan_0: -8309387045663700968
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

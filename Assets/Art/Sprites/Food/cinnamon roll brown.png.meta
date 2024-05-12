@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cinnamon roll brown_0: 3710619012679461133
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

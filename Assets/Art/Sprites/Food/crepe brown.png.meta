@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      crepe brown_0: 1389326318309594094
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

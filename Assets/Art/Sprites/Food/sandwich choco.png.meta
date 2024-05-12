@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sandwich choco_0: 4656856843864928653
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

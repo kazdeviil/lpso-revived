@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fish biscuit blue_0: -2450122187216622943
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

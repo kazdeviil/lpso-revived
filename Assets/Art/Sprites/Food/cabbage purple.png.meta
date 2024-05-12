@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cabbage purple_0: -7093473249041280516
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

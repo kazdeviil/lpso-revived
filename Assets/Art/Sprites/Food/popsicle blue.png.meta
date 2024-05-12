@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      popsicle blue_0: 2205197356606174677
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

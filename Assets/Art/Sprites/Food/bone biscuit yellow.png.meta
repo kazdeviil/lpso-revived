@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bone biscuit yellow_0: -2160351072904550949
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

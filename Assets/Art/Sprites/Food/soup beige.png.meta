@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      soup beige_0: 1591781385153381371
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

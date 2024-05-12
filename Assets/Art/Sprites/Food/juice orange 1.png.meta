@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      juice orange 1_0: 7683810537248512344
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

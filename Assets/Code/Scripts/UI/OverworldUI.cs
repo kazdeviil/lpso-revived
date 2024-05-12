@@ -109,14 +109,14 @@ public class OverworldUI : MonoBehaviour
         else if (buttonID == 5)
         {
             invHandler.inventoryUpdate();
-            if (inventory.activeSelf)
-            {
-                invHandler.swoopOut();
-            }
-            else
-            {
-                invHandler.swoopIn();
-            }
+            // if (inventory.activeSelf)
+            // {
+            //    invHandler.swoopOut();
+            // }
+            //else
+            // {
+            //    invHandler.swoopIn();
+            // }
         }
         if (buttonID != 5)
         {

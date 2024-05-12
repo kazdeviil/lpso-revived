@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      burger pink_0: -7768799940034978581
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

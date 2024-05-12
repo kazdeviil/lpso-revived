@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sandwich pb_0: 1638966044446721463
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

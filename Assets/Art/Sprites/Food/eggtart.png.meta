@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      eggtart_0: -5003873946472326112
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

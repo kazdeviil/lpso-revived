@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pepper green_0: -8651444348591248691
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

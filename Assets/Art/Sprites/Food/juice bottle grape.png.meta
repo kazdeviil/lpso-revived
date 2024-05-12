@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      juice bottle grape_0: -1866462081647781386
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

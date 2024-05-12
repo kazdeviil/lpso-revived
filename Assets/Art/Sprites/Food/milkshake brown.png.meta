@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      milkshake brown_0: 4593403750857701719
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

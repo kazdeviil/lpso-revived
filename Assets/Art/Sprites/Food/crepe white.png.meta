@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      crepe white_0: -8521029802988818363
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

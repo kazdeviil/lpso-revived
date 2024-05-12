@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cake pink_0: -8969667754194682180
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

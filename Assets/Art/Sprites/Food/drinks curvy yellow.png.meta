@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      drinks curvy yellow_0: 8373082822838725575
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      layer cake tan_0: 8464206228509124663
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

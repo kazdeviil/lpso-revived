@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pear yellow_0: 6805783534256504946
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

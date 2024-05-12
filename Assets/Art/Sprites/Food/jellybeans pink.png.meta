@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      jellybeans pink_0: 5572812789500450888
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
