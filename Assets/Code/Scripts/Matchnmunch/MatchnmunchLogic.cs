@@ -9,6 +9,7 @@ using TMPro;
 public class MatchnmunchLogic : MonoBehaviour
 {
 
+    // visuals mostly
     public GameObject[] LifeDisplay;
     public GameObject[] FoodObjects;
     public GameObject BoxBackground;
@@ -21,6 +22,7 @@ public class MatchnmunchLogic : MonoBehaviour
     public Sprite HoverBadSprite;
     public Text FeedbackText;
 
+    // boring formatting shit
     public int GridWidth = 7;
     public int GridHeight = 7;
     public float FoodMargin = 0.1f;
@@ -30,6 +32,8 @@ public class MatchnmunchLogic : MonoBehaviour
     private float worldHeight;
     private float worldWidth;
     private float LeftStart;
+    public GameObject TreatParent;
+    public GameObject InputBlock;
 
     private float IconWidth;
     private float IconHeight;
@@ -38,9 +42,7 @@ public class MatchnmunchLogic : MonoBehaviour
 
     public GameObject startMenu;
     public GameObject scoreScreen;
-    public GameObject LiveImage;
     public int Lives = 6;
-    private float LiveImgMargin = 0.5f;
     private int FoodGoal = 0;
     private int FoodFound = 0;
     public int TotalFoodFound = 0;
@@ -53,6 +55,8 @@ public class MatchnmunchLogic : MonoBehaviour
     private float StartCountDown = 3;
     private float winningFoodTimer;
     private bool gameRunning = false;
+
+    public List<GameObject> ClickedFoods;
 
     private int flatscore = 0;
     private int nicefindscore = 0;
@@ -88,6 +92,7 @@ public class MatchnmunchLogic : MonoBehaviour
         };
         foodRemainingTxt.SetText(GoalInt.ToString());
         FoodLeft = GoalInt;
+        ClickedFoods.Clear();
 
         Grid = new GameObject[GridWidth,GridHeight];
         GridBox = new GameObject[GridWidth,GridHeight];
@@ -109,12 +114,14 @@ public class MatchnmunchLogic : MonoBehaviour
         for(int x = 0; x < GridWidth; x++)
         {
             for(int y = 0; y < GridHeight; y++)
-                {
-                    Instantiate(BoxBackground, new Vector3(LeftStart + (x+1) * IconWidth,(y+1) * IconHeight - worldHeight / 2 - FoodMargin,0), Quaternion.identity);
-                    int CurrentItem = (int)Random.Range(0,FoodObjects.Length);
-                    GameObject Clone = Instantiate(FoodObjects[CurrentItem], new Vector3(LeftStart + (x+1) * IconWidth,(y+1) * IconHeight - worldHeight / 2 - FoodMargin,0), Quaternion.identity);
-                    Grid[x,y] = Clone;
-                }
+            {
+                GameObject Bg = Instantiate(BoxBackground, new Vector3(LeftStart + (x+1) * IconWidth,(y+1) * IconHeight - worldHeight / 2 - FoodMargin,0), Quaternion.identity);
+                Bg.transform.SetParent(TreatParent.transform);
+                int CurrentItem = (int)Random.Range(0,FoodObjects.Length);
+                GameObject Clone = Instantiate(FoodObjects[CurrentItem], new Vector3(LeftStart + (x+1) * IconWidth,(y+1) * IconHeight - worldHeight / 2 - FoodMargin,0), Quaternion.identity);
+                Grid[x,y] = Clone;
+                Clone.transform.SetParent(TreatParent.transform);
+            }
         }
 
         for(int x = 0; x < GridWidth; x++)
@@ -124,6 +131,7 @@ public class MatchnmunchLogic : MonoBehaviour
                 BoxHeightGoal[x,y] = 0;
                 GameObject Clone = Instantiate(Box, new Vector3(LeftStart + (x+1) * IconWidth,(y+1) * IconHeight - worldHeight / 2 - FoodMargin + BoxHeightGoal[x,y],0), Quaternion.identity);
                 GridBox[x,y] = Clone;
+                Clone.transform.SetParent(TreatParent.transform);
             }
         }
     }
