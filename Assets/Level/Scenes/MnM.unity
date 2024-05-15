@@ -669,7 +669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &416963596
 RectTransform:
   m_ObjectHideFlags: 0
@@ -734,6 +734,42 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6763373178882156700, guid: 69df5e7098a932640b0c0205f467a5d1, type: 3}
   m_PrefabInstance: {fileID: 296117629}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &672233563 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2029163437642339830, guid: 3961814434bf66844abafb6a21e839fa, type: 3}
+  m_PrefabInstance: {fileID: 1296773004}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &672233564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672233563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd27f4b2ed0284e4e9e9fbf82b1d7106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProgressImage: {fileID: 672233565}
+  DefaultSpeed: 1
+  OnProgress:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &672233565 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7345548234570564722, guid: 3961814434bf66844abafb6a21e839fa, type: 3}
+  m_PrefabInstance: {fileID: 1296773004}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672233563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &678754114 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 884386367273771276, guid: 1d04d433b8edd2c428ab6d5a5646eee5, type: 3}
@@ -1791,6 +1827,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: treats bar
       objectReference: {fileID: 0}
+    - target: {fileID: 946072147197807906, guid: 3961814434bf66844abafb6a21e839fa, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 332.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 946072147197807906, guid: 3961814434bf66844abafb6a21e839fa, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 32.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 946072147197807906, guid: 3961814434bf66844abafb6a21e839fa, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -12.319004
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345548234570564722, guid: 3961814434bf66844abafb6a21e839fa, type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345548234570564722, guid: 3961814434bf66844abafb6a21e839fa, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: efccf58ad10a4374586ebe58985cac76, type: 3}
+    - target: {fileID: 7345548234570564722, guid: 3961814434bf66844abafb6a21e839fa, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345548234570564722, guid: 3961814434bf66844abafb6a21e839fa, type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345548234570564722, guid: 3961814434bf66844abafb6a21e839fa, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7578755400402387015, guid: 3961814434bf66844abafb6a21e839fa, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1874,7 +1942,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2029163437642339830, guid: 3961814434bf66844abafb6a21e839fa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 672233564}
   m_SourcePrefab: {fileID: 100100000, guid: 3961814434bf66844abafb6a21e839fa, type: 3}
 --- !u!224 &1296773005 stripped
 RectTransform:
@@ -2475,6 +2546,13 @@ MonoBehaviour:
   - {fileID: 6995199453724438635, guid: 2f8aa2c658a5ec54a86253143269b8b6, type: 3}
   - {fileID: 5613432219894843487, guid: 3f96939601269ae4482fadbb77d64b81, type: 3}
   - {fileID: 6796348321985291030, guid: 3b924a60fdcf3c942a6924b4e2d494a8, type: 3}
+  Foods:
+  - {fileID: -5773583828239333312, guid: 25e0b6d5cbd50d0458137388761c8bdd, type: 3}
+  - {fileID: 8595234224116356279, guid: 0b279efa3ed9c5a418cf06cb9a4a9ed3, type: 3}
+  - {fileID: 5170669074341573044, guid: 4a5776de601990341aac6e238243f90e, type: 3}
+  - {fileID: 6380967009923872039, guid: f8566b13cf9c83c47bbb901f7c224dfc, type: 3}
+  - {fileID: 6200755073937876718, guid: 5b2c37b2ca85ccc4cb5e1b4c59d4a067, type: 3}
+  FoodObj: {fileID: 1210111621533827199, guid: 21ff3ef677da5474d9c3889bc7545ecb, type: 3}
   BoxBackground: {fileID: 180246517697544220, guid: e47e4f27e8a5e4344a06136d0983cf92, type: 3}
   Box: {fileID: 5938384676282408119, guid: 5ac85905e569735458359c00207ec79e, type: 3}
   BoxFound: {fileID: 7946172874807333339, guid: 737508ad95c2ea84fa7383c5dc273009, type: 3}
@@ -2490,6 +2568,9 @@ MonoBehaviour:
   FoodLeftStart: 0.3
   TreatParent: {fileID: 1945872837}
   InputBlock: {fileID: 416963595}
+  thislogic: {fileID: 1957954182}
+  ProgressBar: {fileID: 672233564}
+  winningFood: 0
   startMenu: {fileID: 2859436053150622092}
   scoreScreen: {fileID: 6986768667473254248}
   Lives: 6
@@ -2497,6 +2578,7 @@ MonoBehaviour:
   GoalInt: 12
   FoodLeft: 0
   ClickedFoods: []
+  LevelCount: {fileID: 0}
   foodRemainingTxt: {fileID: 1108010831}
   currentScoreTxt: {fileID: 678754114}
   ScoreText: {fileID: 357174118142300004}

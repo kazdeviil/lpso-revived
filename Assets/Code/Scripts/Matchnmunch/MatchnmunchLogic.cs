@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -12,6 +13,8 @@ public class MatchnmunchLogic : MonoBehaviour
     // visuals mostly
     public GameObject[] LifeDisplay;
     public GameObject[] FoodObjects;
+    public Sprite[] Foods;
+    public GameObject FoodObj;
     public GameObject BoxBackground;
     public GameObject Box;
     public GameObject BoxFound;
@@ -34,11 +37,13 @@ public class MatchnmunchLogic : MonoBehaviour
     private float LeftStart;
     public GameObject TreatParent;
     public GameObject InputBlock;
+    public MatchnmunchLogic thislogic;
+    public ProgressBar ProgressBar;
 
     private float IconWidth;
     private float IconHeight;
     private int selectedFood;
-    private int winningFood;
+    public int winningFood;
 
     public GameObject startMenu;
     public GameObject scoreScreen;
@@ -63,6 +68,8 @@ public class MatchnmunchLogic : MonoBehaviour
     private int gotthemallscore = 0;
     private int totalScore = 0;
 
+    // visual shit
+    public TMP_Text LevelCount;
     public TMP_Text foodRemainingTxt;
     public TMP_Text currentScoreTxt;
 
@@ -110,15 +117,19 @@ public class MatchnmunchLogic : MonoBehaviour
         IconWidth = ((worldWidth - FoodMargin - worldWidth * FoodLeftStart) / (GridWidth + 1));
         IconHeight = ((worldHeight - FoodMargin ) / (GridHeight + 1));
 
-
+        // randomizes the initial boxes' foods
         for(int x = 0; x < GridWidth; x++)
         {
             for(int y = 0; y < GridHeight; y++)
             {
                 GameObject Bg = Instantiate(BoxBackground, new Vector3(LeftStart + (x+1) * IconWidth,(y+1) * IconHeight - worldHeight / 2 - FoodMargin,0), Quaternion.identity);
                 Bg.transform.SetParent(TreatParent.transform);
-                int CurrentItem = (int)Random.Range(0,FoodObjects.Length);
-                GameObject Clone = Instantiate(FoodObjects[CurrentItem], new Vector3(LeftStart + (x+1) * IconWidth,(y+1) * IconHeight - worldHeight / 2 - FoodMargin,0), Quaternion.identity);
+                int CurrentItem = Random.Range(0,Foods.Length-1);
+                GameObject Clone = Instantiate(FoodObj, new Vector3(LeftStart + (x+1) * IconWidth,(y+1) * IconHeight - worldHeight / 2 - FoodMargin,0), Quaternion.identity);
+                Clone.GetComponent<MunchItem>().logic = thislogic;
+                SpriteRenderer ChildImg = Clone.GetComponentInChildren<SpriteRenderer>();
+                ChildImg.sprite = Foods[CurrentItem];
+                Clone.GetComponent<MunchItem>().ItemNumber = CurrentItem;
                 Grid[x,y] = Clone;
                 Clone.transform.SetParent(TreatParent.transform);
             }
@@ -145,6 +156,8 @@ public class MatchnmunchLogic : MonoBehaviour
         totalScore = flatscore + nicefindscore + gotthemallscore;
         TotalScoreText.SetText($"{totalScore:n0} Pts");
 
+        ProgressBar.SetProgress(0);
+
         int kibble = totalScore/50;
         KibbleWon.SetText(kibble.ToString());
         GameDataManager.Instance.AddKibble(kibble);
@@ -168,11 +181,19 @@ public class MatchnmunchLogic : MonoBehaviour
             FoodLeft = 0;
         }
         foodRemainingTxt.SetText(FoodLeft.ToString());
+        float progressamt = (float)(GoalInt-FoodLeft) / (float)GoalInt;
+        ProgressBar.SetProgress(progressamt);
 
         FoodFound += FoodGoal;
+        TotalFoodFound = GoalInt - FoodLeft;
         winningFood = 0;
         FoodFound = 0;
         FoodGoal = 0;
+        Debug.Log($"Setting progress to {progressamt}\n{TotalFoodFound} food collected out of {GoalInt}");
+        if (TotalFoodFound >= GoalInt)
+        {
+            EndLevel();
+        }
     }
 
     // Update is called once per frame
@@ -242,20 +263,20 @@ public class MatchnmunchLogic : MonoBehaviour
                 int HoverX = (int)((MousePosition.x + worldWidth * FoodLeftStart - FoodMargin) / IconWidth -1.5f);
                 int HoverY = (int)((MousePosition.y + worldHeight/2 - FoodMargin) / IconHeight -0.4f);
 
-                if (HoverX >= 0 && HoverX < GridWidth && HoverY >= 0 && HoverY < GridHeight)
-                {
-                    SpriteRenderer sprite = HoverObjGame.GetComponent<SpriteRenderer>();
-                    HoverObjGame.transform.position = new Vector3(LeftStart + (HoverX+1) * IconWidth, (HoverY+1) * IconHeight - worldHeight / 2 - FoodMargin,0);
-                    sprite.sprite = HoverGoodSprite;
-                    if (winningFood > 0 && winningFood != Grid[HoverX,HoverY].GetComponent<MunchItem>().ItemNumber)
-                    {
-                        sprite.sprite = HoverBadSprite;
-                    }
-                }
-                else
-                {
-                    HoverObjGame.transform.position = new Vector3(10,10,0);
-                }
+                //if (HoverX >= 0 && HoverX < GridWidth && HoverY >= 0 && HoverY < GridHeight)
+                //{
+                //    SpriteRenderer sprite = HoverObjGame.GetComponent<SpriteRenderer>();
+                //    HoverObjGame.transform.position = new Vector3(LeftStart + (HoverX+1) * IconWidth, (HoverY+1) * IconHeight - worldHeight / 2 - FoodMargin,0);
+                //    sprite.sprite = HoverGoodSprite;
+                //    if (winningFood > 0 && winningFood != Grid[HoverX,HoverY].GetComponent<MunchItem>().ItemNumber)
+                //    {
+                //        sprite.sprite = HoverBadSprite;
+                //    }
+                //}
+                //else
+                //{
+                //    HoverObjGame.transform.position = new Vector3(10,10,0);
+                //}
                 if(Input.GetMouseButtonDown(0))
                 {
                     int SelectedX = HoverX;
@@ -279,7 +300,7 @@ public class MatchnmunchLogic : MonoBehaviour
                         }
                         if (winningFood == selectedFood)
                         {
-                            Instantiate(BoxFound, new Vector3(LeftStart + (SelectedX+1) * IconWidth, (SelectedY+1) * IconHeight - worldHeight / 2 - FoodMargin,0), Quaternion.identity);
+                            //Instantiate(BoxFound, new Vector3(LeftStart + (SelectedX+1) * IconWidth, (SelectedY+1) * IconHeight - worldHeight / 2 - FoodMargin,0), Quaternion.identity);
                             FoodFound += 1;
                             flatscore += 100;
                             if (GridBox[SelectedX,SelectedY])
@@ -296,9 +317,7 @@ public class MatchnmunchLogic : MonoBehaviour
                             }
                             if (TotalFoodFound >= GoalInt)
                             {
-                                gameRunning = false;
-                                scoreScreen.SetActive(true);
-                                SetScore();
+                                EndLevel();
                             }
                             for (int x = -1; x <= 1; x++)
                                 {
@@ -324,11 +343,9 @@ public class MatchnmunchLogic : MonoBehaviour
                         }
                         else
                         {
-                            if (Lives == 0)
+                            if (Lives <= 0)
                             {
-                                gameRunning = false;
-                                scoreScreen.SetActive(true);
-                                SetScore();
+                                EndLevel();
                             }
                             else
                             {
@@ -343,5 +360,12 @@ public class MatchnmunchLogic : MonoBehaviour
                 }
             }
         }
+    }
+
+    void EndLevel()
+    {
+        gameRunning = false;
+        scoreScreen.SetActive(true);
+        SetScore();
     }
 }
