@@ -677,9 +677,9 @@ public class MatchnmunchLogic : MonoBehaviour
         ProgressBar.GetComponent<UnityEngine.UI.Image>().fillAmount = 0;
 
         int kibble = totalScore / 50;
-        KibbleWon.SetText(kibble.ToString());
+        KibbleWon.SetText($"{kibble:n0}");
         GameDataManager.Instance.AddKibble(kibble);
-        KibbleTotal.SetText(GameDataManager.Instance.kibble.ToString());
+        KibbleTotal.SetText($"{GameDataManager.Instance.kibble:n0}");
 
         if (totalScore > GameDataManager.Instance.mnmhighscore)
         {
