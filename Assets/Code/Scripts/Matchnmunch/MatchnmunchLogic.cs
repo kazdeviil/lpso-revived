@@ -21,7 +21,12 @@ public class MatchnmunchLogic : MonoBehaviour
     public GameObject continueGameMenu;
     public GameObject highscorePanel;
     public GameObject bufferImage;
+    public Sprite hoverGood;
+    public Sprite hoverBad;
+    public Sprite selectedSprite;
+    public Sprite defaultSprite;
 
+    //logic
     private int selectedFood;
     public int winningFood;
     public int Lives = 6;
@@ -31,8 +36,6 @@ public class MatchnmunchLogic : MonoBehaviour
     public int GoalInt = 12;
     public int FoodLeft = 0;
     public int level = 1;
-
-    // logic
     private bool Playable = false;
     public GameObject[] GamePieces;
     public List<GameObject> ClickedFoods;
@@ -43,7 +46,6 @@ public class MatchnmunchLogic : MonoBehaviour
     public int TotalCheese;
     public int TotalFish;
     public int[] TotalFoodCounts = new int[5];
-    public MatchnmunchLogic thislogic;
     public int[] RightEdge = new int[] { 6, 13, 20, 27, 34, 41, 48 };
     public int[] LeftEdge = new int[] { 0, 7, 14, 21, 28, 35, 42 };
     public int[] TopEdge = new int[] { 0, 1, 2, 3, 4, 5, 6 };
@@ -74,9 +76,11 @@ public class MatchnmunchLogic : MonoBehaviour
     public GameObject textPopupParent;
     public TextPopup textPopup;
     
-    // Start is called before the first frame update
+    // sets initial states
     void Start()
     {
+        UnityEngine.Cursor.visible = false;
+
         bufferImage.SetActive(true);
         startGameMenu.SetActive(true);
         highscorePanel.SetActive(true);
@@ -87,78 +91,17 @@ public class MatchnmunchLogic : MonoBehaviour
         displayedNiceScore = 0;
         displayedGotAllScore = 0;
         textPopup = textPopupParent.GetComponent<TextPopup>();
-        for (int i  = 0; i < GamePieces.Length; i++)
-        {
-            GamePieces[i].GetComponent<MunchItem>().lid = GamePieces[i].transform.Find("lid").gameObject;
-            if (!GamePieces[i].transform.Find("lid").gameObject.activeSelf)
-            {
-                GamePieces[i].transform.Find("lid").gameObject.SetActive(true);
-            }
-        }
-    }
 
-    private void HideUI()
-    {
-        bufferImage.SetActive(false);
-        startGameMenu.SetActive(false);
-        continueGameMenu.SetActive(false);
-        finishGameMenu.SetActive(false);
-        highscorePanel.SetActive(false);
-    }
-
-    public void PressedPlay()
-    {
-        Lives = 6;
-        for (int i = 0; i < LifeDisplay.Length; i++)
-        {
-            if (!LifeDisplay[i].activeSelf)
-            {
-                LifeDisplay[i].SetActive(true);
-            }
-        }
-        GoalInt = 8 + (level * 4);
-        foodRemainingTxt.SetText(GoalInt.ToString());
-        Playable = false;
-        InputBlock.SetActive(true);
-        LevelCount.text = $"Level: {level}";
-        HideUI();
-        StartCoroutine(PopupTexts());
-    }
-    public IEnumerator PopupTexts()
-    {
-        textPopup.SpawnText(2.3f, 0f, $"Level {level}", textPopup.Bluestone, textPopup.BSPink, 120, 2.5f, 2f, 2.5f, 3f);
-        yield return new WaitForSeconds(3f);
-        textPopup.SpawnText(2.3f, 0f, "3", textPopup.ArialBlack, textPopup.ABPink, 36, 0.6f, 0.8f, 1.5f, 3f);
-        yield return new WaitForSeconds(1);
-        textPopup.SpawnText(2.3f, 0f, "2", textPopup.ArialBlack, textPopup.ABPink, 36, 0.6f, 0.8f, 1.5f, 3f);
-        yield return new WaitForSeconds(1);
-        textPopup.SpawnText(2.3f, 0f, "1", textPopup.ArialBlack, textPopup.ABPink, 36, 0.6f, 0.8f, 1.5f, 3f);
-        yield return new WaitForSeconds(1);
-        textPopup.SpawnText(2.3f, 0f, "Go!", textPopup.Bluestone, textPopup.BSPink, 36, 0.6f, 0.8f, 1.5f, 3f);
-        yield return new WaitForSeconds(3);
-        StartGame();
-        yield break;
-    }
-
-    public void StartGame()
-    {
-        ProgressBar.SetProgress(0);
-        TotalBananas = 0;
-        TotalCakes = 0;
-        TotalCarrots = 0;
-        TotalCheese = 0;
-        TotalFish = 0;
-        TotalFoodFound = 0;
-        flatCount = 0;
-        nicefindCount = 0;
-        gotthemallCount = 0;
-        FoodFound = 0;
-        FoodLeft = GoalInt;
-        ClickedFoods.Clear();
-        RevealedFoods.Clear();
-
+        // resets all box lids to active, sets edge pieces of grid
         for (int r = 0; r < GamePieces.Length; r++)
         {
+            GamePieces[r].GetComponent<MunchItem>().lid = GamePieces[r].transform.Find("lid").gameObject;
+            // lids
+            if (!GamePieces[r].transform.Find("lid").gameObject.activeSelf)
+            {
+                GamePieces[r].transform.Find("lid").gameObject.SetActive(true);
+            }
+            // grid edges
             for (int i = 0; i < RightEdge.Length; i++)
             {
                 if (r == RightEdge[i])
@@ -179,117 +122,224 @@ public class MatchnmunchLogic : MonoBehaviour
                 }
             }
         }
+    }
 
-        thislogic = GetComponent<MatchnmunchLogic>();
-        HideUI();
+
+
+    // start sequence 1: sets level count, resets lives/life display, level goal
+    public void PressedPlay()
+    {
+        ProgressBar.GetComponent<UnityEngine.UI.Image>().fillAmount = 0;
+        Lives = 6;
         for (int i = 0; i < LifeDisplay.Length; i++)
         {
-            LifeDisplay[i].SetActive(true);
-        };
+            if (!LifeDisplay[i].activeSelf)
+            {
+                LifeDisplay[i].SetActive(true);
+            }
+        }
+        GoalInt = 8 + (level * 4);
+        foodRemainingTxt.SetText(GoalInt.ToString());
+        Playable = false;
+        InputBlock.SetActive(true);
+        LevelCount.text = $"Level: {level}";
+        HideUI();
+        StartCoroutine(PopupTexts());
+    }
+    // start sequence 2: text popups
+    public IEnumerator PopupTexts()
+    {
+        int countdownSize = 40;
+        float countdownHold = 0.7f;
+        float countdownSpeed = 0.4f;
+        textPopup.SpawnText(GamePieces[24].transform.position.x, GamePieces[24].transform.position.y, $"Level {level}", textPopup.Bluestone, textPopup.BSPink, 120, 2.5f, 2f, 2.5f, 3f);
+        yield return new WaitForSeconds(3f);
+        textPopup.SpawnText(GamePieces[24].transform.position.x, GamePieces[24].transform.position.y, "3", textPopup.ArialBlack, textPopup.ABPink, countdownSize, countdownHold, countdownSpeed, 1.5f, 3f);
+        yield return new WaitForSeconds(1);
+        textPopup.SpawnText(GamePieces[24].transform.position.x, GamePieces[24].transform.position.y, "2", textPopup.ArialBlack, textPopup.ABPink, countdownSize, countdownHold, countdownSpeed, 1.5f, 3f);
+        yield return new WaitForSeconds(1);
+        textPopup.SpawnText(GamePieces[24].transform.position.x, GamePieces[24].transform.position.y, "1", textPopup.ArialBlack, textPopup.ABPink, countdownSize, countdownHold, countdownSpeed, 1.5f, 3f);
+        yield return new WaitForSeconds(1);
+        textPopup.SpawnText(GamePieces[24].transform.position.x, GamePieces[24].transform.position.y, "Go!", textPopup.Bluestone, textPopup.BSPink, countdownSize, countdownHold, countdownSpeed, 1.5f, 3f);
+        yield return new WaitForSeconds(3);
+        StartGame();
+        yield break;
+    }
+    // start sequence 3: resets states
+    public void StartGame()
+    {
+        TotalBananas = 0;
+        TotalCakes = 0;
+        TotalCarrots = 0;
+        TotalCheese = 0;
+        TotalFish = 0;
+        TotalFoodFound = 0;
+        flatCount = 0;
+        nicefindCount = 0;
+        gotthemallCount = 0;
+        FoodFound = 0;
+        FoodLeft = GoalInt;
+        ClickedFoods.Clear();
+        RevealedFoods.Clear();
+
+        // neutralizes food states to not selected and not revealed
         for (int i = 0; i < GamePieces.Length; i++)
         {
             RevealedFoods.Add(GamePieces[i]);
             GamePieces[i].GetComponent<MunchItem>().revealed = false;
             GamePieces[i].GetComponent<MunchItem>().selected = false;
         }
-        UnityEngine.Cursor.visible = false;
 
         ShuffleBoxes();
         StartCoroutine(RevealBoxes());
         Playable = true;
-        StopCoroutine(RevealBoxes());
     }
-
-    void SetScore()
+    // start sequence 4: pseudo initial food reveal animation
+    private IEnumerator RevealBoxes()
     {
-        GotAllText.SetText($"{displayedGotAllScore*1000:n0} Pts");
-        NiceFindText.SetText($"{displayedNiceScore*200:n0} Pts");
-        ScoreText.SetText($"{displayedScore*100:n0} Pts");
-        totalScore = (displayedScore*100) + (displayedNiceScore*200) + (displayedGotAllScore*1000);
-        TotalScoreText.SetText($"{totalScore:n0} Pts");
-
-        ProgressBar.SetProgress(0);
-
-        int kibble = totalScore/50;
-        KibbleWon.SetText(kibble.ToString());
-        GameDataManager.Instance.AddKibble(kibble);
-        KibbleTotal.SetText(GameDataManager.Instance.kibble.ToString());
-
-        if(totalScore > GameDataManager.Instance.mnmhighscore)
+        while (true)
         {
-            GameDataManager.Instance.mnmhighscore = totalScore;  
+            for (int i = 0; i < RevealedFoods.Count; i++)
+            {
+                RevealedFoods[i].transform.Find("lid").gameObject.SetActive(false);
+            }
+            yield return new WaitForSeconds(4);
+            HideBoxes();
+            InputBlock.SetActive(false);
+            yield break;
         }
-        HighscoreText1.SetText($"{GameDataManager.Instance.mnmhighscore:n0}");
     }
 
+
+
+    // updates progress bar, score visuals, food stats 
     void UpdateScore()
     {
+        // resets board
         ShuffleBoxes();
         HideBoxes();
 
+        string collectedTreats = "";
+        // does not add unmatched food to total
         if (FoodFound > 1)
         {
             FoodLeft -= FoodFound;
             TotalFoodFound += FoodFound;
             displayedScore += FoodFound;
+            if (FoodFound > 4)
+            {
+                if (FoodFound > 9)
+                {
+                    collectedTreats += "Fantastic! ";
+                }
+                else
+                {
+                    collectedTreats += "Great! ";
+                }
+            }
+            collectedTreats += $"{FoodFound} Treats Collected!";
         }
-
+        // extra food doesnt appear as a negative counter
         if (FoodLeft < 0)
         {
             FoodLeft = 0;
             FoodFound += FoodGoal;
         }
-
-        string collectedTreats = "";
-        if(FoodFound > 4)
+        // resets any food box sprites that are not regular
+        for (int i = 0; i < GamePieces.Length; i++)
         {
-            if (FoodFound > 9)
+            Sprite piece = GamePieces[i].GetComponent<UnityEngine.UI.Button>().image.sprite;
+            if (piece != defaultSprite)
             {
-                collectedTreats += "Fantastic! ";
-            }
-            else
-            {
-                collectedTreats += "Great! ";
+                piece = defaultSprite;
+                GamePieces[i].GetComponent<UnityEngine.UI.Button>().image.sprite = piece;
             }
         }
-        collectedTreats += $"{FoodFound} Treats Collected!";
+
         currentScoreTxt.SetText($"{displayedScore*100:n0}");
         foodRemainingTxt.SetText(FoodLeft.ToString());
+        // collected treats popup
+        if (FoodFound > 1)
+        {
+            if (TotalFoodFound < GoalInt)
+            {
+                textPopup.SpawnText(-4.5f, -4f, collectedTreats, textPopup.ArialBlack, textPopup.ABGreen, 36, 0.3f, 0.2f, 1f, 3f);
+            }
+        }
 
+        // progress bar update
         float progressamt = (float)(GoalInt-FoodLeft) / (float)GoalInt;
         ProgressBar.SetProgress(progressamt);
 
+        // resets food stats
         winningFood = -1;
         FoodFound = 0;
         FoodGoal = 0;
         
+        // passes level (even if you JUST ran out of lives, you pass the level as long as you meet the goal)
         if (TotalFoodFound >= GoalInt)
         {
             LevelCompleted();
         }
         else
         {
-            textPopup.SpawnText(-4f, -4f, collectedTreats, textPopup.ArialBlack, textPopup.ABGreen, 36, 0.3f, 0.2f, 1f, 3f);
+            if (Lives < 0)
+            {
+                LevelCompleted();
+            }
         }
     }
     
+    // all logic when clicking on any food
     public void ClickBox(int box)
     {
         MunchItem clickedbox = GamePieces[box].GetComponent<MunchItem>();
         selectedFood = clickedbox.ItemNumber;
         
+        // not yet clicked a food
         if (winningFood == -1)
         {
             winningFood = selectedFood;
+            // sets sprite states for food buttons
+            for (int i = 0; i < GamePieces.Length; i++)
+            {
+                SpriteState piece = new SpriteState();
+                MunchItem item = GamePieces[i].GetComponent<MunchItem>();
+                if (item.ItemNumber != winningFood)
+                {
+                    piece.highlightedSprite = hoverBad;
+                    piece.pressedSprite = hoverBad;
+                    piece.selectedSprite = hoverBad;
+                }
+                else
+                {
+                    if (item.selected)
+                    {
+                        piece.highlightedSprite = selectedSprite;
+                        piece.highlightedSprite = selectedSprite;
+                    }
+                    else
+                    {
+                        piece.highlightedSprite = hoverGood;
+                        piece.pressedSprite = hoverGood;
+                    }
+                }
+                GamePieces[i].GetComponent<UnityEngine.UI.Button>().spriteState = piece;
+            }
         }
+        // if food was correct
         if (selectedFood == winningFood)
         {
+            GamePieces[box].GetComponent<UnityEngine.UI.Image>().sprite = selectedSprite;
+            // doesnt allow for infinite points by clicking the same food repeatedly
             if (!clickedbox.selected)
             {
                 FoodFound += 1; flatCount += 1;
 
                 ClickedFoods.Add(GamePieces[box]);
                 clickedbox.selected = true;
+
+                // nice find
                 if (ClickedFoods.Count > 1)
                 {
                     if (!clickedbox.revealed)
@@ -300,9 +350,9 @@ public class MatchnmunchLogic : MonoBehaviour
                     }
                 }
                 clickedbox.revealed = true;
-                RevealedFoods.Add(GamePieces[box]);
 
-                // if tile is not on an edge
+                // revealed foods on click
+                RevealedFoods.Add(GamePieces[box]);
                 if (!clickedbox.LEdge && !clickedbox.REdge && !clickedbox.TEdge && !clickedbox.BEdge)
                 {
                     GamePieces[box + 1].GetComponent<MunchItem>().revealed = true;
@@ -437,38 +487,20 @@ public class MatchnmunchLogic : MonoBehaviour
                 }
             }
         }
+        // sets life counter
         else
         {
-            UpdateScore();
+            for (int i = 0; i < GamePieces.Length; i++)
+            {
+                GamePieces[i].GetComponent<UnityEngine.UI.Image>().sprite = defaultSprite;
+            }
             Lives -= 1;
-            if (Lives < 0)
-            {
-                LevelCompleted();
-            }
-            else
-            {
-                LifeDisplay[Lives + 1].SetActive(false);
-            }
+            LifeDisplay[Lives+1].SetActive(false);
+            UpdateScore();
         }
     }
 
-    private IEnumerator RevealBoxes()
-    {
-        while(true)
-        {
-            Debug.Log("Starting Coroutine");
-            for (int i = 0; i < RevealedFoods.Count; i++)
-            {
-                RevealedFoods[i].transform.Find("lid").gameObject.SetActive(false);
-            }
-            yield return new WaitForSeconds(4);
-            Debug.Log("Ending Coroutine");
-            HideBoxes();
-            InputBlock.SetActive(false);
-            yield break;
-        }
-    }
-
+    // all box lids that were uncovered become covered, resets revealed and clicked foods
     public void HideBoxes()
     {
         for (int i = 0; i < RevealedFoods.Count; i++)
@@ -483,6 +515,7 @@ public class MatchnmunchLogic : MonoBehaviour
         ClickedFoods.Clear();
     }
 
+    // sets tiles to random foods
     void ShuffleBoxes()
     {
         // initial shuffle
@@ -518,6 +551,7 @@ public class MatchnmunchLogic : MonoBehaviour
         // shuffle after finishing batch/making mistake
         else
         {
+            // sets total food counts for each type
             for (int x = 0; x < ClickedFoods.Count; x++)
             {
                 if (ClickedFoods[x].GetComponent<MunchItem>().ItemNumber == 0)
@@ -573,15 +607,9 @@ public class MatchnmunchLogic : MonoBehaviour
         ResetTotalFoodCounts();
     }
 
-    void ResetTotalFoodCounts()
-    {
-        TotalFoodCounts[0] = TotalBananas;
-        TotalFoodCounts[1] = TotalCakes;
-        TotalFoodCounts[2] = TotalCarrots;
-        TotalFoodCounts[3] = TotalCheese;
-        TotalFoodCounts[4] = TotalFish;
-    }
 
+
+    // sets level count
     void LevelCompleted()
     {
         Playable = false;
@@ -596,19 +624,19 @@ public class MatchnmunchLogic : MonoBehaviour
         }
         StartCoroutine(EndSequence());
     }
-
+    // end level text popups
     public IEnumerator EndSequence()
     {
         Playable = false;
         InputBlock.SetActive(true);
-        textPopup.SpawnText(2.3f, 0f, "Well Done!", textPopup.Bluestone, textPopup.BSPink, 120, 2.5f, 2f, 2.5f, 3f);
+        textPopup.SpawnText(GamePieces[24].transform.position.x, GamePieces[24].transform.position.y, "Well Done!", textPopup.Bluestone, textPopup.BSPink, 120, 2.5f, 2f, 2.5f, 3f);
         yield return new WaitForSeconds(3f);
         string secondtext = "Try Again!";
         if (TotalFoodFound >= GoalInt)
         {
             secondtext = "Goal Reached!";
         }
-        textPopup.SpawnText(2.3f, 0f, secondtext, textPopup.Bluestone, textPopup.BSPink, 90, 2.5f, 2f, 2.5f, 3f);
+        textPopup.SpawnText(GamePieces[24].transform.position.x, GamePieces[24].transform.position.y, secondtext, textPopup.Bluestone, textPopup.BSPink, 80, 2.5f, 2f, 2.5f, 3f);
         yield return new WaitForSeconds(4f);
         if (TotalFoodFound >= GoalInt)
         {
@@ -618,10 +646,10 @@ public class MatchnmunchLogic : MonoBehaviour
         {
             EndLevel();
         }
-        ProgressBar.SetProgress(0);
+        ProgressBar.GetComponent<UnityEngine.UI.Image>().fillAmount = 0;
         yield break;
     }
-
+    // menu change
     void BetweenLevels()
     {
         LevelCompletedText.text = $"Level {level-1} Completed!";
@@ -629,7 +657,7 @@ public class MatchnmunchLogic : MonoBehaviour
         highscorePanel.SetActive(false);
         continueGameMenu.SetActive(true);
     }
-
+    // menu change, saves game data
     public void EndLevel()
     {
         if (!bufferImage.activeSelf)
@@ -639,6 +667,42 @@ public class MatchnmunchLogic : MonoBehaviour
         continueGameMenu.SetActive(false);
         finishGameMenu.SetActive(true);
         highscorePanel.SetActive(true);
-        SetScore();
+
+        GotAllText.SetText($"{displayedGotAllScore * 1000:n0} Pts");
+        NiceFindText.SetText($"{displayedNiceScore * 200:n0} Pts");
+        ScoreText.SetText($"{displayedScore * 100:n0} Pts");
+        totalScore = (displayedScore * 100) + (displayedNiceScore * 200) + (displayedGotAllScore * 1000);
+        TotalScoreText.SetText($"{totalScore:n0} Pts");
+
+        ProgressBar.GetComponent<UnityEngine.UI.Image>().fillAmount = 0;
+
+        int kibble = totalScore / 50;
+        KibbleWon.SetText(kibble.ToString());
+        GameDataManager.Instance.AddKibble(kibble);
+        KibbleTotal.SetText(GameDataManager.Instance.kibble.ToString());
+
+        if (totalScore > GameDataManager.Instance.mnmhighscore)
+        {
+            GameDataManager.Instance.mnmhighscore = totalScore;
+        }
+        HighscoreText1.SetText($"{GameDataManager.Instance.mnmhighscore:n0}");
+    }
+    // hides menus
+    private void HideUI()
+    {
+        bufferImage.SetActive(false);
+        startGameMenu.SetActive(false);
+        continueGameMenu.SetActive(false);
+        finishGameMenu.SetActive(false);
+        highscorePanel.SetActive(false);
+    }
+    // sets array values correctly
+    void ResetTotalFoodCounts()
+    {
+        TotalFoodCounts[0] = TotalBananas;
+        TotalFoodCounts[1] = TotalCakes;
+        TotalFoodCounts[2] = TotalCarrots;
+        TotalFoodCounts[3] = TotalCheese;
+        TotalFoodCounts[4] = TotalFish;
     }
 }

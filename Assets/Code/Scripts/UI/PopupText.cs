@@ -16,7 +16,7 @@ public class PopupText : MonoBehaviour
     public float DisappearAfter;
     public float DisappearSpeed;
 
-    public float ExpandTimer = 0.2f;
+    public float ExpandTimer = 0.1f;
     public float ExpandTimerInitial;
     public float ShrinkTimer = 0.1f;
     public Vector3 initialsize;
@@ -63,7 +63,7 @@ public class PopupText : MonoBehaviour
         
         if (ExpandTimer > 0)
         {
-            float increaseAmt = 3f;
+            float increaseAmt = 3.5f;
             textMesh.transform.localScale += increaseAmt * Time.deltaTime * new Vector3(1f,1f,0f);
         }
         else

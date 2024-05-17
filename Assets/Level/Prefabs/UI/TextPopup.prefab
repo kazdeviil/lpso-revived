@@ -101,7 +101,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -147,7 +147,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e5951c5918d47a49b03e76bc97166f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bluestone: {fileID: 11400000, guid: 9b43575a5e1607545a04d07657633d93, type: 2}
-  ArialBlack: {fileID: 11400000, guid: 2b3c25a5e7debfe41bd24348cad3cb7b, type: 2}
-  ABGreen: {fileID: 2100000, guid: d21353c01c4fff84ab3fca5fc763b89d, type: 2}
-  BSPink: {fileID: 2100000, guid: 2aa0d8f3862958b4288d46e985341528, type: 2}
+  textColor: {r: 0, g: 0, b: 0, a: 0}
+  textSize: 0
+  HoldFor: 0
+  MoveUp: 0
+  DisappearAfter: 0
+  DisappearSpeed: 0
+  ExpandTimer: 0.3
+  ExpandTimerInitial: 0
+  ShrinkTimer: 0.1
+  initialsize: {x: 0, y: 0, z: 0}
