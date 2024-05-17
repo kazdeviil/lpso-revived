@@ -6,10 +6,10 @@ using TMPro;
 public class TextPopup : MonoBehaviour
 {
     [SerializeField] private Transform TextPrefab;
-    [SerializeField] private MatchnmunchLogic mnmLogic;
 
     public TMPro.TMP_FontAsset Bluestone;
     public TMPro.TMP_FontAsset ArialBlack;
+    public Material ABPink;
     public Material ABGreen;
     public Material BSPink;
 

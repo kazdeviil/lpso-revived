@@ -14,17 +14,16 @@ public class MatchnmunchLogic : MonoBehaviour
     // visuals mostly
     public GameObject[] LifeDisplay;
     public Sprite[] Foods;
-
-    // boring formatting shit
-    private bool Playable = false;
     public GameObject InputBlock;
     public ProgressBar ProgressBar;
+    public GameObject startGameMenu;
+    public GameObject finishGameMenu;
+    public GameObject continueGameMenu;
+    public GameObject highscorePanel;
+    public GameObject bufferImage;
 
     private int selectedFood;
     public int winningFood;
-
-    public GameObject startMenu;
-    public GameObject scoreScreen;
     public int Lives = 6;
     private int FoodGoal = 0;
     private int FoodFound = 0;
@@ -34,6 +33,7 @@ public class MatchnmunchLogic : MonoBehaviour
     public int level = 1;
 
     // logic
+    private bool Playable = false;
     public GameObject[] GamePieces;
     public List<GameObject> ClickedFoods;
     public List<GameObject> RevealedFoods;
@@ -53,6 +53,9 @@ public class MatchnmunchLogic : MonoBehaviour
     private int nicefindCount = 0;
     private int gotthemallCount = 0;
     private int totalScore = 0;
+    private int displayedScore = 0;
+    private int displayedNiceScore = 0;
+    private int displayedGotAllScore = 0;
 
     // visual shit
     public TMP_Text LevelCount;
@@ -66,7 +69,7 @@ public class MatchnmunchLogic : MonoBehaviour
     public TMP_Text KibbleTotal;
     public TMP_Text TotalScoreText;
     public TMP_Text HighscoreText1;
-    public TMP_Text HighscoreText2;
+    public TMP_Text LevelCompletedText;
 
     public GameObject textPopupParent;
     public TextPopup textPopup;
@@ -74,8 +77,15 @@ public class MatchnmunchLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bufferImage.SetActive(true);
+        startGameMenu.SetActive(true);
+        highscorePanel.SetActive(true);
+        finishGameMenu.SetActive(false);
+        continueGameMenu.SetActive(false);
         HighscoreText1.SetText($"{GameDataManager.Instance.mnmhighscore:n0}");
-        HighscoreText2.SetText($"{GameDataManager.Instance.mnmhighscore:n0}");
+        displayedScore = 0;
+        displayedNiceScore = 0;
+        displayedGotAllScore = 0;
         textPopup = textPopupParent.GetComponent<TextPopup>();
         for (int i  = 0; i < GamePieces.Length; i++)
         {
@@ -87,36 +97,51 @@ public class MatchnmunchLogic : MonoBehaviour
         }
     }
 
+    private void HideUI()
+    {
+        bufferImage.SetActive(false);
+        startGameMenu.SetActive(false);
+        continueGameMenu.SetActive(false);
+        finishGameMenu.SetActive(false);
+        highscorePanel.SetActive(false);
+    }
+
     public void PressedPlay()
     {
-        startMenu.SetActive(false);
-        scoreScreen.SetActive(false);
+        Lives = 6;
+        for (int i = 0; i < LifeDisplay.Length; i++)
+        {
+            if (!LifeDisplay[i].activeSelf)
+            {
+                LifeDisplay[i].SetActive(true);
+            }
+        }
+        GoalInt = 8 + (level * 4);
+        foodRemainingTxt.SetText(GoalInt.ToString());
+        Playable = false;
+        InputBlock.SetActive(true);
+        LevelCount.text = $"Level: {level}";
+        HideUI();
         StartCoroutine(PopupTexts());
     }
     public IEnumerator PopupTexts()
     {
         textPopup.SpawnText(2.3f, 0f, $"Level {level}", textPopup.Bluestone, textPopup.BSPink, 120, 2.5f, 2f, 2.5f, 3f);
         yield return new WaitForSeconds(3f);
-        textPopup.SpawnText(2.3f, 0f, "3", textPopup.ArialBlack, textPopup.ABGreen, 36, 0.6f, 0.8f, 1.5f, 3f);
+        textPopup.SpawnText(2.3f, 0f, "3", textPopup.ArialBlack, textPopup.ABPink, 36, 0.6f, 0.8f, 1.5f, 3f);
         yield return new WaitForSeconds(1);
-        textPopup.SpawnText(2.3f, 0f, "2", textPopup.ArialBlack, textPopup.ABGreen, 36, 0.6f, 0.8f, 1.5f, 3f);
+        textPopup.SpawnText(2.3f, 0f, "2", textPopup.ArialBlack, textPopup.ABPink, 36, 0.6f, 0.8f, 1.5f, 3f);
         yield return new WaitForSeconds(1);
-        textPopup.SpawnText(2.3f, 0f, "1", textPopup.ArialBlack, textPopup.ABGreen, 36, 0.6f, 0.8f, 1.5f, 3f);
+        textPopup.SpawnText(2.3f, 0f, "1", textPopup.ArialBlack, textPopup.ABPink, 36, 0.6f, 0.8f, 1.5f, 3f);
         yield return new WaitForSeconds(1);
         textPopup.SpawnText(2.3f, 0f, "Go!", textPopup.Bluestone, textPopup.BSPink, 36, 0.6f, 0.8f, 1.5f, 3f);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
         StartGame();
         yield break;
     }
 
-
     public void StartGame()
     {
-        Lives = 6;
-        GoalInt = 8 + (level * 4);
-        foodRemainingTxt.SetText(GoalInt.ToString());
-        Playable = false;
-        InputBlock.SetActive(true);
         ProgressBar.SetProgress(0);
         TotalBananas = 0;
         TotalCakes = 0;
@@ -156,8 +181,7 @@ public class MatchnmunchLogic : MonoBehaviour
         }
 
         thislogic = GetComponent<MatchnmunchLogic>();
-        startMenu.SetActive(false);
-        scoreScreen.SetActive(false);
+        HideUI();
         for (int i = 0; i < LifeDisplay.Length; i++)
         {
             LifeDisplay[i].SetActive(true);
@@ -178,10 +202,10 @@ public class MatchnmunchLogic : MonoBehaviour
 
     void SetScore()
     {
-        GotAllText.SetText($"{gotthemallCount*1000:n0} Pts");
-        NiceFindText.SetText($"{nicefindCount*200:n0} Pts");
-        ScoreText.SetText($"{flatCount*100:n0} Pts");
-        totalScore += (flatCount*100) + (nicefindCount*200) + (gotthemallCount*1000);
+        GotAllText.SetText($"{displayedGotAllScore*1000:n0} Pts");
+        NiceFindText.SetText($"{displayedNiceScore*200:n0} Pts");
+        ScoreText.SetText($"{displayedScore*100:n0} Pts");
+        totalScore = (displayedScore*100) + (displayedNiceScore*200) + (displayedGotAllScore*1000);
         TotalScoreText.SetText($"{totalScore:n0} Pts");
 
         ProgressBar.SetProgress(0);
@@ -191,12 +215,11 @@ public class MatchnmunchLogic : MonoBehaviour
         GameDataManager.Instance.AddKibble(kibble);
         KibbleTotal.SetText(GameDataManager.Instance.kibble.ToString());
 
-        if(totalScore> GameDataManager.Instance.mnmhighscore)
+        if(totalScore > GameDataManager.Instance.mnmhighscore)
         {
             GameDataManager.Instance.mnmhighscore = totalScore;  
         }
         HighscoreText1.SetText($"{GameDataManager.Instance.mnmhighscore:n0}");
-        HighscoreText2.SetText($"{GameDataManager.Instance.mnmhighscore:n0}");
     }
 
     void UpdateScore()
@@ -208,6 +231,7 @@ public class MatchnmunchLogic : MonoBehaviour
         {
             FoodLeft -= FoodFound;
             TotalFoodFound += FoodFound;
+            displayedScore += FoodFound;
         }
 
         if (FoodLeft < 0)
@@ -229,14 +253,11 @@ public class MatchnmunchLogic : MonoBehaviour
             }
         }
         collectedTreats += $"{FoodFound} Treats Collected!";
-        textPopup.SpawnText(-4f, -4f, collectedTreats, textPopup.ArialBlack, textPopup.ABGreen, 36, 0.3f, 0.2f, 1f, 3f);
-
-        currentScoreTxt.SetText($"{TotalFoodFound*100:n0}");
+        currentScoreTxt.SetText($"{displayedScore*100:n0}");
         foodRemainingTxt.SetText(FoodLeft.ToString());
 
         float progressamt = (float)(GoalInt-FoodLeft) / (float)GoalInt;
         ProgressBar.SetProgress(progressamt);
-        Debug.Log($"{TotalFoodFound} food collected out of {GoalInt}");
 
         winningFood = -1;
         FoodFound = 0;
@@ -244,7 +265,11 @@ public class MatchnmunchLogic : MonoBehaviour
         
         if (TotalFoodFound >= GoalInt)
         {
-            EndLevel();
+            LevelCompleted();
+        }
+        else
+        {
+            textPopup.SpawnText(-4f, -4f, collectedTreats, textPopup.ArialBlack, textPopup.ABGreen, 36, 0.3f, 0.2f, 1f, 3f);
         }
     }
     
@@ -271,6 +296,7 @@ public class MatchnmunchLogic : MonoBehaviour
                     {
                         textPopup.SpawnText(clickedbox.transform.position.x, clickedbox.transform.position.y, "Nice find!", textPopup.ArialBlack, textPopup.ABGreen, 36, 0.3f, 0.2f, 1f, 3f);
                         nicefindCount += 1;
+                        displayedNiceScore += 1;
                     }
                 }
                 clickedbox.revealed = true;
@@ -403,8 +429,11 @@ public class MatchnmunchLogic : MonoBehaviour
                 // got em all
                 if (FoodFound == TotalFoodCounts[winningFood])
                 { 
-                    gotthemallCount += 1; UpdateScore();
-                    textPopup.SpawnText(0f, 0f, "Got 'Em All!", textPopup.ArialBlack, textPopup.ABGreen, 36, 0.3f, 0.2f, 1f, 3f);
+                    gotthemallCount += 1; displayedGotAllScore += 1; UpdateScore();
+                    if (TotalFoodFound < GoalInt)
+                    {
+                        textPopup.SpawnText(0f, 0f, "Got 'Em All!", textPopup.ArialBlack, textPopup.ABGreen, 36, 0.3f, 0.2f, 1f, 3f);
+                    }
                 }
             }
         }
@@ -414,7 +443,7 @@ public class MatchnmunchLogic : MonoBehaviour
             Lives -= 1;
             if (Lives < 0)
             {
-                EndLevel();
+                LevelCompleted();
             }
             else
             {
@@ -553,11 +582,63 @@ public class MatchnmunchLogic : MonoBehaviour
         TotalFoodCounts[4] = TotalFish;
     }
 
-    void EndLevel()
+    void LevelCompleted()
     {
         Playable = false;
-        scoreScreen.SetActive(true);
+        HideBoxes();
+        if (TotalFoodFound >= GoalInt)
+        {
+            level += 1;
+        }
+        else
+        {
+            level = 1;
+        }
+        StartCoroutine(EndSequence());
+    }
+
+    public IEnumerator EndSequence()
+    {
+        Playable = false;
+        InputBlock.SetActive(true);
+        textPopup.SpawnText(2.3f, 0f, "Well Done!", textPopup.Bluestone, textPopup.BSPink, 120, 2.5f, 2f, 2.5f, 3f);
+        yield return new WaitForSeconds(3f);
+        string secondtext = "Try Again!";
+        if (TotalFoodFound >= GoalInt)
+        {
+            secondtext = "Goal Reached!";
+        }
+        textPopup.SpawnText(2.3f, 0f, secondtext, textPopup.Bluestone, textPopup.BSPink, 90, 2.5f, 2f, 2.5f, 3f);
+        yield return new WaitForSeconds(4f);
+        if (TotalFoodFound >= GoalInt)
+        {
+            BetweenLevels();
+        }
+        else
+        {
+            EndLevel();
+        }
         ProgressBar.SetProgress(0);
+        yield break;
+    }
+
+    void BetweenLevels()
+    {
+        LevelCompletedText.text = $"Level {level-1} Completed!";
+        bufferImage.SetActive(true);
+        highscorePanel.SetActive(false);
+        continueGameMenu.SetActive(true);
+    }
+
+    public void EndLevel()
+    {
+        if (!bufferImage.activeSelf)
+        {
+            bufferImage.SetActive(true);
+        }
+        continueGameMenu.SetActive(false);
+        finishGameMenu.SetActive(true);
+        highscorePanel.SetActive(true);
         SetScore();
     }
 }
