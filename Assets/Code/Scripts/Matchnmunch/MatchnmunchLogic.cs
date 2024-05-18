@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 using TMPro;
-using UnityEngine.UIElements;
 
 
 public class MatchnmunchLogic : MonoBehaviour
@@ -79,7 +76,7 @@ public class MatchnmunchLogic : MonoBehaviour
     // sets initial states
     void Start()
     {
-        UnityEngine.Cursor.visible = false;
+        Cursor.visible = false;
 
         bufferImage.SetActive(true);
         startGameMenu.SetActive(true);
@@ -129,7 +126,7 @@ public class MatchnmunchLogic : MonoBehaviour
     // start sequence 1: sets level count, resets lives/life display, level goal
     public void PressedPlay()
     {
-        ProgressBar.GetComponent<UnityEngine.UI.Image>().fillAmount = 0;
+        ProgressBar.GetComponent<Image>().fillAmount = 0;
         Lives = 6;
         for (int i = 0; i < LifeDisplay.Length; i++)
         {
@@ -248,11 +245,11 @@ public class MatchnmunchLogic : MonoBehaviour
         // resets any food box sprites that are not regular
         for (int i = 0; i < GamePieces.Length; i++)
         {
-            Sprite piece = GamePieces[i].GetComponent<UnityEngine.UI.Button>().image.sprite;
+            Sprite piece = GamePieces[i].GetComponent<Button>().image.sprite;
             if (piece != defaultSprite)
             {
                 piece = defaultSprite;
-                GamePieces[i].GetComponent<UnityEngine.UI.Button>().image.sprite = piece;
+                GamePieces[i].GetComponent<Button>().image.sprite = piece;
             }
         }
 
@@ -324,13 +321,13 @@ public class MatchnmunchLogic : MonoBehaviour
                         piece.pressedSprite = hoverGood;
                     }
                 }
-                GamePieces[i].GetComponent<UnityEngine.UI.Button>().spriteState = piece;
+                GamePieces[i].GetComponent<Button>().spriteState = piece;
             }
         }
         // if food was correct
         if (selectedFood == winningFood)
         {
-            GamePieces[box].GetComponent<UnityEngine.UI.Image>().sprite = selectedSprite;
+            GamePieces[box].GetComponent<Image>().sprite = selectedSprite;
             // doesnt allow for infinite points by clicking the same food repeatedly
             if (!clickedbox.selected)
             {
@@ -492,7 +489,7 @@ public class MatchnmunchLogic : MonoBehaviour
         {
             for (int i = 0; i < GamePieces.Length; i++)
             {
-                GamePieces[i].GetComponent<UnityEngine.UI.Image>().sprite = defaultSprite;
+                GamePieces[i].GetComponent<Image>().sprite = defaultSprite;
             }
             Lives -= 1;
             LifeDisplay[Lives+1].SetActive(false);
@@ -524,7 +521,7 @@ public class MatchnmunchLogic : MonoBehaviour
             for (int x = 0; x < GamePieces.Length; x++)
             {
                 int random = Random.Range(0, Foods.Length);
-                GamePieces[x].transform.Find("food").GetComponent<UnityEngine.UI.Image>().sprite = Foods[random];
+                GamePieces[x].transform.Find("food").GetComponent<Image>().sprite = Foods[random];
                 GamePieces[x].GetComponent<MunchItem>().ItemNumber = random;
                 if (GamePieces[x].GetComponent<MunchItem>().ItemNumber == 0)
                 {
@@ -575,7 +572,7 @@ public class MatchnmunchLogic : MonoBehaviour
                     TotalFish -= 1;
                 }
                 int random = Random.Range(0, Foods.Length);
-                ClickedFoods[x].transform.Find("food").GetComponent<UnityEngine.UI.Image>().sprite = Foods[random];
+                ClickedFoods[x].transform.Find("food").GetComponent<Image>().sprite = Foods[random];
                 ClickedFoods[x].GetComponent<MunchItem>().ItemNumber = random;
                 if (ClickedFoods[x].GetComponent<MunchItem>().ItemNumber == 0)
                 {
@@ -646,7 +643,7 @@ public class MatchnmunchLogic : MonoBehaviour
         {
             EndLevel();
         }
-        ProgressBar.GetComponent<UnityEngine.UI.Image>().fillAmount = 0;
+        ProgressBar.GetComponent<Image>().fillAmount = 0;
         yield break;
     }
     // menu change
@@ -674,7 +671,7 @@ public class MatchnmunchLogic : MonoBehaviour
         totalScore = (displayedScore * 100) + (displayedNiceScore * 200) + (displayedGotAllScore * 1000);
         TotalScoreText.SetText($"{totalScore:n0} Pts");
 
-        ProgressBar.GetComponent<UnityEngine.UI.Image>().fillAmount = 0;
+        ProgressBar.GetComponent<Image>().fillAmount = 0;
 
         int kibble = totalScore / 50;
         KibbleWon.SetText($"{kibble:n0}");
