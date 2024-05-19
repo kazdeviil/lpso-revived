@@ -50,6 +50,6 @@ public class MinigameCountdown : MonoBehaviour
         {
             secondtext = "Goal Reached!";
         }
-        textPopup.SpawnText(x, y, secondtext, textPopup.Bluestone, textPopup.BSPink, textSize*(2/3), 2.5f, textSpeed, 2.5f, 3f);
+        textPopup.SpawnText(x, y, secondtext, textPopup.Bluestone, textPopup.BSPink, textSize*2/3, 2.5f, textSpeed, 2.5f, 3f);
     }
 }

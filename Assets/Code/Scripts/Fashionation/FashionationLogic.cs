@@ -39,6 +39,7 @@ public class FashionationLogic : MonoBehaviour
 
 
     // logic
+    [SerializeField] private GameObject InputBlock;
     [SerializeField] private Sprite[] AllItemSprites;
     [SerializeField] private List<int> CurrentItems;
     [SerializeField] private int MaxCurrentItems;
@@ -61,6 +62,13 @@ public class FashionationLogic : MonoBehaviour
     [SerializeField] private List<GameObject> GoalPets;
     public int clickedItemNumber = -1;
 
+    public int HeartGoal;
+    public int HeartBonus;
+    public ProgressBar RedHearts;
+    public ProgressBar GoldHearts;
+    public int MaxPets;
+    public bool GoldPet;
+
     public bool playing;
 
 
@@ -77,43 +85,44 @@ public class FashionationLogic : MonoBehaviour
         StartPanel.SetActive(true);
         EndPanel.SetActive(false);
         ContinuePanel.SetActive(false);
+        InputBlock.SetActive(true);
         Level = 1;
         Score = 0;
-        SecondCount = 1;
-        TimeCount = 60;
-        Timer.text = "1:00";
         playing = false;
+        
         // set HighscoreTxt
     }
 
     private void Update()
     {
-        if (playing)
+        if (!InputBlock.activeSelf)
         {
-            if (TimeCount > 0)
+            if (playing)
             {
-                if (SecondCount > 0)
+                if (TimeCount > 0)
                 {
-                    SecondCount -= Time.deltaTime;
-                }
-                else
-                {
-                    SecondCount = 1;
-                    TimeCount -= 1;
-                    if (TimeCount > 9)
+                    if (SecondCount > 0)
                     {
-                        Timer.text = "0:" + TimeCount;
+                        SecondCount -= Time.deltaTime;
                     }
                     else
                     {
-                        Timer.text = "0:0" + TimeCount;
+                        SecondCount = 1;
+                        TimeCount -= 1;
+                        if (TimeCount > 9)
+                        {
+                            Timer.text = "0:" + TimeCount;
+                        }
+                        else
+                        {
+                            Timer.text = "0:0" + TimeCount;
+                        }
                     }
                 }
-            }
-            else
-            {
-                EndLevel();
-                playing = false;
+                else
+                {
+                    EndLevel();
+                }
             }
         }
     }
@@ -121,10 +130,35 @@ public class FashionationLogic : MonoBehaviour
     public void PressedPlay()
     {
         buffer.SetActive(false);
-        
+
+        LevelTxt.text = "Day : " + Level;
+        TimeCount = 60;
+        Timer.text = "1:00";
+        SecondCount = 1;
         MaxCurrentItems = 3;
-        PetWantsMax = 2;
+        PetWantsMax = 1;
+        if (Level > 1)
+        {
+            if ((Level - 1) % 3 == 0)
+            {
+                if (MaxCurrentItems < 5)
+                {
+                    MaxCurrentItems++;
+                    PetWantsMax++;
+                }
+            }
+        }
+        HeartTxt.text = "0";
         HeartScore = 0;
+        HeartGoal = (Level + 1) * 5;
+        HeartBonus = HeartGoal * 2;
+        MaxPets = HeartBonus / 5;
+        int random = Random.Range(0, 10);
+        if (random < 4)
+        {
+            GoldPet = true;
+        }
+        CurrentItems.Clear();
         ChooseSprites();
         StartCoroutine(StartingSequence());
     }
@@ -136,7 +170,9 @@ public class FashionationLogic : MonoBehaviour
         playing = true;
         mgCd.StartCountdown();
         StartCoroutine(SpawnTimer());
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(6);
+        InputBlock.SetActive(false);
+        yield return new WaitForSeconds(2);
         SpawnPet();
         yield break;
     }
@@ -145,7 +181,32 @@ public class FashionationLogic : MonoBehaviour
 
     void EndLevel()
     {
-        Debug.Log("Coroutine stopped");
+        playing = false;
+        InputBlock.SetActive(true);
+        bool won = false;
+        if (HeartScore >= HeartGoal)
+        {
+            won = true;
+        }
+        mgCd.startEnding(won);
+        StartCoroutine(EndSequence());
+    }
+
+    public IEnumerator EndSequence()
+    {
+        yield return new WaitForSeconds(6);
+        HideUI();
+        buffer.SetActive(true);
+        ContinuePanel.SetActive(true);
+        LvlCompletedTxt.text = "Day : " + Level + " Completed!";
+        Level += 1;
+        for (int i = 0; i < FashionItemParent.childCount; i++)
+        {
+            Destroy(FashionItemParent.GetChild(i).gameObject);
+        }
+        RedHearts.GetComponent<Image>().fillAmount = 0;
+        GoldHearts.GetComponent<Image>().fillAmount = 0;
+        yield break;
     }
 
     // spawns item every second
@@ -158,7 +219,6 @@ public class FashionationLogic : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
     }
-    // chooses which items will be on that level
 
     public void CheckClicked()
     {
@@ -233,7 +293,7 @@ public class FashionationLogic : MonoBehaviour
                         {
                             if (GoalPets[0].GetComponent<FashionationPet>().thinkItems[x].GetComponent<fshnThinkItem>().ItemNum == clickedItemNumber)
                             {
-                                GoalPets[0].GetComponent<FashionationPet>().thinkItems[x].SetActive(false);
+                                GoalPets[0].GetComponent<FashionationPet>().thinkItems[x].GetComponent<Image>().sprite = null;
                                 GoalPets[0].GetComponent<FashionationPet>().thinkItems.Remove(GoalPets[0].GetComponent<FashionationPet>().thinkItems[x]);
                             }
                         }
@@ -260,11 +320,34 @@ public class FashionationLogic : MonoBehaviour
     void UpdateScore(int score)
     {
         HeartScore += score;
-        Score = 100 * HeartScore;
+        float progress;
+        if (HeartScore <= HeartGoal)
+        {
+            progress = (float)HeartScore / (float)HeartGoal;
+            RedHearts.SetProgress(progress);
+        }
+        else
+        {
+            int heartScore = HeartScore - HeartGoal;
+            if (HeartScore - score < HeartGoal)
+            {
+                int remainingScore = HeartGoal - (HeartScore - score);
+                RedHearts.SetProgress(1);
+                heartScore -= remainingScore;
+            }
+            progress = (float)heartScore / (float)HeartGoal;
+            GoldHearts.SetProgress(progress);
+        }
+        if (HeartScore >=  HeartBonus)
+        {
+            EndLevel();
+        }
+        Score += (100 * score);
         HeartTxt.text = HeartScore.ToString();
         ScoreTxt.text = $"{Score:n0}";
     }
 
+    // chooses which items will be on that level
     void ChooseSprites()
     {
         int random = Random.Range(0, AllItemSprites.Length);
@@ -349,5 +432,14 @@ public class FashionationLogic : MonoBehaviour
                 }
             }
         }
+    }
+
+    void HideUI()
+    {
+        buffer.SetActive(false);
+        HighscorePanel.SetActive(false);
+        StartPanel.SetActive(false);
+        EndPanel.SetActive(false);
+        ContinuePanel.SetActive(false);
     }
 }

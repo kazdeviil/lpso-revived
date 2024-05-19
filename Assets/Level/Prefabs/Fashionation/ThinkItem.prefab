@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2361614872216550277}
   - component: {fileID: 2052929015406012023}
   - component: {fileID: 1812792165201360749}
-  - component: {fileID: -6688448442072736768}
+  - component: {fileID: -6541713486158479108}
   m_Layer: 5
   m_Name: ThinkItem
   m_TagString: thinkItem
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &-6688448442072736768
+--- !u!114 &-6541713486158479108
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

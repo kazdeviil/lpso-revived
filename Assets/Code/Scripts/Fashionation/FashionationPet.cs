@@ -17,15 +17,18 @@ public class FashionationPet : MonoBehaviour
     public int Hearts = 4;
     public GameObject[] HeartDisplay;
     public float HeartTimer = 9.0f;
+    public float HeartTimerInit = 9.0f;
 
     private bool Moving;
     private int point;
     [SerializeField] private Vector3 startPos;
     [SerializeField] private Vector3 endPos;
-    [SerializeField] private float lerpTime = 2.0f;
+    [SerializeField] private float lerpTime = 1.0f;
 
     private void Start()
     {
+        HeartTimer = 9.0f;
+        lerpTime = 1.0f;
         fashionation = GameObject.Find("MinigameHandler").GetComponent<FashionationLogic>();
         ThinkBubble.SetActive(false);
     }
@@ -49,10 +52,19 @@ public class FashionationPet : MonoBehaviour
             if (HeartTimer > 0)
             {
                 HeartTimer -= Time.deltaTime;
+                if (HeartTimer < HeartTimerInit/2)
+                {
+                    HeartDisplay[Hearts].transform.localScale -= 0.1f * Time.deltaTime * new Vector3(1f, 1f);
+                    if (HeartTimer < 1.1f)
+                    {
+                        Image image = HeartDisplay[Hearts].GetComponent<Image>();
+                        image.CrossFadeAlpha(0f, 1, false);
+                    }
+                }
             }
             else
             {
-                HeartTimer = 9.0f;
+                HeartTimer = HeartTimerInit;
                 LoseHeart();
             }
         }
