@@ -32,7 +32,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         slotClone = Instantiate(slot, slotPos, Quaternion.identity, grid.transform);
         image.transform.localScale = new Vector3(0.9f, 0.9f, 0);
         slotClone.transform.SetSiblingIndex(slotIndex);
-        Debug.Log(Input.mousePosition.x.ToString() + "  = x \n" + Input.mousePosition.y.ToString() + " = y");
     }
 
     public void OnDrag(PointerEventData eventData)
