@@ -14,6 +14,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     [SerializeField] Vector3 slotPos;
     [SerializeField] int slotIndex;
     [SerializeField] GridLayoutGroup grid;
+    [SerializeField] Canvas canvas;
 
     void Awake()
     {
@@ -25,17 +26,18 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         slotPos = transform.position;
         slotIndex = slot.transform.GetSiblingIndex();
         parentAfterDrag = transform.parent;
-        transform.SetParent(transform.root);
+        transform.SetParent(canvas.transform);
         transform.SetAsLastSibling();
         image.raycastTarget = false;
         slotClone = Instantiate(slot, slotPos, Quaternion.identity, grid.transform);
         image.transform.localScale = new Vector3(0.9f, 0.9f, 0);
         slotClone.transform.SetSiblingIndex(slotIndex);
+        Debug.Log(Input.mousePosition.x.ToString() + "  = x \n" + Input.mousePosition.y.ToString() + " = y");
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;
+        transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0.0f);
     }
 
     public void OnEndDrag(PointerEventData eventData)

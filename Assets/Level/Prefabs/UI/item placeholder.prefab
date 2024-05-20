@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3efb7b8c4877d046bf20bf1e2264ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 6621566222822669083}
   parentAfterDrag: {fileID: 0}
   slot: {fileID: 0}
   slotClone: {fileID: 0}

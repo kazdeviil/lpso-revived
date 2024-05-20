@@ -108,6 +108,7 @@ public class OverworldUI : MonoBehaviour
         }
         else if (buttonID == 5)
         {
+            invHandler.pageCount = 1;
             invHandler.inventoryUpdate();
             // if (inventory.activeSelf)
             // {

@@ -11,7 +11,7 @@ public class InventoryHandler : MonoBehaviour
     public TMPro.TextMeshProUGUI[] inventoryItemStackAmount;
     public int itemCount;
     public int finalPageItemCount;
-    public int pageCount;
+    public int pageCount = 1;
     public int maxPageCount;
     public TMPro.TextMeshProUGUI pageCountDisplay;
     public Button pageLeft;
