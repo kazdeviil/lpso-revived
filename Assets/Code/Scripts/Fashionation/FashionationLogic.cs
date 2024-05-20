@@ -89,8 +89,7 @@ public class FashionationLogic : MonoBehaviour
         Level = 1;
         Score = 0;
         playing = false;
-        
-        // set HighscoreTxt
+        HighscoreTxt.text = $"{GameDataManager.Instance.fshnhighscore:n0}";
     }
 
     private void Update()
@@ -207,6 +206,28 @@ public class FashionationLogic : MonoBehaviour
         RedHearts.GetComponent<Image>().fillAmount = 0;
         GoldHearts.GetComponent<Image>().fillAmount = 0;
         yield break;
+    }
+    
+    public void EndGame()
+    {
+        if (!buffer.activeSelf)
+        {
+            buffer.SetActive(true);
+        }
+        ContinuePanel.SetActive(false);
+        HighscorePanel.SetActive(true);
+        EndPanel.SetActive(true);
+
+        TotalScoreTxt.text = $"{Score:n0} Pts";
+        int kibble = Score / 100;
+        KibbleEarnedTxt.text = $"{kibble}";
+        GameDataManager.Instance.AddKibble(kibble);
+        TotalKibbleTxt.text = $"{GameDataManager.Instance.kibble:n0}";
+        if (Score > GameDataManager.Instance.fshnhighscore)
+        {
+            GameDataManager.Instance.fshnhighscore = Score * 100;
+        }
+        HighscoreTxt.text = $"{Score * 100:n0}";
     }
 
     // spawns item every second

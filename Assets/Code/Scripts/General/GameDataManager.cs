@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using Unity.VisualScripting.FullSerializer;
 
 public class GameDataManager : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class GameDataManager : MonoBehaviour
 
     public int mnmhighscore = 0;
     public int pdhighscore = 0;
+    public int fshnhighscore = 0;
 
     private void Awake()
     {
@@ -56,6 +58,7 @@ public class GameDataManager : MonoBehaviour
 
         data.mnmhighscore = mnmhighscore;
         data.pdhighscore = pdhighscore;
+        data.fshnhighscore = fshnhighscore;
 	    bf.Serialize(file, data);
 	    file.Close();
 	    Debug.Log("Game data saved!");
