@@ -50,7 +50,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             GameDataManager gdm = GameDataManager.Instance;
             if (gdm.itemList[gdm.inventory[slotIndex]].ItemCategory == ItemData.itemCategory.Food)
             {
-                Debug.Log("Yummy food! Your pet looked at the " + gdm.itemList[gdm.inventory[slotIndex]].itemName);
+                Debug.Log("Yummy food! Your pet looked at the " + gdm.itemList[gdm.inventory[(((inventoryHandler.pageCount * 12) / 12) + slotIndex) - 1]].itemName);
             }
             else if (gdm.itemList[gdm.inventory[slotIndex]].ItemCategory == ItemData.itemCategory.Furniture)
             {

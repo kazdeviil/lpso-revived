@@ -50,6 +50,11 @@ public class Pet
     public int luckyLvlUp;
     public bool luckMaxLvlReached;
 
+    public int foodLevel = 95;
+    public int funLevel = 95;
+    public int comfortLevel = 95;
+
+
     public Dictionary<PetPaletteType, PaletteColor> colors = new Dictionary<PetPaletteType, PaletteColor> {
         { PetPaletteType.Coat, PaletteColor.white },
         { PetPaletteType.Patch, PaletteColor.white},

@@ -4,6 +4,9 @@ using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using Unity.VisualScripting.FullSerializer;
+using System;
+using System.Collections.Specialized;
+using System.Linq;
 
 public class GameDataManager : MonoBehaviour
 {
@@ -13,6 +16,7 @@ public class GameDataManager : MonoBehaviour
     public List<ItemData> itemList;
     public string displayName;
     public List<int> inventory = new List<int>();
+    public List<int> invItemCounts = new List<int>();
     public int kibble = 100;
     public int[,] levelData = new int[10,10];
     public int[,] rotationData = new int[10,10];
@@ -50,6 +54,7 @@ public class GameDataManager : MonoBehaviour
 	    SaveData data = new SaveData();
         data.displayName = displayName;
 	    data.inventory = inventory;
+        data.invItemCounts = invItemCounts;
         data.rotationData = rotationData;
         data.levelData = levelData;
 	    data.kibble = kibble;
@@ -75,6 +80,7 @@ public class GameDataManager : MonoBehaviour
             displayName = data.displayName;
             if (data.inventory != null){
 		        inventory = data.inventory;
+                invItemCounts = data.invItemCounts;
             }
             rotationData = data.rotationData;
             levelData = data.levelData;
@@ -83,7 +89,8 @@ public class GameDataManager : MonoBehaviour
             currentPetIndex = data.currentPetIndex;
             mnmhighscore = data.mnmhighscore;
             pdhighscore = data.pdhighscore;
-		    Debug.Log("Game data loaded!");
+            fshnhighscore = data.fshnhighscore;
+            Debug.Log("Game data loaded!");
 	    }
 	    else
 		    Debug.LogError("There is no save data!");
@@ -93,12 +100,39 @@ public class GameDataManager : MonoBehaviour
     
     public void AddInventory(int ID)
     {
-        GameDataManager.Instance.inventory.Add(ID);
+        if (GameDataManager.Instance.inventory.Contains(ID))
+        {
+            Debug.Log($"{ID} in inventory, adding to item count");
+            for (int i = 0; i < inventory.Count; i++)
+            {
+                if (inventory[i] == ID)
+                {
+                    invItemCounts[i] += 1; break;
+                }
+            }
+        }
+        else
+        {
+            GameDataManager.Instance.inventory.Add(ID);
+            GameDataManager.Instance.invItemCounts.Add(1);
+            Debug.Log(inventory.Count + "\n" + invItemCounts.Count);
+        }
     }
     
     public void RemoveInventory(int ID)
     {
-        GameDataManager.Instance.inventory.Remove(ID);
+        for (int i = 0; i < inventory.Count; i++)
+        {
+            if (inventory[i] == ID)
+            {
+                invItemCounts[i]--;
+                if (invItemCounts[i] < 1)
+                {
+                    GameDataManager.Instance.invItemCounts.Remove(i);
+                    GameDataManager.Instance.inventory.Remove(i);
+                }
+            }
+        }
     }
 
     public void AddKibble(int kibble)

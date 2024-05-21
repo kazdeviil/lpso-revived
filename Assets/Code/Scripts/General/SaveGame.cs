@@ -13,6 +13,7 @@ public class SaveData
     public int[,] levelData;
     public string displayName;
     public List<int> inventory;
+    public List<int> invItemCounts;
 	public int kibble;
     public List<Pet> pets;
     public int currentPetIndex;
