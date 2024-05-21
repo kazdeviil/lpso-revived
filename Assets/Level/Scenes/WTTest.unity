@@ -486,6 +486,10 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 341013476}
+    - target: {fileID: 25075560211902120, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1715943501}
     - target: {fileID: 105195311053729105, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -506,6 +510,10 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 341013476}
+    - target: {fileID: 142446569255314563, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1715943501}
     - target: {fileID: 372250029892804884, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -534,6 +542,10 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 341013476}
+    - target: {fileID: 388395769752355315, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1715943501}
     - target: {fileID: 432259460027229872, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -586,6 +598,10 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 341013476}
+    - target: {fileID: 999284512250800850, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1715943501}
     - target: {fileID: 1014586106959149815, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -662,6 +678,10 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 341013476}
+    - target: {fileID: 1336897691495806794, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1715943501}
     - target: {fileID: 1372119554378468521, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -746,6 +766,10 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 341013476}
+    - target: {fileID: 1830331022680828685, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1715943501}
     - target: {fileID: 1872035142867323982, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -918,6 +942,10 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 341013476}
+    - target: {fileID: 2646323659045686066, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1715943501}
     - target: {fileID: 2671012356650161142, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1058,6 +1086,10 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 341013476}
+    - target: {fileID: 3831487587226549796, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1715943501}
     - target: {fileID: 3920058768876224575, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1222,6 +1254,10 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 341013476}
+    - target: {fileID: 4857191014112562328, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1715943501}
     - target: {fileID: 5122280868275913140, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1490,6 +1526,10 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 341013476}
+    - target: {fileID: 6596905535035968521, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1715943501}
     - target: {fileID: 6609788787039595373, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 36.261795
@@ -1598,6 +1638,10 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 341013476}
+    - target: {fileID: 7569146985369440203, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1715943501}
     - target: {fileID: 7676195301654697517, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1666,6 +1710,10 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 341013476}
+    - target: {fileID: 8189041617177479491, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1715943501}
     - target: {fileID: 8194879560324887170, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2972,6 +3020,7 @@ GameObject:
   - component: {fileID: 1715943496}
   - component: {fileID: 1715943499}
   - component: {fileID: 1715943500}
+  - component: {fileID: 1715943501}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -3066,6 +3115,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 1715943497}
+--- !u!61 &1715943501
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715943495}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.4}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1815504192
 GameObject:
   m_ObjectHideFlags: 0

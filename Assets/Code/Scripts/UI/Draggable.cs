@@ -15,10 +15,13 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     [SerializeField] int slotIndex;
     [SerializeField] GridLayoutGroup grid;
     [SerializeField] Canvas canvas;
+    [SerializeField] BoxCollider2D player;
+    [SerializeField] InventoryHandler inventoryHandler;
 
     void Awake()
     {
         slot = gameObject;
+        inventoryHandler = canvas.gameObject.GetComponentInChildren<InventoryHandler>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -41,6 +44,24 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.forward);
+        if (hit.collider == player)
+        {
+            GameDataManager gdm = GameDataManager.Instance;
+            if (gdm.itemList[gdm.inventory[slotIndex]].ItemCategory == ItemData.itemCategory.Food)
+            {
+                Debug.Log("Yummy food! Your pet looked at the " + gdm.itemList[gdm.inventory[slotIndex]].itemName);
+            }
+            else if (gdm.itemList[gdm.inventory[slotIndex]].ItemCategory == ItemData.itemCategory.Furniture)
+            {
+                Debug.Log("Furniture!");
+            }
+            else
+            {
+                Debug.Log("Something else!");
+            }
+        }
+
         transform.SetParent(parentAfterDrag);
         image.raycastTarget = true;
         Destroy(slotClone);
