@@ -48,11 +48,30 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         if (hit.collider == player)
         {
             GameDataManager gdm = GameDataManager.Instance;
-            if (gdm.itemList[gdm.inventory[slotIndex]].ItemCategory == ItemData.itemCategory.Food)
+            if (gdm.itemList[gdm.inventory[(((inventoryHandler.pageCount * 12) - 12) + slotIndex)]].ItemCategory == ItemData.itemCategory.Food)
             {
-                Debug.Log("Yummy food! Your pet looked at the " + gdm.itemList[gdm.inventory[(((inventoryHandler.pageCount * 12) / 12) + slotIndex) - 1]].itemName);
+                if (GameDataManager.Instance.CurrentPet.foodLevel == 100)
+                {
+                    Debug.Log("Your pet is too full to eat any more!");
+                }
+                else
+                {
+                    Debug.Log("Yummy food! Your pet ate the " + gdm.itemList[gdm.inventory[(((inventoryHandler.pageCount * 12) - 12) + slotIndex)]].itemName);
+                    gdm.RemoveInventory(gdm.itemList[gdm.inventory[(((inventoryHandler.pageCount * 12) - 12) + slotIndex)]].ID);
+                    int food = 5;
+                    if (!(gdm.CurrentPet.foodLevel <= 100 - food))
+                    {
+                        int overflow = food + gdm.CurrentPet.foodLevel;
+                        int reverse = overflow - 100;
+                        food -= reverse;
+                    }
+                    gdm.AddFood(5);
+                    inventoryHandler.inventoryUpdate();
+                    string str = "+" + food.ToString();
+                    inventoryHandler.owUI.Popup(str);
+                }
             }
-            else if (gdm.itemList[gdm.inventory[slotIndex]].ItemCategory == ItemData.itemCategory.Furniture)
+            else if (gdm.itemList[gdm.inventory[(((inventoryHandler.pageCount * 12) - 12) + slotIndex)]].ItemCategory == ItemData.itemCategory.Furniture)
             {
                 Debug.Log("Furniture!");
             }

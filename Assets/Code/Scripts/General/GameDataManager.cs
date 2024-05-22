@@ -128,9 +128,10 @@ public class GameDataManager : MonoBehaviour
                 invItemCounts[i]--;
                 if (invItemCounts[i] < 1)
                 {
-                    GameDataManager.Instance.invItemCounts.Remove(i);
-                    GameDataManager.Instance.inventory.Remove(i);
+                    GameDataManager.Instance.inventory.Remove(ID);
+                    GameDataManager.Instance.invItemCounts.Remove(invItemCounts[i]);
                 }
+                break;
             }
         }
     }
@@ -143,5 +144,47 @@ public class GameDataManager : MonoBehaviour
     public void SubtractKibble(int kibble)
     {
         GameDataManager.Instance.kibble -= kibble;
+    }
+
+    public void AddFood(int food)
+    {
+        if (GameDataManager.Instance.CurrentPet.foodLevel <= 100 - food)
+        {
+            GameDataManager.Instance.CurrentPet.foodLevel += food;
+        }
+        else
+        {
+            int overflow = food + GameDataManager.Instance.CurrentPet.foodLevel;
+            int reverse = overflow - 100;
+            GameDataManager.Instance.CurrentPet.foodLevel += food - reverse;
+        }
+    }
+
+    public void AddFun(int fun)
+    {
+        if (GameDataManager.Instance.CurrentPet.foodLevel <= 100 - fun)
+        {
+            GameDataManager.Instance.CurrentPet.foodLevel += fun;
+        }
+        else
+        {
+            int overflow = fun + GameDataManager.Instance.CurrentPet.foodLevel;
+            int reverse = overflow - 100;
+            GameDataManager.Instance.CurrentPet.foodLevel += fun - reverse;
+        }
+    }
+
+    public void AddComfort(int comfort)
+    {
+        if (GameDataManager.Instance.CurrentPet.foodLevel <= 100 - comfort)
+        {
+            GameDataManager.Instance.CurrentPet.foodLevel += comfort;
+        }
+        else
+        {
+            int overflow = comfort + GameDataManager.Instance.CurrentPet.foodLevel;
+            int reverse = overflow - 100;
+            GameDataManager.Instance.CurrentPet.foodLevel += comfort - reverse;
+        }
     }
 }

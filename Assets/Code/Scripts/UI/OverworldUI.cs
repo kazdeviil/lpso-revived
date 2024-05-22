@@ -43,6 +43,8 @@ public class OverworldUI : MonoBehaviour
     [SerializeField] Button[] mapIcons;
     [SerializeField] TMPro.TextMeshProUGUI LocationName;
 
+    [Header("General")]
+    public TextPopup textPopup;
     public GameObject player;
 
     // temporary testing list
@@ -128,6 +130,10 @@ public class OverworldUI : MonoBehaviour
     // TODO: add side inventory logic
 
 
+    public void Popup(string str)
+    {
+        textPopup.SpawnText(player.transform.position.x, player.transform.position.y, str, textPopup.ArialBlack, textPopup.ABGreen, 40, 0.2f, 0.5f, 1, 5);
+    }
 
     public void TravelTo(int buttonID)
     {
