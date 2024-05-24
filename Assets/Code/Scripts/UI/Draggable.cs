@@ -17,11 +17,13 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     [SerializeField] Canvas canvas;
     [SerializeField] BoxCollider2D player;
     [SerializeField] InventoryHandler inventoryHandler;
+    [SerializeField] OverworldUI owUI;
 
     void Awake()
     {
         slot = gameObject;
         inventoryHandler = canvas.gameObject.GetComponentInChildren<InventoryHandler>();
+        owUI = inventoryHandler.owUI;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -65,7 +67,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                         int reverse = overflow - 100;
                         food -= reverse;
                     }
-                    gdm.AddFood(5);
+                    gdm.AddStat(5, ItemData.itemCategory.Food);
                     inventoryHandler.inventoryUpdate();
                     string str = "+" + food.ToString();
                     inventoryHandler.owUI.Popup(str);
@@ -74,6 +76,19 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             else if (gdm.itemList[gdm.inventory[(((inventoryHandler.pageCount * 12) - 12) + slotIndex)]].ItemCategory == ItemData.itemCategory.Furniture)
             {
                 Debug.Log("Furniture!");
+            }
+            else if (gdm.itemList[gdm.inventory[(((inventoryHandler.pageCount * 12) - 12) + slotIndex)]].ItemCategoryText == ItemData.itemCategoryText.Bell)
+            {
+                for (int i = 0; i < owUI.mainUI.Length; i++)
+                {
+                    if (owUI.mainUI[i].activeSelf)
+                    {
+                        owUI.mainUI[i].SetActive(false);
+                    }
+                }
+                owUI.petUI.SetActive(false);
+                GameObject gd = Instantiate(owUI.GemDiving, owUI.gameObject.transform);
+                gd.transform.SetAsFirstSibling();
             }
             else
             {

@@ -16,7 +16,7 @@ public class OverworldUI : MonoBehaviour
 
     public string[] scenes;
     [SerializeField] Button[] mainUIButtons;
-    [SerializeField] GameObject[] mainUI;
+    public GameObject[] mainUI;
     int currentUI;
     [Header("UI GameObjects")]
     public GameObject petUI;
@@ -30,6 +30,8 @@ public class OverworldUI : MonoBehaviour
     public GameObject messagebar;
 
     public Image petBarIcon;
+
+    public GameObject GemDiving;
 
 
     [Header("Pink Pet Case")]

@@ -412,6 +412,14 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 617380949368149936, guid: bc72c73d6aad06540aa3170f8b3f2b78, type: 3}
+      propertyPath: 'StoreInventory.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: fa4a39b97b3ad124c8b5d42263f7f823, type: 2}
+    - target: {fileID: 617380949368149936, guid: bc72c73d6aad06540aa3170f8b3f2b78, type: 3}
+      propertyPath: 'StoreInventory.Array.data[8]'
+      value: 
+      objectReference: {fileID: 11400000, guid: ac8033060ef020548aac78f4e3a44e6e, type: 2}
     - target: {fileID: 1040642586059227245, guid: bc72c73d6aad06540aa3170f8b3f2b78, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

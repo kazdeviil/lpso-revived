@@ -1927,9 +1927,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8698369760486369890, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
+      propertyPath: MainUI
+      value: 
+      objectReference: {fileID: 1131945613}
+    - target: {fileID: 8698369760486369890, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1715943495}
+    - target: {fileID: 8698369760486369890, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
+      propertyPath: GemDiving
+      value: 
+      objectReference: {fileID: 2492553251802689565, guid: c8e8fd2f2fd79da4ab76b06410819d06, type: 3}
     - target: {fileID: 8698369760486369890, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
       propertyPath: textPopup
       value: 
@@ -2472,6 +2480,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1131945613 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1762573805572663000, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
+  m_PrefabInstance: {fileID: 503121886}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1163061209
 GameObject:
   m_ObjectHideFlags: 0
@@ -2801,6 +2814,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 132516920420355919, guid: 23b8cae95268f0b4a8f9a2c36d085fd2, type: 3}
+      propertyPath: itemList.Array.size
+      value: 61
+      objectReference: {fileID: 0}
+    - target: {fileID: 132516920420355919, guid: 23b8cae95268f0b4a8f9a2c36d085fd2, type: 3}
+      propertyPath: 'itemList.Array.data[57]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 17cf44d247e106a4996a4f69206d4b85, type: 2}
+    - target: {fileID: 132516920420355919, guid: 23b8cae95268f0b4a8f9a2c36d085fd2, type: 3}
+      propertyPath: 'itemList.Array.data[58]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b7f3978bf81d77744b28dc3e2dc45c70, type: 2}
+    - target: {fileID: 132516920420355919, guid: 23b8cae95268f0b4a8f9a2c36d085fd2, type: 3}
+      propertyPath: 'itemList.Array.data[59]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 8312d0baf04efb24ba129ab42efbc1b6, type: 2}
+    - target: {fileID: 132516920420355919, guid: 23b8cae95268f0b4a8f9a2c36d085fd2, type: 3}
+      propertyPath: 'itemList.Array.data[60]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 80720db6956901242986b505ce11ba48, type: 2}
     - target: {fileID: 3785976846473623917, guid: 23b8cae95268f0b4a8f9a2c36d085fd2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.9494501

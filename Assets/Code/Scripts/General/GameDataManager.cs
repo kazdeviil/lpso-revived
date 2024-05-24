@@ -7,6 +7,7 @@ using Unity.VisualScripting.FullSerializer;
 using System;
 using System.Collections.Specialized;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class GameDataManager : MonoBehaviour
 {
@@ -146,45 +147,46 @@ public class GameDataManager : MonoBehaviour
         GameDataManager.Instance.kibble -= kibble;
     }
 
-    public void AddFood(int food)
+    public void AddStat(int amount, ItemData.itemCategory type)
     {
-        if (GameDataManager.Instance.CurrentPet.foodLevel <= 100 - food)
+        if (type == ItemData.itemCategory.Food)
         {
-            GameDataManager.Instance.CurrentPet.foodLevel += food;
+            if (GameDataManager.Instance.CurrentPet.foodLevel <= 100 - amount)
+            {
+                GameDataManager.Instance.CurrentPet.foodLevel += amount;
+            }
+            else
+            {
+                int overflow = amount + GameDataManager.Instance.CurrentPet.foodLevel;
+                int reverse = overflow - 100;
+                GameDataManager.Instance.CurrentPet.foodLevel += amount - reverse;
+            }
         }
-        else
+        else if (type == ItemData.itemCategory.Toy)
         {
-            int overflow = food + GameDataManager.Instance.CurrentPet.foodLevel;
-            int reverse = overflow - 100;
-            GameDataManager.Instance.CurrentPet.foodLevel += food - reverse;
+            if (GameDataManager.Instance.CurrentPet.foodLevel <= 100 - amount)
+            {
+                GameDataManager.Instance.CurrentPet.foodLevel += amount;
+            }
+            else
+            {
+                int overflow = amount + GameDataManager.Instance.CurrentPet.foodLevel;
+                int reverse = overflow - 100;
+                GameDataManager.Instance.CurrentPet.foodLevel += amount - reverse;
+            }
         }
-    }
-
-    public void AddFun(int fun)
-    {
-        if (GameDataManager.Instance.CurrentPet.foodLevel <= 100 - fun)
+        else if (type == ItemData.itemCategory.Grooming)
         {
-            GameDataManager.Instance.CurrentPet.foodLevel += fun;
-        }
-        else
-        {
-            int overflow = fun + GameDataManager.Instance.CurrentPet.foodLevel;
-            int reverse = overflow - 100;
-            GameDataManager.Instance.CurrentPet.foodLevel += fun - reverse;
-        }
-    }
-
-    public void AddComfort(int comfort)
-    {
-        if (GameDataManager.Instance.CurrentPet.foodLevel <= 100 - comfort)
-        {
-            GameDataManager.Instance.CurrentPet.foodLevel += comfort;
-        }
-        else
-        {
-            int overflow = comfort + GameDataManager.Instance.CurrentPet.foodLevel;
-            int reverse = overflow - 100;
-            GameDataManager.Instance.CurrentPet.foodLevel += comfort - reverse;
+            if (GameDataManager.Instance.CurrentPet.foodLevel <= 100 - amount)
+            {
+                GameDataManager.Instance.CurrentPet.foodLevel += amount;
+            }
+            else
+            {
+                int overflow = amount + GameDataManager.Instance.CurrentPet.foodLevel;
+                int reverse = overflow - 100;
+                GameDataManager.Instance.CurrentPet.foodLevel += amount - reverse;
+            }
         }
     }
 }
