@@ -50,6 +50,11 @@ public class Pet
     public int luckyLvlUp;
     public bool luckMaxLvlReached;
 
+    public int gemLevel = 1;
+    public int gemExp = 0;
+    public int gemLvlUp;
+    public bool gemMaxLvlReached;
+
     public int foodLevel = 95;
     public int funLevel = 95;
     public int comfortLevel = 95;

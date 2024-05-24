@@ -15,9 +15,11 @@ public class GemDivingLogic : MonoBehaviour
     [SerializeField] private Sprite KibbleSprite;
 
     [SerializeField] private GameObject gemDiving;
+    [SerializeField] private Skills skills;
 
     private void Start()
     {
+        skills = GetComponent<Skills>();
         WinScreen.SetActive(false);
         gemDiving = transform.parent.gameObject;
         InputBlock.SetActive(true);
@@ -28,7 +30,6 @@ public class GemDivingLogic : MonoBehaviour
             StartCoroutine(ShowSequence());
         }
     }
-
     public IEnumerator ShowSequence()
     {
         yield return new WaitForSeconds(1);
@@ -77,32 +78,33 @@ public class GemDivingLogic : MonoBehaviour
         }
         StartCoroutine(EndScreen(kibble));
     }
-
     public IEnumerator EndScreen(bool wonKibble)
     {
         yield return new WaitForSeconds(1);
         WinScreen.SetActive(true);
         if (wonKibble)
         {
-            Debug.Log("+10 Kibble!");
             WonItemImg.sprite = KibbleSprite;
+            GameDataManager.Instance.AddKibble(10);
         }
         else
         {
             int b = Random.Range(57, 61);
-            Debug.Log(GameDataManager.Instance.itemList[b].name);
             WonItemImg.sprite = GameDataManager.Instance.itemList[b].icon;
+            GameDataManager.Instance.AddInventory(b);
         }
+        skills.GemSkillUp();
         yield return new WaitForSeconds(5);
         GetComponentInParent<OverworldUI>().petUI.SetActive(true);
-        Destroy(gameObject.transform.parent.gameObject);
+        GameDataManager.Instance.saveGame();
+        Destroy(gemDiving);
         yield break;
     }
     public IEnumerator FailGame()
     {
         yield return new WaitForSeconds(1);
         GetComponentInParent<OverworldUI>().petUI.SetActive(true);
-        Destroy(gameObject.transform.parent.gameObject);
+        Destroy(gemDiving);
         yield break;
     }
 }
