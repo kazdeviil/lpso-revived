@@ -107,57 +107,57 @@ ScriptedImporter:
       height: 147
     spriteID: f1df9390ddb715540b755b3d72fad4f6
     spriteBone:
-    - name: righteye
-      guid: 68091e593dedc854bbd1d5080aea1a91
-      position: {x: 109.513916, y: 63.946167, z: 0}
-      rotation: {x: 0, y: 0, z: 0.75144494, w: 0.65979594}
-      length: 9.613708
+    - name: head left tweak
+      guid: 92b212a1c30d6794a8b21ca753f4df06
+      position: {x: 320.2836, y: 211.09274, z: 0}
+      rotation: {x: 0, y: 0, z: -0.56837463, w: 0.82276994}
+      length: 114.68643
       parentId: -1
       color:
         serializedVersion: 2
         rgba: 4278223103
-    - name: righteye_1
-      guid: 85f8f5871721ca0e1a1fdc809bae870e
-      position: {x: 22.185352, y: 35.905415, z: 0}
-      rotation: {x: 0, y: 0, z: -0.08447704, w: 0.99642545}
-      length: 16.031029
-      parentId: 0
+    - name: nose tweak
+      guid: 8be77c9a61615c049a072e873983ce43
+      position: {x: 212.80933, y: 29.53183, z: 0}
+      rotation: {x: 0, y: 0, z: -0.008637579, w: 0.9999627}
+      length: 16.05702
+      parentId: -1
       color:
         serializedVersion: 2
         rgba: 4294934528
-    - name: righteye_3
-      guid: ac73bdc0d3346c9dcb5088670a4244ea
-      position: {x: -42.786335, y: 44.59252, z: 0}
-      rotation: {x: 0, y: 0, z: -0.07214077, w: 0.9973945}
-      length: 14.333947
-      parentId: 0
+    - name: mouth right
+      guid: 977901d230faff54f951cba11bdfa15d
+      position: {x: -24.975279, y: -17.609657, z: 0}
+      rotation: {x: 0, y: 0, z: -0.27097827, w: 0.9625855}
+      length: 21.187105
+      parentId: 4
       color:
         serializedVersion: 2
         rgba: 4286578943
-    - name: righteye_5
-      guid: dfff5e3e8dcfc2452ab29de93df7d331
-      position: {x: -1.8989199, y: 1.3765156, z: 0}
-      rotation: {x: 0, y: 0, z: -0.06480588, w: 0.9978979}
-      length: 7.3972454
-      parentId: 0
+    - name: eye left tweak_1
+      guid: cfe96dc589eaae74d90bc1b62fb60a99
+      position: {x: 410.92822, y: 78.89099, z: 0}
+      rotation: {x: 0, y: 0, z: -0.807509, w: 0.5898554}
+      length: 55.099827
+      parentId: -1
       color:
         serializedVersion: 2
-        rgba: 4294902015
-    - name: righteye_2
-      guid: 1ac99d461d53664e5849543867b8f44a
-      position: {x: 10.036141, y: -36.054134, z: 0}
-      rotation: {x: 0, y: 0, z: -0.07041055, w: 0.9975181}
-      length: 18.759727
-      parentId: 0
+        rgba: 4294901760
+    - name: mouth main
+      guid: 99dc920727de9d44d9b201d8e07181fa
+      position: {x: 218.64261, y: 19.421707, z: 0}
+      rotation: {x: 0, y: 0, z: 0.70703727, w: -0.7071763}
+      length: 16.655396
+      parentId: -1
       color:
         serializedVersion: 2
         rgba: 4294901888
-    - name: righteye_4
-      guid: 5c334fb7d2840c09cae1756a2af49b92
-      position: {x: -48.356613, y: -29.075367, z: 0}
-      rotation: {x: 0, y: 0, z: -0.04076233, w: 0.99916893}
-      length: 17.514242
-      parentId: 0
+    - name: mouth left
+      guid: f73add3b16d11ab4da2c4d8a4e8ec474
+      position: {x: -25.985449, y: 18.213814, z: 0}
+      rotation: {x: 0, y: 0, z: 0.2862372, w: 0.9581588}
+      length: 24.88919
+      parentId: 4
       color:
         serializedVersion: 2
         rgba: 4278223103
@@ -566,30 +566,30 @@ ScriptedImporter:
       height: 43
     spriteID: 1949faee8372c0b4693d6cccd0748f7c
     spriteBone:
-    - name: righteye
-      guid: 68091e593dedc854bbd1d5080aea1a91
-      position: {x: 120.513916, y: 12.946167, z: 0}
-      rotation: {x: 0, y: 0, z: 0.75144494, w: 0.65979594}
-      length: 9.613708
+    - name: head left tweak
+      guid: 92b212a1c30d6794a8b21ca753f4df06
+      position: {x: 331.2836, y: 160.09277, z: 0}
+      rotation: {x: 0, y: 0, z: -0.56837463, w: 0.82276994}
+      length: 114.68643
       parentId: -1
       color:
         serializedVersion: 2
         rgba: 4278223103
-    - name: righteye_1
-      guid: 85f8f5871721ca0e1a1fdc809bae870e
-      position: {x: 22.18538, y: 35.905422, z: 0}
-      rotation: {x: 0, y: 0, z: -0.08447704, w: 0.99642545}
-      length: 16.031029
-      parentId: 0
+    - name: nose tweak
+      guid: 8be77c9a61615c049a072e873983ce43
+      position: {x: 223.80933, y: -21.46817, z: 0}
+      rotation: {x: 0, y: 0, z: -0.008637579, w: 0.9999627}
+      length: 16.05702
+      parentId: -1
       color:
         serializedVersion: 2
         rgba: 4294934528
-    - name: righteye_2
-      guid: 1ac99d461d53664e5849543867b8f44a
-      position: {x: 10.036171, y: -36.054127, z: 0}
-      rotation: {x: 0, y: 0, z: -0.07041055, w: 0.9975181}
-      length: 18.759727
-      parentId: 0
+    - name: mouth main
+      guid: 99dc920727de9d44d9b201d8e07181fa
+      position: {x: 229.64261, y: -31.578308, z: 0}
+      rotation: {x: 0, y: 0, z: 0.70703727, w: -0.7071763}
+      length: 16.655396
+      parentId: -1
       color:
         serializedVersion: 2
         rgba: 4294901888
@@ -1137,60 +1137,60 @@ ScriptedImporter:
       height: 147
     spriteID: d00c03857e6b27441a5df14aa892579a
     spriteBone:
-    - name: lefteye
-      guid: d28397f2840498641b317c7c3c6ba9bb
-      position: {x: 75.33432, y: 62.76773, z: 0}
-      rotation: {x: 0, y: 0, z: 0.6943731, w: 0.7196153}
-      length: 9.538607
+    - name: head left main
+      guid: 60f6ed1e0ac20054e9778870b0d8d2c2
+      position: {x: 59.13443, y: -37.506393, z: 0}
+      rotation: {x: 0, y: 0, z: 0.54883593, w: 0.8359301}
+      length: 128.89594
       parentId: -1
       color:
         serializedVersion: 2
         rgba: 4294902015
-    - name: lefteye_1
-      guid: 88b4d30d3cfa170dcbfa0b574c6d8ccc
-      position: {x: 19.713589, y: 39.659943, z: 0}
-      rotation: {x: 0, y: 0, z: 0.007326274, w: 0.9999732}
-      length: 20.027624
-      parentId: 0
+    - name: forearm right
+      guid: 1dd80fee9afe816408b9cd1f18cf3779
+      position: {x: -109.86531, y: -83.67049, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92793655, w: -0.37273815}
+      length: 34.90449
+      parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 4278190335
+    - name: upperarm left
+      guid: 54d9b3f7d9dba0749b00e6f5c57404b3
+      position: {x: -5.1081543, y: -50.267654, z: 0}
+      rotation: {x: 0, y: 0, z: -0.4116617, w: 0.9113368}
+      length: 41.771084
+      parentId: -1
       color:
         serializedVersion: 2
         rgba: 4278255615
-    - name: lefteye_2
-      guid: ed5a396f87301cba3b29afb5e711e01d
-      position: {x: 15.7867775, y: -33.453274, z: 0}
-      rotation: {x: 0, y: 0, z: 0.012849334, w: 0.99991745}
-      length: 21.07808
-      parentId: 0
-      color:
-        serializedVersion: 2
-        rgba: 4286643968
-    - name: lefteye_4
-      guid: 51a7ada4736f40c59868286eef9b01ed
-      position: {x: -43.236397, y: -40.2012, z: 0}
-      rotation: {x: 0, y: 0, z: 0.03803152, w: 0.9992766}
-      length: 20.88328
-      parentId: 0
-      color:
-        serializedVersion: 2
-        rgba: 4294901888
-    - name: lefteye_3
-      guid: 4d3e8dab43de1a919bf85469e69f1673
-      position: {x: -43.116085, y: 39.10322, z: 0}
-      rotation: {x: 0, y: 0, z: 0.012748022, w: 0.9999188}
-      length: 20.656548
-      parentId: 0
+    - name: thigh right
+      guid: ec7e4a1a0d6dc974f8620fd9ea1096c4
+      position: {x: -70.5679, y: -111.9928, z: 0}
+      rotation: {x: 0, y: 0, z: 0.7309758, w: -0.6824034}
+      length: 26.696693
+      parentId: -1
       color:
         serializedVersion: 2
         rgba: 4294934528
-    - name: lefteye_5
-      guid: adc312ed7d695219eb4c4a0641024efb
-      position: {x: -4.02478, y: 0.3215146, z: 0}
-      rotation: {x: 0, y: 0, z: 0.03601551, w: 0.99935126}
-      length: 9.763495
-      parentId: 0
+    - name: forearm left
+      guid: 7c3a14a5fe0dd2b41990b00eb4590646
+      position: {x: 41.771084, y: 0.000016836586, z: 0}
+      rotation: {x: 0, y: 0, z: 0.061845787, w: 0.99808574}
+      length: 45.52017
+      parentId: 2
       color:
         serializedVersion: 2
-        rgba: 4294901760
+        rgba: 4286643968
+    - name: foot left
+      guid: 207984105ba44f14fa853fa7568b9090
+      position: {x: -5.371765, y: -169.45291, z: 0}
+      rotation: {x: 0, y: 0, z: -0.26461363, w: 0.9643545}
+      length: 18.34932
+      parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 4294967040
     spriteOutline: []
     vertices:
     - position: {x: 109.655, y: 0.33200073}
@@ -1596,33 +1596,33 @@ ScriptedImporter:
       height: 44
     spriteID: 3c8df8116ca60e64b8a496de34dc51d0
     spriteBone:
-    - name: lefteye
-      guid: d28397f2840498641b317c7c3c6ba9bb
-      position: {x: 78.33432, y: 14.767731, z: 0}
-      rotation: {x: 0, y: 0, z: 0.6943731, w: 0.7196153}
-      length: 9.538607
+    - name: head left main
+      guid: 60f6ed1e0ac20054e9778870b0d8d2c2
+      position: {x: 62.13443, y: -85.50639, z: 0}
+      rotation: {x: 0, y: 0, z: 0.54883593, w: 0.8359301}
+      length: 128.89594
       parentId: -1
       color:
         serializedVersion: 2
         rgba: 4294902015
-    - name: lefteye_1
-      guid: 88b4d30d3cfa170dcbfa0b574c6d8ccc
-      position: {x: 19.713604, y: 39.65995, z: 0}
-      rotation: {x: 0, y: 0, z: 0.007326274, w: 0.9999732}
-      length: 20.027624
-      parentId: 0
+    - name: forearm right
+      guid: 1dd80fee9afe816408b9cd1f18cf3779
+      position: {x: -106.86531, y: -131.67049, z: 0}
+      rotation: {x: 0, y: 0, z: 0.92793655, w: -0.37273815}
+      length: 34.90449
+      parentId: -1
+      color:
+        serializedVersion: 2
+        rgba: 4278190335
+    - name: upperarm left
+      guid: 54d9b3f7d9dba0749b00e6f5c57404b3
+      position: {x: -2.1081543, y: -98.267654, z: 0}
+      rotation: {x: 0, y: 0, z: -0.4116617, w: 0.9113368}
+      length: 41.771084
+      parentId: -1
       color:
         serializedVersion: 2
         rgba: 4278255615
-    - name: lefteye_2
-      guid: ed5a396f87301cba3b29afb5e711e01d
-      position: {x: 15.786793, y: -33.45327, z: 0}
-      rotation: {x: 0, y: 0, z: 0.012849334, w: 0.99991745}
-      length: 21.07808
-      parentId: 0
-      color:
-        serializedVersion: 2
-        rgba: 4286643968
     spriteOutline: []
     vertices:
     - position: {x: 7.1449966, y: 0.3939991}
@@ -2219,357 +2219,393 @@ ScriptedImporter:
   mosaicSpriteImportData: []
   sharedRigCharacterData:
     bones:
-    - name: root
-      guid: a3f61b98682bf2d45ad2490a255fb1b2
-      position: {x: 304.7627, y: 42.418518, z: 0}
-      rotation: {x: 0, y: 0, z: 0.70710677, w: 0.7071068}
-      length: 19.956615
+    - name: head main
+      guid: ef16a171696d6df46bd2ab7634ad07b3
+      position: {x: 72.85262, y: 0.86972225, z: 0}
+      rotation: {x: 0, y: 0, z: 0.0045314236, w: 0.99998975}
+      length: 162.45407
+      parentId: 25
+      color:
+        serializedVersion: 2
+        rgba: 4278190335
+    - name: head tweak TR
+      guid: 080e507981c6182429d2ce0d289c2137
+      position: {x: 304.07037, y: 36.628777, z: 0}
+      rotation: {x: 0, y: -0, z: 0.96177113, w: 0.27385446}
+      length: 75.57669
+      parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 4278255615
+    - name: head tweak TL
+      guid: 1198baa3ed51cf14fb48a71bf48667f5
+      position: {x: 304.55524, y: -37.65676, z: 0}
+      rotation: {x: 0, y: -0, z: -0.9607801, w: 0.27731138}
+      length: 73.141136
+      parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 4278255360
+    - name: head tweak BL
+      guid: 02640843603618b4da67505e015f712b
+      position: {x: 22.401543, y: -42.67831, z: 0}
+      rotation: {x: 0, y: 0, z: -0.23726006, w: 0.97144616}
+      length: 48.883614
+      parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 4294967040
+    - name: head tweak BR
+      guid: e9e9f25671e4f99409ab25f42db5cad4
+      position: {x: 20.657303, y: 45.11594, z: 0}
+      rotation: {x: 0, y: 0, z: 0.27490097, w: 0.9614726}
+      length: 47.554424
+      parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 4294901760
+    - name: head left main
+      guid: 60f6ed1e0ac20054e9778870b0d8d2c2
+      position: {x: 24.253523, y: -97.53938, z: 0}
+      rotation: {x: 0, y: 0, z: -0.20363705, w: 0.97904646}
+      length: 128.89594
+      parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 4294902015
+    - name: head left tweak
+      guid: 92b212a1c30d6794a8b21ca753f4df06
+      position: {x: 228.84079, y: 94.62791, z: 0}
+      rotation: {x: 0, y: 0, z: -0.9266871, w: 0.37583372}
+      length: 114.68645
+      parentId: 5
+      color:
+        serializedVersion: 2
+        rgba: 4278223103
+    - name: head right main
+      guid: 2ec169105381a564cbf59c915e8c0d5b
+      position: {x: 23.102081, y: 99.05569, z: 0}
+      rotation: {x: 0, y: 0, z: 0.1837638, w: 0.9829705}
+      length: 139.07115
+      parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 4278255488
+    - name: head right tweak
+      guid: 6429888809fb49e449842eab05043b6a
+      position: {x: 230.75179, y: -90.452065, z: 0}
+      rotation: {x: 0, y: 0, z: 0.9342887, w: 0.35651758}
+      length: 116.9245
+      parentId: 7
+      color:
+        serializedVersion: 2
+        rgba: 4286643968
+    - name: ear left main
+      guid: c37fdff11fe84ce489b6396ab0a62b91
+      position: {x: 305.4659, y: -65.52954, z: 0}
+      rotation: {x: 0, y: 0, z: -0.32882354, w: 0.94439137}
+      length: 75.47219
+      parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 4294934528
+    - name: ear left tweak
+      guid: 0430f1135c6d68249b544d43cd12f400
+      position: {x: 81.13587, y: -63.13178, z: 0}
+      rotation: {x: 0, y: 0, z: -0.9230381, w: 0.3847085}
+      length: 90.97889
+      parentId: 9
+      color:
+        serializedVersion: 2
+        rgba: 4294901888
+    - name: ear right main
+      guid: 70e82582564168b428e9752657b81e52
+      position: {x: 306.0916, y: 81.834915, z: 0}
+      rotation: {x: 0, y: 0, z: 0.3075659, w: 0.9515268}
+      length: 72.265785
+      parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 4286578943
+    - name: ear right tweak
+      guid: 66ced21401d0ec94ba361f4e9d602809
+      position: {x: 72.187256, y: 37.69023, z: 0}
+      rotation: {x: 0, y: -0, z: 0.8958757, w: 0.44430482}
+      length: 100.9049
+      parentId: 11
+      color:
+        serializedVersion: 2
+        rgba: 4278255615
+    - name: eye left top
+      guid: 6f997e28c7856744bb34e32421096e8f
+      position: {x: -18.628002, y: 18.932827, z: 0}
+      rotation: {x: 0, y: -0, z: 0.81983083, w: 0.57260585}
+      length: 64.39481
+      parentId: 14
+      color:
+        serializedVersion: 2
+        rgba: 4278255360
+    - name: eye left bottom
+      guid: 695fc5f775dd90e4986ebe92623da4c2
+      position: {x: 89.38094, y: -54.71546, z: 0}
+      rotation: {x: 0, y: -0, z: -0.8635532, w: 0.50425774}
+      length: 68.9582
+      parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 4294967040
+    - name: eye left tweak
+      guid: 92b5dae79c4c6fe40a3bf7fde61ec42e
+      position: {x: 37.729263, y: 122.89391, z: 0}
+      rotation: {x: 0, y: 0, z: -0.098482996, w: 0.99513876}
+      length: 58.74689
+      parentId: 14
+      color:
+        serializedVersion: 2
+        rgba: 4294901760
+    - name: eye right top
+      guid: d347e81e39f389347ba74ec96ec249fc
+      position: {x: -19.311018, y: -24.076752, z: 0}
+      rotation: {x: 0, y: -0, z: -0.7777677, w: 0.6285519}
+      length: 72.49007
+      parentId: 17
+      color:
+        serializedVersion: 2
+        rgba: 4294902015
+    - name: eye right bottom
+      guid: 73fb402919daf7e4ca57fe71b9dd3951
+      position: {x: 84.26405, y: 55.968426, z: 0}
+      rotation: {x: 0, y: -0, z: 0.85288805, w: 0.52209383}
+      length: 72.22482
+      parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 4278190335
+    - name: eye right tweak
+      guid: 67cb27a9ac1b0014b903235ab5620ebd
+      position: {x: 32.44493, y: -122.956924, z: 0}
+      rotation: {x: 0, y: 0, z: 0.101187974, w: 0.9948673}
+      length: 45.1961
+      parentId: 17
+      color:
+        serializedVersion: 2
+        rgba: 4278255488
+    - name: nose main
+      guid: 3a071381c0ea90a4a9b81366a0318cdc
+      position: {x: 111.51284, y: 5.840759, z: 0}
+      rotation: {x: 0, y: 0, z: -0.68858844, w: 0.7251524}
+      length: 18.139366
+      parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 4286643968
+    - name: nose tweak
+      guid: 8be77c9a61615c049a072e873983ce43
+      position: {x: -0.95005274, y: -21.067076, z: 0}
+      rotation: {x: 0, y: 0, z: -0.035132222, w: 0.99938273}
+      length: 16.05702
+      parentId: 19
+      color:
+        serializedVersion: 2
+        rgba: 4294934528
+    - name: mouth main
+      guid: 99dc920727de9d44d9b201d8e07181fa
+      position: {x: 80.3072, y: -0.11970877, z: 0}
+      rotation: {x: 0, y: -0, z: 0.9999999, w: 0.00054593483}
+      length: 16.655394
+      parentId: 0
+      color:
+        serializedVersion: 2
+        rgba: 4294901888
+    - name: mouth right
+      guid: 977901d230faff54f951cba11bdfa15d
+      position: {x: -24.975271, y: -17.609653, z: 0}
+      rotation: {x: 0, y: 0, z: -0.2709782, w: 0.9625855}
+      length: 21.187101
+      parentId: 21
+      color:
+        serializedVersion: 2
+        rgba: 4286578943
+    - name: mouth left
+      guid: f73add3b16d11ab4da2c4d8a4e8ec474
+      position: {x: -25.98544, y: 18.213816, z: 0}
+      rotation: {x: 0, y: 0, z: 0.28623718, w: 0.9581588}
+      length: 24.889185
+      parentId: 21
+      color:
+        serializedVersion: 2
+        rgba: 4278223103
+    - name: mouth tweak
+      guid: acc107e56b5486e48a3393ede4a60b7b
+      position: {x: 35.489227, y: -4.1830363, z: 0}
+      rotation: {x: 0, y: 0, z: -0.7162754, w: -0.6978178}
+      length: 15.723698
+      parentId: 21
+      color:
+        serializedVersion: 2
+        rgba: 4278255360
+    - name: body
+      guid: 9d655481f16cb9f4995a2f66661527c4
+      position: {x: 307.9297, y: 87.25725, z: 0}
+      rotation: {x: 0, y: 0, z: 0.7043528, w: 0.7098501}
+      length: 31.187399
       parentId: -1
       color:
         serializedVersion: 2
-        rgba: 4278190335
-    - name: body
-      guid: 9798dd289931936438ff47bb660cf30e
-      position: {x: 42.61013, y: 0.5393422, z: 0}
-      rotation: {x: 0, y: 0, z: 0.000000042146848, w: 1}
-      length: 66.88388
-      parentId: 0
-      color:
-        serializedVersion: 2
-        rgba: 4278255615
-    - name: middlehead
-      guid: cc75b13101ecfff45a9dfdb67fc9097f
-      position: {x: 80.16442, y: -0.62833047, z: 0}
-      rotation: {x: 0, y: 0, z: -0.0025016973, w: 0.9999969}
-      length: 304.2372
-      parentId: 1
-      color:
-        serializedVersion: 2
-        rgba: 4278255360
-    - name: lefthead
-      guid: 9e5a7ccbfed996444a59b31f48764b40
-      position: {x: 8.600809, y: -20.571072, z: 0}
-      rotation: {x: 0, y: 0, z: -0.11689213, w: 0.99314463}
-      length: 277.59628
-      parentId: 2
-      color:
-        serializedVersion: 2
         rgba: 4294967040
-    - name: righthead
-      guid: 9eb17b86f7048a64c9973866ef11c4ea
-      position: {x: 7.517005, y: 19.923828, z: 0}
-      rotation: {x: 0, y: 0, z: 0.10393626, w: 0.99458396}
-      length: 278.64966
-      parentId: 2
+    - name: body tweak
+      guid: 1921ebf22dd463741a43a511c74f80ba
+      position: {x: 69.30293, y: 0.8159096, z: 0}
+      rotation: {x: 0, y: 0, z: 0.99923545, w: 0.03909725}
+      length: 27.436827
+      parentId: 25
       color:
         serializedVersion: 2
         rgba: 4294901760
-    - name: lefteye
-      guid: d28397f2840498641b317c7c3c6ba9bb
-      position: {x: 130.63628, y: -66.80613, z: 0}
-      rotation: {x: 0, y: 0, z: 0.10163599, w: 0.99482167}
-      length: 9.538609
-      parentId: 3
+    - name: upperarm right
+      guid: d1a629d0987b6ad489b2ba60123cbcc6
+      position: {x: 85.43325, y: 38.40509, z: 0}
+      rotation: {x: 0, y: -0, z: 0.92701113, w: 0.37503392}
+      length: 48.588745
+      parentId: 25
       color:
         serializedVersion: 2
         rgba: 4294902015
-    - name: righteye
-      guid: 68091e593dedc854bbd1d5080aea1a91
-      position: {x: 127.27858, y: 62.037724, z: 0}
-      rotation: {x: 0, y: 0, z: -0.03676324, w: 0.999324}
-      length: 9.613709
-      parentId: 4
+    - name: forearm right
+      guid: 1dd80fee9afe816408b9cd1f18cf3779
+      position: {x: 48.588753, y: -0.000010055228, z: 0}
+      rotation: {x: 0, y: 0, z: -0.015119005, w: 0.99988574}
+      length: 34.904484
+      parentId: 27
       color:
         serializedVersion: 2
-        rgba: 4278223103
-    - name: nose
-      guid: 24a90e911d50936438ffe291087f866a
-      position: {x: 104.948235, y: -1.4303254, z: 0}
-      rotation: {x: 0, y: -0, z: 0.9999838, w: 0.005696818}
-      length: 19.51756
-      parentId: 2
+        rgba: 4278190335
+    - name: upperarm left
+      guid: 54d9b3f7d9dba0749b00e6f5c57404b3
+      position: {x: 84.728806, y: -32.30442, z: 0}
+      rotation: {x: 0, y: -0, z: -0.9341207, w: 0.3569574}
+      length: 41.77108
+      parentId: 25
       color:
         serializedVersion: 2
-        rgba: 4278255488
-    - name: mouth
-      guid: ad3fa1d1d210f6247a588c9aae539464
-      position: {x: 20.633879, y: 1.1732084, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      length: 12.352354
-      parentId: 7
+        rgba: 4278255615
+    - name: forearm left
+      guid: 7c3a14a5fe0dd2b41990b00eb4590646
+      position: {x: 41.77107, y: -0.00000071110117, z: 0}
+      rotation: {x: 0, y: 0, z: 0.06184577, w: 0.99808574}
+      length: 45.52016
+      parentId: 29
       color:
         serializedVersion: 2
         rgba: 4286643968
-    - name: hair
-      guid: 40993a0f07d215f48a5dabe38aa89b69
-      position: {x: 308.123, y: -1.9802748, z: 0}
-      rotation: {x: 0, y: -0, z: 0.999995, w: 0.0031784286}
-      length: 57.444317
-      parentId: 2
+    - name: thigh right
+      guid: ec7e4a1a0d6dc974f8620fd9ea1096c4
+      position: {x: 22.496622, y: 32.673473, z: 0}
+      rotation: {x: 0, y: -0, z: 0.999536, w: 0.03046073}
+      length: 26.696688
+      parentId: 25
       color:
         serializedVersion: 2
         rgba: 4294934528
-    - name: leftarm
-      guid: 87bb02bb3eda562469023350c5bd4737
-      position: {x: 92.19689, y: -25.687199, z: 0}
-      rotation: {x: 0, y: -0, z: -0.93689394, w: 0.34961382}
-      length: 48.32052
-      parentId: 1
+    - name: calf right
+      guid: c15ab72289056e847b7346b0d4ac910a
+      position: {x: 26.696692, y: -0.000017129092, z: 0}
+      rotation: {x: 0, y: 0, z: -0.0027021419, w: 0.99999636}
+      length: 29.808533
+      parentId: 31
       color:
         serializedVersion: 2
         rgba: 4294901888
-    - name: lefthand
-      guid: 71ec6c262ded22b40b12493dcfc4cf1b
-      position: {x: 47.50388, y: 0.7080947, z: 0}
-      rotation: {x: 0, y: 0, z: 0.123585075, w: 0.99233407}
-      length: 38.57731
-      parentId: 10
+    - name: foot right
+      guid: 34757bef86f6c9b4a831fc7eefe1c066
+      position: {x: 29.808535, y: 0.00013030185, z: 0}
+      rotation: {x: 0, y: 0, z: -0.44809282, w: 0.89398706}
+      length: 22.24178
+      parentId: 32
       color:
         serializedVersion: 2
         rgba: 4286578943
-    - name: rightarm
-      guid: 8253a82ff57b10e4ba18e43bc0e00aff
-      position: {x: 92.196846, y: 25.09628, z: 0}
-      rotation: {x: 0, y: -0, z: 0.92543256, w: 0.37891245}
-      length: 49.69787
-      parentId: 1
+    - name: thigh left
+      guid: 61296495163766b48a00353f17835937
+      position: {x: 25.79037, y: -27.466398, z: 0}
+      rotation: {x: 0, y: -0, z: -0.997022, w: 0.07711836}
+      length: 29.323687
+      parentId: 25
       color:
         serializedVersion: 2
-        rgba: 4278255615
-    - name: righthand
-      guid: 9f8b85631023ba04aaf6cc335d5a769b
-      position: {x: 49.697872, y: 0.000013745633, z: 0}
-      rotation: {x: 0, y: 0, z: -0.10633796, w: 0.9943301}
-      length: 40.74227
-      parentId: 12
+        rgba: 4278223103
+    - name: calf left
+      guid: 4624dd610b033994a99f4f581b131331
+      position: {x: 29.323683, y: 0.000006402307, z: 0}
+      rotation: {x: 0, y: 0, z: -0.061305314, w: 0.99811906}
+      length: 31.286095
+      parentId: 34
       color:
         serializedVersion: 2
-        rgba: 4278255360
-    - name: leftear
-      guid: 0c9c852b67f1c1444ac68576c36185a1
-      position: {x: 245.88791, y: -28.55842, z: 0}
-      rotation: {x: 0, y: 0, z: -0.051710006, w: 0.9986622}
-      length: 148.35199
-      parentId: 3
+        rgba: 4278255488
+    - name: foot left
+      guid: 207984105ba44f14fa853fa7568b9090
+      position: {x: 31.286098, y: 0.0000057658426, z: 0}
+      rotation: {x: 0, y: 0, z: 0.48435944, w: 0.8748691}
+      length: 18.349316
+      parentId: 35
       color:
         serializedVersion: 2
         rgba: 4294967040
-    - name: rightear
-      guid: 1669876898661ea4ba033f519a28b82d
-      position: {x: 239.92833, y: 38.548748, z: 0}
-      rotation: {x: 0, y: 0, z: 0.052492507, w: 0.99862134}
-      length: 150.0378
-      parentId: 4
+    - name: eye left tweak_1
+      guid: cfe96dc589eaae74d90bc1b62fb60a99
+      position: {x: 58.746895, y: -0.0000055092823, z: 0}
+      rotation: {x: 0, y: 0, z: -0.5522345, w: 0.8336889}
+      length: 55.099834
+      parentId: 15
       color:
         serializedVersion: 2
         rgba: 4294901760
-    - name: leftleg
-      guid: c07061b7b62792940bf4d2ed3ede0f79
-      position: {x: 74.46075, y: -28.376518, z: 0}
-      rotation: {x: 0, y: -0, z: -0.9998086, w: 0.019563932}
-      length: 30.507812
-      parentId: 0
+    - name: eye left top_2
+      guid: de8643b995c25c34bbe25df52a03942c
+      position: {x: 64.394806, y: -0.000012658173, z: 0}
+      rotation: {x: 0, y: 0, z: -0.5970177, w: 0.8022281}
+      length: 63.44107
+      parentId: 13
       color:
         serializedVersion: 2
         rgba: 4294902015
-    - name: leftfoot
-      guid: 44605040601d8ca44ac9cfe5fab38047
-      position: {x: 30.507812, y: -0.0000012558869, z: 0}
-      rotation: {x: 0, y: 0, z: 0.052002348, w: 0.998647}
-      length: 37.93758
+    - name: eye left bottom_3
+      guid: d7484558dfa9c514da1ac13d7f6b56a1
+      position: {x: 68.958206, y: 0.0000264007, z: 0}
+      rotation: {x: 0, y: 0, z: 0.46959707, w: 0.88288087}
+      length: 58.86143
+      parentId: 14
+      color:
+        serializedVersion: 2
+        rgba: 4278190335
+    - name: eye right top_4
+      guid: 9d0b7a495c35716419c728af552f1b96
+      position: {x: 72.490074, y: 0.00003204245, z: 0}
+      rotation: {x: 0, y: 0, z: 0.61462486, w: 0.78881955}
+      length: 62.19923
       parentId: 16
       color:
         serializedVersion: 2
-        rgba: 4278190335
-    - name: rightleg
-      guid: 9806c834600ac44419d1db260c6b4289
-      position: {x: 73.358986, y: 27.262245, z: 0}
-      rotation: {x: 0, y: -0, z: 0.99992037, w: 0.012618759}
-      length: 29.597595
-      parentId: 0
-      color:
-        serializedVersion: 2
-        rgba: 4278255488
-    - name: rightfoot
-      guid: f0b70cf75aa523c4fa4650aadeafdcb3
-      position: {x: 29.59759, y: -0.000004641412, z: 0}
-      rotation: {x: 0, y: 0, z: -0.038720597, w: 0.9992501}
-      length: 38.372147
+        rgba: 4278255615
+    - name: eye right tweak_5
+      guid: ce119ffd81b2e2a4cb32764d713fd749
+      position: {x: 45.196117, y: -0.000008419536, z: 0}
+      rotation: {x: 0, y: 0, z: 0.43134037, w: 0.9021893}
+      length: 56.515984
       parentId: 18
       color:
         serializedVersion: 2
-        rgba: 4286643968
-    - name: righteye_1
-      guid: 85f8f5871721ca0e1a1fdc809bae870e
-      position: {x: 22.185345, y: 35.905426, z: 0}
-      rotation: {x: 0, y: 0, z: -0.08447707, w: 0.99642545}
-      length: 16.031029
-      parentId: 6
-      color:
-        serializedVersion: 2
-        rgba: 4294934528
-    - name: righteye_2
-      guid: 1ac99d461d53664e5849543867b8f44a
-      position: {x: 10.03614, y: -36.05414, z: 0}
-      rotation: {x: 0, y: 0, z: -0.07041056, w: 0.9975181}
-      length: 18.75973
-      parentId: 6
-      color:
-        serializedVersion: 2
-        rgba: 4294901888
-    - name: righteye_3
-      guid: ac73bdc0d3346c9dcb5088670a4244ea
-      position: {x: -42.78634, y: 44.59253, z: 0}
-      rotation: {x: 0, y: 0, z: -0.07214078, w: 0.9973945}
-      length: 14.333947
-      parentId: 6
-      color:
-        serializedVersion: 2
-        rgba: 4286578943
-    - name: righteye_4
-      guid: 5c334fb7d2840c09cae1756a2af49b92
-      position: {x: -48.35661, y: -29.075378, z: 0}
-      rotation: {x: 0, y: 0, z: -0.04076235, w: 0.9991689}
-      length: 17.514246
-      parentId: 6
-      color:
-        serializedVersion: 2
-        rgba: 4278223103
-    - name: hair_1
-      guid: b4b3903f7248a11669654af7f92c38c9
-      position: {x: 22.482513, y: -43.53827, z: 0}
-      rotation: {x: 0, y: 0, z: -0.30750987, w: 0.95154494}
-      length: 18.084558
-      parentId: 9
-      color:
-        serializedVersion: 2
         rgba: 4278255360
-    - name: hair_2
-      guid: 7216ae62162e4639db6092ecd12bc3c4
-      position: {x: 75.259636, y: -17.177685, z: 0}
-      rotation: {x: 0, y: 0, z: -0.0014648438, w: 0.9999989}
-      length: 29.51085
-      parentId: 9
-      color:
-        serializedVersion: 2
-        rgba: 4294967040
-    - name: hair_3
-      guid: 4e10aa93a5b996d84ae75fb0d5980f2a
-      position: {x: 72.907585, y: 21.307714, z: 0}
-      rotation: {x: 0, y: 0, z: 0.029795162, w: 0.99955606}
-      length: 30.597263
-      parentId: 9
-      color:
-        serializedVersion: 2
-        rgba: 4294901760
-    - name: hair_4
-      guid: 3c5ada7aef24b5adf86025538b6747a1
-      position: {x: 19.299852, y: 32.518513, z: 0}
-      rotation: {x: 0, y: 0, z: 0.30479604, w: 0.9524177}
-      length: 26.194067
-      parentId: 9
-      color:
-        serializedVersion: 2
-        rgba: 4278190335
-    - name: lefteye_1
-      guid: 88b4d30d3cfa170dcbfa0b574c6d8ccc
-      position: {x: 19.713583, y: 39.659966, z: 0}
-      rotation: {x: 0, y: 0, z: 0.007326253, w: 0.9999732}
-      length: 20.027628
-      parentId: 5
-      color:
-        serializedVersion: 2
-        rgba: 4278255615
-    - name: lefteye_2
-      guid: ed5a396f87301cba3b29afb5e711e01d
-      position: {x: 15.786776, y: -33.453266, z: 0}
-      rotation: {x: 0, y: 0, z: 0.012849313, w: 0.99991745}
-      length: 21.078081
-      parentId: 5
-      color:
-        serializedVersion: 2
-        rgba: 4286643968
-    - name: lefteye_3
-      guid: 4d3e8dab43de1a919bf85469e69f1673
-      position: {x: -43.1161, y: 39.10324, z: 0}
-      rotation: {x: 0, y: 0, z: 0.012748022, w: 0.99991876}
-      length: 20.65655
-      parentId: 5
+    - name: eye right bottom_6
+      guid: e36b5878ccdc45c48aa883f322953b86
+      position: {x: 72.22483, y: 0.000006022711, z: 0}
+      rotation: {x: 0, y: 0, z: -0.4931783, w: 0.8699283}
+      length: 58.14283
+      parentId: 17
       color:
         serializedVersion: 2
         rgba: 4294934528
-    - name: lefteye_4
-      guid: 51a7ada4736f40c59868286eef9b01ed
-      position: {x: -43.236404, y: -40.20119, z: 0}
-      rotation: {x: 0, y: 0, z: 0.03803152, w: 0.9992766}
-      length: 20.883282
-      parentId: 5
-      color:
-        serializedVersion: 2
-        rgba: 4294901888
-    - name: nose_1
-      guid: bfa738742798d4c3cb4fb0eca8b7f859
-      position: {x: 21.521122, y: -22.062132, z: 0}
-      rotation: {x: 0, y: -0, z: -0.99996644, w: 0.008197768}
-      length: 14.121609
-      parentId: 7
-      color:
-        serializedVersion: 2
-        rgba: 4286578943
-    - name: nose_2
-      guid: 26f9789c93991d99ba23ce8075b4156e
-      position: {x: 19.893677, y: 25.76246, z: 0}
-      rotation: {x: 0, y: -0, z: -0.9997378, w: 0.02289782}
-      length: 14.338595
-      parentId: 7
-      color:
-        serializedVersion: 2
-        rgba: 4278223103
-    - name: mouth_1
-      guid: 074a8d3136fe5d608bef7cf646b00a30
-      position: {x: 37.55632, y: -22.633999, z: 0}
-      rotation: {x: 0, y: 0, z: -0.99996644, w: 0.008197741}
-      length: 13.700058
-      parentId: 8
-      color:
-        serializedVersion: 2
-        rgba: 4278255488
-    - name: mouth_2
-      guid: 444dd85d1679a8c76b09cec2425441f2
-      position: {x: 37.02405, y: 22.679007, z: 0}
-      rotation: {x: 0, y: 0, z: 0.9997566, w: 0.022065254}
-      length: 13.936348
-      parentId: 8
-      color:
-        serializedVersion: 2
-        rgba: 4294967040
-    - name: lefteye_5
-      guid: adc312ed7d695219eb4c4a0641024efb
-      position: {x: -4.0247865, y: 0.32152817, z: 0}
-      rotation: {x: 0, y: 0, z: 0.03601551, w: 0.99935126}
-      length: 9.763497
-      parentId: 5
-      color:
-        serializedVersion: 2
-        rgba: 4294901760
-    - name: righteye_5
-      guid: dfff5e3e8dcfc2452ab29de93df7d331
-      position: {x: -1.8989266, y: 1.3765175, z: 0}
-      rotation: {x: 0, y: 0, z: -0.0648059, w: 0.9978979}
-      length: 7.3972473
-      parentId: 6
-      color:
-        serializedVersion: 2
-        rgba: 4294902015
-    - name: hair_5
-      guid: bf81129f92c9d60a5b7ac01c32144250
-      position: {x: 40.54723, y: -0.81492335, z: 0}
-      rotation: {x: 0, y: 0, z: -0.9999916, w: 0.004117106}
-      length: 11.040885
-      parentId: 9
-      color:
-        serializedVersion: 2
-        rgba: 4278190335
     parts:
     - spritePosition:
         x: 89
