@@ -32,7 +32,15 @@
   <image width="110" height="87" source="bush smooth.png"/>
  </tile>
  <tile id="10">
+  <properties>
+   <property name="Type" value="FlowerPatch"/>
+  </properties>
   <image width="81" height="85" source="flower patch.png"/>
+  <objectgroup draworder="index" id="3">
+   <object id="5" x="24.75" y="19.25">
+    <polygon points="-1,-2.25 -19.25,30.5 -2.75,54.75 30,63 54.25,41.75 40.5,3.75"/>
+   </object>
+  </objectgroup>
  </tile>
  <tile id="11">
   <image width="107" height="68" source="grass 1 bulb.png"/>

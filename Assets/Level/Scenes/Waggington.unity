@@ -269,15 +269,10 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3810841075457410187, guid: 2a090e5b6eae6704990800c2889532b7, type: 3}
   m_PrefabInstance: {fileID: 2280315512555106921}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &150343558 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 463981448799175615, guid: 612fda1bc835a7c418ad38ccbf44602e, type: 3}
-  m_PrefabInstance: {fileID: 380311280}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &150343559 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 654643223078508131, guid: 612fda1bc835a7c418ad38ccbf44602e, type: 3}
-  m_PrefabInstance: {fileID: 380311280}
+  m_CorrespondingSourceObject: {fileID: 6211146064234635269, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
+  m_PrefabInstance: {fileID: 503121886}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -392,63 +387,6 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 7905656255075877377, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
   m_PrefabInstance: {fileID: 503121886}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &380311280
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 332922671}
-    m_Modifications:
-    - target: {fileID: 463981448799175615, guid: 612fda1bc835a7c418ad38ccbf44602e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463981448799175615, guid: 612fda1bc835a7c418ad38ccbf44602e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463981448799175615, guid: 612fda1bc835a7c418ad38ccbf44602e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463981448799175615, guid: 612fda1bc835a7c418ad38ccbf44602e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 463981448799175615, guid: 612fda1bc835a7c418ad38ccbf44602e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463981448799175615, guid: 612fda1bc835a7c418ad38ccbf44602e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463981448799175615, guid: 612fda1bc835a7c418ad38ccbf44602e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463981448799175615, guid: 612fda1bc835a7c418ad38ccbf44602e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463981448799175615, guid: 612fda1bc835a7c418ad38ccbf44602e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 463981448799175615, guid: 612fda1bc835a7c418ad38ccbf44602e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8112385592825369034, guid: 612fda1bc835a7c418ad38ccbf44602e, type: 3}
-      propertyPath: m_Name
-      value: text popup parent
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 612fda1bc835a7c418ad38ccbf44602e, type: 3}
 --- !u!1001 &470863914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2000,9 +1938,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5342910740745010519, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
       insertIndex: 0
       addedObject: {fileID: 1114833065}
-    - targetCorrespondingSourceObject: {fileID: 5342910740745010519, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
-      insertIndex: 9
-      addedObject: {fileID: 150343558}
     - targetCorrespondingSourceObject: {fileID: 5342910740745010519, guid: 6a8e3d2d82855a74482be5dd962b09e9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8548508}

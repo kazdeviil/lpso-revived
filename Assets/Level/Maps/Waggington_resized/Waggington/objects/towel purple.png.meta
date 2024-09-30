@@ -105,8 +105,8 @@ TextureImporter:
         y: 0
         width: 185
         height: 87
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.52314407, y: 1.166288}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,14 +121,15 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 20b02785194b9b2448d3bd4f1f5137d7
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      towel purple_0: 9054799674056140950
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

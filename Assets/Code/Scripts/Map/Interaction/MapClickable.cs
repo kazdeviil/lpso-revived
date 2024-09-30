@@ -25,6 +25,7 @@ public abstract class MapClickable: Clickable
     {
         if (CanMove)
             mapMovement.MoveTo(_moveable, coordinates);
+        Debug.Log(coordinates);
     }
 
 }

@@ -2,22 +2,22 @@
 <tileset version="1.10" tiledversion="1.10.2" name="buildings" tilewidth="1064" tileheight="927" tilecount="13" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
-  <image width="153" height="267" source="../../../../resized/ballbounce sign.png"/>
+  <image width="153" height="267" source="ballbounce sign.png"/>
  </tile>
  <tile id="1">
-  <image width="351" height="416" source="../../../../resized/bop n balloons.png"/>
+  <image width="351" height="416" source="bop n balloons.png"/>
  </tile>
  <tile id="3">
-  <image width="113" height="118" source="../../../../resized/connect4 table.png"/>
+  <image width="113" height="118" source="connect4 table.png"/>
  </tile>
  <tile id="4">
-  <image width="640" height="790" source="../../../../resized/cozy care center.png"/>
+  <image width="640" height="790" source="cozy care center.png"/>
  </tile>
  <tile id="5">
-  <image width="119" height="165" source="../../../../resized/fruitista basket.png"/>
+  <image width="119" height="165" source="fruitista basket.png"/>
  </tile>
  <tile id="6">
-  <image width="593" height="680" source="../../../../resized/humble pie shop.png"/>
+  <image width="593" height="680" source="humble pie shop.png"/>
  </tile>
  <tile id="7">
   <image width="1064" height="927" source="laughin labs.png"/>

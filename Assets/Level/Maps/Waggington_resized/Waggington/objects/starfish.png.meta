@@ -105,8 +105,8 @@ TextureImporter:
         y: 0
         width: 40
         height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.65199697, y: 1.2003596}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,14 +121,15 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 57bc3113edb5e4447af04fb2d58323f1
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      starfish_0: -6987148479580219570
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
