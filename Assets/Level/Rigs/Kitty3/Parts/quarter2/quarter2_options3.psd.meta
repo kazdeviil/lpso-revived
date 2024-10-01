@@ -152,7 +152,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      quarter2_options3_0: 3174198481305491067
+      quarter2_options3_1: 4210543620338127256
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
