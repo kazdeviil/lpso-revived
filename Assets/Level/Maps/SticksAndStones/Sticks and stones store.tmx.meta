@@ -8,10 +8,16 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 1fa25d03934ea624a82bf2fcee6f0873, type: 3}
-  missingFiles:
-  - Sticks and stones set.tsx
+  missingFiles: []
   errors:
-  - 'Missing tileset asset: Sticks and stones set.tsx'
+  - Missing tile '46' on tile object ''
+  - Missing tile '62' on tile object ''
+  - Missing tile '62' on tile object ''
+  - Missing tile '62' on tile object ''
+  - Missing tile '62' on tile object ''
+  - Missing tile '62' on tile object ''
+  - Missing tile '62' on tile object ''
+  - Missing tile '62' on tile object ''
   warnings: []
   missingSortingLayers: []
   missingLayers: []
