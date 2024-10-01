@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 5e3d7e6d7155d49449d4b083f91b50f8
+guid: fe212c9bf85d9c94da6c6a9375564c51
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8568042794190644651
-    second: barrel_0
+      213: 8505943317148703229
+    second: pawprint pig2_0
+  - first:
+      213: -8582899212618073671
+    second: pawprint pig2_1
+  - first:
+      213: -3151635454393028642
+    second: pawprint pig2_2
+  - first:
+      213: -393932472935261930
+    second: pawprint pig2_3
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -98,13 +107,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: barrel_0
+      name: pawprint pig2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 881
-        height: 912
+        y: 14
+        width: 13
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +121,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 55adbef5972381980800000000000000
-      internalID: -8568042794190644651
+      spriteID: df9914a616e2b0670800000000000000
+      internalID: 8505943317148703229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pawprint pig2_1
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 11
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b97be8e3aa63e880800000000000000
+      internalID: -8582899212618073671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pawprint pig2_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 4
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edf606790442344d0800000000000000
+      internalID: -3151635454393028642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pawprint pig2_3
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 619d335c088788af0800000000000000
+      internalID: -393932472935261930
       vertices: []
       indices: 
       edges: []
@@ -128,8 +200,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      barrel_0: -8568042794190644651
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

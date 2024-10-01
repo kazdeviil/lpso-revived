@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 5e3d7e6d7155d49449d4b083f91b50f8
+guid: c81e17485f46e294a9ef4e299d3dcc28
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8568042794190644651
-    second: barrel_0
+      213: 6856583506835978723
+    second: pawprint horse2_0
+  - first:
+      213: 2330629450490807774
+    second: pawprint horse2_1
+  - first:
+      213: -9112987477040058279
+    second: pawprint horse2_2
+  - first:
+      213: -5052688749238381630
+    second: pawprint horse2_3
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -98,13 +107,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: barrel_0
+      name: pawprint horse2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 881
-        height: 912
+        y: 27
+        width: 17
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +121,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 55adbef5972381980800000000000000
-      internalID: -8568042794190644651
+      spriteID: 3e9b2c92f5a772f50800000000000000
+      internalID: 6856583506835978723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pawprint horse2_1
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 15
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed58193132f085020800000000000000
+      internalID: 2330629450490807774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pawprint horse2_2
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 15
+        width: 19
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 950b17c1c2a288180800000000000000
+      internalID: -9112987477040058279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pawprint horse2_3
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 0
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c398055a5e31e9b0800000000000000
+      internalID: -5052688749238381630
       vertices: []
       indices: 
       edges: []
@@ -128,8 +200,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      barrel_0: -8568042794190644651
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
