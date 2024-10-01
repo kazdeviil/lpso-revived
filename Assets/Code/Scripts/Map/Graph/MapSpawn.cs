@@ -27,6 +27,7 @@ public class MapSpawn : MonoBehaviour
 
     public Vector3Int GetSpawnPoint()
     {
+        Debug.Log($"{_spawnList.Count} available spawns, first at " + _spawnList[0]);
         return _spawnList[0].coordinates;
     }
 

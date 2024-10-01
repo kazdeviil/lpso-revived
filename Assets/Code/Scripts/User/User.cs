@@ -27,8 +27,10 @@ public class User : MonoBehaviour
 
         if(GameData.FreshSpawn == false){
             character.Spawn(tilemap.WorldToCell(new Vector3Int((int)GameData.OldLocation.x,(int)GameData.OldLocation.y,(int)GameData.OldLocation.z)));
+            Debug.Log("Not fresh spawn");
         } else {
             character.Spawn(spawnCoordinates);
+            Debug.Log("Fresh spawn at " + spawnCoordinates);
             GameData.FreshSpawn = false;
         }
         userCamera.RefreshCamera();
