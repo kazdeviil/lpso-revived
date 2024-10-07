@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      matchnmunch ingame bg_0: 3774101411241218312
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

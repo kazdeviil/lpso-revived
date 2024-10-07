@@ -75,8 +75,8 @@ public class FashionationLogic : MonoBehaviour
     void Start()
     {
         mgCd.textSize = 90;
-        mgCd.x = transform.position.x;
-        mgCd.y = transform.position.y;
+        mgCd.x = Screen.width / 2;
+        mgCd.y = Screen.height / 2;
         mgCd.promptReady = true;
         mgCd.textSpeed = 60;
 

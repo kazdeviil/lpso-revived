@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gem diving reward background_0: -3109309636547003936
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

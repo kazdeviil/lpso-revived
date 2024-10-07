@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      diamond yellow_0: 5931334324982387965
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

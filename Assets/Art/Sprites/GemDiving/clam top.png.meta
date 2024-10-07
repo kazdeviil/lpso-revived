@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      clam top_0: 7922374804802835701
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

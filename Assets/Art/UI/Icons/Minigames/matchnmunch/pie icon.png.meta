@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pie icon_0: -3126629988137476309
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

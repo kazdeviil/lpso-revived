@@ -685,7 +685,7 @@ RectTransform:
   m_GameObject: {fileID: 8645680288205322919}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9212586011264199792}
@@ -749,6 +749,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WantedItems: 
   ThinkBubble: {fileID: 5618772163808559868}
+  thinkItems: []
   PetSprites:
   - {fileID: 21300000, guid: 38274a0925b7e3b4fb39fbff267b224b, type: 3}
   - {fileID: 21300000, guid: 78e4914ba84fee24e9642ed705225206, type: 3}
@@ -756,6 +757,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 02fe4b24184492a45a187eb043209fc1, type: 3}
   - {fileID: 21300000, guid: 1e21ff471feebe24aa48295e490cda05, type: 3}
   - {fileID: 4367600639432304966, guid: 258fffd08fccf6142bb2c8ffe277d588, type: 3}
+  SpawnPointNumber: 0
+  EndPointNumber: 0
   Hearts: 4
   HeartDisplay:
   - {fileID: 5478907959573110105}
@@ -764,6 +767,10 @@ MonoBehaviour:
   - {fileID: 6576679304594335038}
   - {fileID: 8486180825955070194}
   HeartTimer: 7
+  HeartTimerInit: 9
+  startPos: {x: 0, y: 0, z: 0}
+  endPos: {x: 0, y: 0, z: 0}
+  lerpTime: 1
 --- !u!114 &8873479838563772612
 MonoBehaviour:
   m_ObjectHideFlags: 0

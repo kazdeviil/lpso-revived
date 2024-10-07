@@ -20,7 +20,7 @@
   <image width="133" height="118" source="bone bed.png"/>
  </tile>
  <tile id="6">
-  <image width="121" height="74" source="../../../../resized/bone bench.png"/>
+  <image width="121" height="74" source="bone bench.png"/>
  </tile>
  <tile id="7">
   <image width="167" height="156" source="box large.png"/>
