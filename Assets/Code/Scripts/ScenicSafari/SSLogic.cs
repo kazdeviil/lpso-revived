@@ -1,16 +1,48 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class SSLogic : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public event EventHandler OnSnapPhoto;
+
+    public int currentPhotos;
+    public int maxPhotos;
+
+    public bool busy;
+
+    private void Awake()
     {
-        
+        busy = false;
+        maxPhotos = 12;
+        currentPhotos = 0;
+
+        OnSnapPhoto += SnapPhoto;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            OnSnapPhoto?.Invoke(this, EventArgs.Empty);
+        }
+    }
+
+    private void SnapPhoto(object sender, EventArgs e)
+    {
+        if (!busy)
+        {
+            Debug.Log("Not busy!!");
+            busy = true;
+            currentPhotos++;
+            if (currentPhotos == maxPhotos)
+            {
+                Debug.Log("Yahoo");
+            }
+        }
+        else
+        {
+            Debug.Log("Whoops, busy");
+        }
     }
 }
