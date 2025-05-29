@@ -18,6 +18,9 @@ public class SaveData
     public List<Pet> pets;
     public int currentPetIndex;
 
+    public Dictionary<Quest, bool> adventures;
+    public Dictionary<Quest, int> advProgress;
+
     public int mnmhighscore = 0;
     public int pdhighscore = 0;
     public int fshnhighscore = 0;

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db6a34bc4d8e38448b395d71cf00d433, type: 3}
+  m_Name: Shrimp
+  m_EditorClassIdentifier: 
+  title: That Appetite's No Shrimp
+  desc: --
+  questSteps:
+  - {fileID: 11400000, guid: 982c5bc23b7e5554fbcbebd339b4999b, type: 2}
+  - {fileID: 11400000, guid: 430b7cfee1c3e4a4c8bce7c7feeb24ff, type: 2}
+  - {fileID: 11400000, guid: 0677b83ae7b3353479e6ca55901a6a6c, type: 2}

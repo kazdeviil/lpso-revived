@@ -27,6 +27,9 @@ public class GameDataManager : MonoBehaviour
     public int currentPetIndex = 0;    
     public Pet CurrentPet => pets[currentPetIndex];
 
+    public Dictionary<Quest, bool> adventures = new Dictionary<Quest, bool>();
+    public Dictionary<Quest, int> advProgress = new Dictionary<Quest, int>();
+
     public int mnmhighscore = 0;
     public int pdhighscore = 0;
     public int fshnhighscore = 0;
@@ -62,6 +65,9 @@ public class GameDataManager : MonoBehaviour
         data.pets = pets;
         data.currentPetIndex = currentPetIndex;
 
+        data.adventures = adventures;
+        data.advProgress = advProgress;
+
         data.mnmhighscore = mnmhighscore;
         data.pdhighscore = pdhighscore;
         data.fshnhighscore = fshnhighscore;
@@ -88,11 +94,17 @@ public class GameDataManager : MonoBehaviour
 	        kibble = data.kibble;
             pets = data.pets ?? pets;
             currentPetIndex = data.currentPetIndex;
+
+            adventures = data.adventures;
+            advProgress = data.advProgress;
+
             mnmhighscore = data.mnmhighscore;
             pdhighscore = data.pdhighscore;
             fshnhighscore = data.fshnhighscore;
             Debug.Log("Game data loaded!");
-	    }
+            var fileInfo = new FileInfo(Application.persistentDataPath + "/MySaveData.dat");
+            Debug.Log(fileInfo.Length);
+        }
 	    else
 		    Debug.LogError("There is no save data!");
 
