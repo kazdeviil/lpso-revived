@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      scenic safari sidewalk_0: 8123644023484420807
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

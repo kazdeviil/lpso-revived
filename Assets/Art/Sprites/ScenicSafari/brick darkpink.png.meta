@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      brick darkpink_0: -8758284467762192595
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

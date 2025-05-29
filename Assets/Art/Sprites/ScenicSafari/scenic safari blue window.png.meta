@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      scenic safari blue window_0: 882019948281600092
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
