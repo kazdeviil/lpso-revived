@@ -12,6 +12,13 @@ public class QuestDetails : MonoBehaviour
     public void UpdateDetails()
     {
         title.text = quest.title;
-        desc.text = quest.desc;
+        if (GameDataManager.Instance.advProgress.ContainsKey(quest))
+        {
+            desc.text = quest.questSteps[GameDataManager.Instance.advProgress[quest]].text;
+        }
+        else
+        {
+            desc.text = "Couldn't get information";
+        }
     }
 }

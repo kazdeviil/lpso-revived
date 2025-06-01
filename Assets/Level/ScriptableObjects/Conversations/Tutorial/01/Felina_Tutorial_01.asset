@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 987433a9bd15efb41a113d5bc270d6d4, type: 3}
+  m_Name: Felina_Tutorial_01
+  m_EditorClassIdentifier: 
+  convoParts:
+  - {fileID: 11400000, guid: 6053c52825954d64796689e7e80d8d07, type: 2}
+  - {fileID: 11400000, guid: 39ae1d34a6599d94092c0445d90dea1d, type: 2}

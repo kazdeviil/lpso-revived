@@ -4,5 +4,5 @@ using UnityEngine;
 public class QuestStep : ScriptableObject
 {
     public string text;
-    public int progress;
+    public int progress = 1;
 }

@@ -56,7 +56,14 @@ public class InventoryHandler : MonoBehaviour
         // sets max page count
         if (itemCount % 12 == 0)
         {
-            maxPageCount = itemCount / 12;
+            if (itemCount > 0)
+            {
+                maxPageCount = itemCount / 12;
+            }
+            else
+            {
+                maxPageCount = (itemCount / 12) + 1;
+            }
         }
         else
         {
@@ -95,14 +102,24 @@ public class InventoryHandler : MonoBehaviour
             }
             else
             {
-                for (int i = 0; i < ItemSlotBg.Length; i++)
+                if (itemCount == 0)
                 {
-                    Buttons[i].GetComponent<Image>().sprite = GameDataManager.Instance.itemList[GameDataManager.Instance.inventory[(((pageCount * 12) - 12) + i)]].icon;
-                    ItemSlotBg[i].SetActive(true);
-                    inventoryItemStackAmount[i].text = GameDataManager.Instance.invItemCounts[(((pageCount * 12) - 12) + i)].ToString();
-                    if (inventoryItemStackAmount[i].text == "1")
+                    for (int i = 0; i < ItemSlotBg.Length; i++)
                     {
-                        inventoryItemStackAmount[i].text = "";
+                        ItemSlotBg[i].SetActive(false);
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < ItemSlotBg.Length; i++)
+                    {
+                        Buttons[i].GetComponent<Image>().sprite = GameDataManager.Instance.itemList[GameDataManager.Instance.inventory[(((pageCount * 12) - 12) + i)]].icon;
+                        ItemSlotBg[i].SetActive(true);
+                        inventoryItemStackAmount[i].text = GameDataManager.Instance.invItemCounts[(((pageCount * 12) - 12) + i)].ToString();
+                        if (inventoryItemStackAmount[i].text == "1")
+                        {
+                            inventoryItemStackAmount[i].text = "";
+                        }
                     }
                 }
             }

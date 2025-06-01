@@ -65,8 +65,8 @@ public class GameDataManager : MonoBehaviour
         data.pets = pets;
         data.currentPetIndex = currentPetIndex;
 
-        data.adventures = adventures;
-        data.advProgress = advProgress;
+        data.adventures = adventures ?? new Dictionary<Quest, bool>();
+        data.advProgress = advProgress ?? new Dictionary<Quest, int>();
 
         data.mnmhighscore = mnmhighscore;
         data.pdhighscore = pdhighscore;
@@ -95,15 +95,14 @@ public class GameDataManager : MonoBehaviour
             pets = data.pets ?? pets;
             currentPetIndex = data.currentPetIndex;
 
-            adventures = data.adventures;
-            advProgress = data.advProgress;
+            adventures = data.adventures ?? adventures;
+            advProgress = data.advProgress ?? advProgress;
 
             mnmhighscore = data.mnmhighscore;
             pdhighscore = data.pdhighscore;
             fshnhighscore = data.fshnhighscore;
-            Debug.Log("Game data loaded!");
             var fileInfo = new FileInfo(Application.persistentDataPath + "/MySaveData.dat");
-            Debug.Log(fileInfo.Length);
+            Debug.Log("Game data loaded, file size of " + fileInfo.Length + " bits");
         }
 	    else
 		    Debug.LogError("There is no save data!");
@@ -111,6 +110,14 @@ public class GameDataManager : MonoBehaviour
         Loaded = true;
     }
     
+    public void clearSave()
+    {
+        if (File.Exists(Application.persistentDataPath + "/MySaveData.dat"))
+        {
+            File.Delete(Application.persistentDataPath + "/MySaveData.dat");
+        }
+    }
+
     public void AddInventory(int ID)
     {
         if (GameDataManager.Instance.inventory.Contains(ID))

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db6a34bc4d8e38448b395d71cf00d433, type: 3}
+  m_Name: Tutorial
+  m_EditorClassIdentifier: 
+  title: Welcome to Waggington!
+  desc: 
+  questSteps:
+  - {fileID: 11400000, guid: 7bc8ad9e28036c94da886fbd33f6f41d, type: 2}
+  - {fileID: 11400000, guid: dcf11a0aa13c88f48bbc739a40838148, type: 2}
+  - {fileID: 11400000, guid: 29aad4032e596474a9872beb06c02ee0, type: 2}
+  - {fileID: 11400000, guid: bc15062604a51f741bd125228c4f179c, type: 2}

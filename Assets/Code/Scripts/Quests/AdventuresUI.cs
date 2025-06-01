@@ -16,11 +16,16 @@ public class AdventuresUI : MonoBehaviour
     void Start()
     {
         questDetails.SetActive(false);
-        print(GameDataManager.Instance.mnmhighscore);
-        //Data.adventures.Add(adventuresList[0], false);
-        //Data.adventures.Add(adventuresList[1], false);
-        //Data.advProgress.Add(adventuresList[0], 0);
-        //Data.advProgress.Add(adventuresList[1], 0);
+        for (int i = 0; i < adventuresList.Count; i++)
+        {
+            GameDataManager.Instance.adventures.TryAdd(adventuresList[i], false);
+            GameDataManager.Instance.advProgress.TryAdd(adventuresList[i], 0);
+            print("Added or found " + adventuresList[i].title + " with progress " + GameDataManager.Instance.advProgress[adventuresList[i]]);
+        }
+        foreach (KeyValuePair<Quest, int> entry in GameDataManager.Instance.advProgress)
+        {
+            print(entry.Key.title + entry.Value);
+        }
         UpdateSlots();
     }
 
