@@ -3,6 +3,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ConvoPart", menuName = "ScriptableObjects/ConvoPart")]
 public class ConvoPart : ScriptableObject
 {
+    // Holds the string and icon information for each individual speech bubble popup in a Conversation
+    // Each ConvoPart should be part of a Conversation
+
     public string text;
     public Icon icon;
 
