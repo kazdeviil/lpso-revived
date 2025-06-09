@@ -12,6 +12,8 @@ public class AdventuresUI : MonoBehaviour
     [SerializeField] private GameObject toggled;
     public GameObject parent;
 
+    public QuestsMaster questsMaster;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -58,5 +60,14 @@ public class AdventuresUI : MonoBehaviour
             questDetails.SetActive(false);
             parent.SetActive(true);
         }
+    }
+
+    public void GiveQuest(Quest quest)
+    {
+        GameDataManager Data = GameDataManager.Instance;
+        Data.adventures.TryAdd(quest, false);
+        Data.advProgress.TryAdd(quest, 0);
+        Data.saveGame();
+        Data.loadGame();
     }
 }
